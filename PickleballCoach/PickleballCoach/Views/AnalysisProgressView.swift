@@ -3,6 +3,7 @@ import SwiftUI
 struct AnalysisProgressView: View {
     let session: Session
 
+    @EnvironmentObject private var store: SessionStore
     @State private var frames: [PoseFrame]?
     @State private var qualityGateResult: CaptureQualityGate.GateResult?
     @State private var progress: PoseExtractionService.ExtractionProgress?
@@ -137,12 +138,21 @@ struct AnalysisProgressView: View {
     }
 
     private func persist(_ frames: [PoseFrame]) {
+        let fileName = "pose-timeline-\(session.id.uuidString).json"
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         guard let data = try? encoder.encode(frames) else { return }
         let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let file = docs.appendingPathComponent("pose-timeline-\(session.id.uuidString).json")
+        let file = docs.appendingPathComponent(fileName)
         try? data.write(to: file, options: .atomic)
+
+        // SCA-1868: record the artifact and mark the session ready so the Compare
+        // entry point can find this clip's pose data and the session reflects that
+        // analysis completed.
+        var updated = session
+        updated.poseTimelineFileName = fileName
+        updated.status = .ready
+        store.update(updated)
     }
 }
 
@@ -228,5 +238,6 @@ private struct InfoRow: View {
 #Preview {
     NavigationStack {
         AnalysisProgressView(session: Session(title: "Preview — no video"))
+            .environmentObject(SessionStore())
     }
 }
