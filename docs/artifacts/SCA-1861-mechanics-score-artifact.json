@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "artifact_type": "mechanics_score",
+    "generated_by": "MechanicsScoringEngine reference port (reference_port.py) \u2014 mirrors MechanicsScoringEngine.swift, reuses the SCA-1824 ComparisonEngine port",
+    "issue": "SCA-1861",
+    "note": "Forehand-drive mechanics scored at the deterministic contact key frame (peak arm extension). Every observation carries measured vs reference. Local Swift toolchain is broken; Xcode/CI compiles MechanicsScoringEngine.swift directly (see verify_swift_parity.sh).",
+    "reference_source": "reference_forehand_drive_v0.json",
+    "thresholds_version": "1.0.0",
+    "timeline_source": "forehand-pose-timeline-v0.json"
+  },
+  "mechanicsScore": {
+    "clipId": "00000000-0000-0000-0000-000000001861",
+    "id": "00000000-0000-0000-0000-000000001861",
+    "keyFrameTimestamp": 0.933,
+    "observations": [
+      {
+        "citedFrameIndices": [
+          7
+        ],
+        "citedMetricName": "right_elbow_angle_deg",
+        "citedMetricValue": 172.645,
+        "correction": "On target \u2014 keep this elbow extension.",
+        "drill": "",
+        "metricConfidence": "high",
+        "observation": "elbow extension: 173\u00b0 / ideal 150\u00b0\u2013175\u00b0",
+        "ruleId": "mechanics.right_elbow_angle_deg",
+        "severity": "strength"
+      },
+      {
+        "citedFrameIndices": [
+          7
+        ],
+        "citedMetricName": "wrist_height_rel_torso",
+        "citedMetricValue": -0.355,
+        "correction": "On target \u2014 keep this contact height.",
+        "drill": "",
+        "metricConfidence": "high",
+        "observation": "contact height: -0.36 / ideal -0.45\u20130.10",
+        "ruleId": "mechanics.wrist_height_rel_torso",
+        "severity": "strength"
+      },
+      {
+        "citedFrameIndices": [
+          7
+        ],
+        "citedMetricName": "arm_extension_rel_torso",
+        "citedMetricValue": 0.681,
+        "correction": "Increase your arm extension toward the ideal band.",
+        "drill": "",
+        "metricConfidence": "high",
+        "observation": "arm extension: 0.68 / ideal 0.95\u20131.35",
+        "ruleId": "mechanics.arm_extension_rel_torso",
+        "severity": "improvement"
+      }
+    ],
+    "scores": {
+      "arm_extension_rel_torso": 32.8,
+      "right_elbow_angle_deg": 100.0,
+      "wrist_height_rel_torso": 100.0
+    },
+    "strokeType": "forehand_drive"
+  }
+}

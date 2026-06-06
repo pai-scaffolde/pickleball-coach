@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A84FF"/>
+      <stop offset="0.42" stop-color="#0064D6"/>
+      <stop offset="1" stop-color="#30D158"/>
+    </linearGradient>
+
+    <linearGradient id="paddleFaceGradient" x1="340" y1="255" x2="700" y2="755" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF0F5"/>
+    </linearGradient>
+
+    <linearGradient id="paddleHandleGradient" x1="470" y1="675" x2="610" y2="930" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E6EDF4"/>
+      <stop offset="1" stop-color="#C7D2DE"/>
+    </linearGradient>
+
+    <linearGradient id="ballGradient" x1="570" y1="190" x2="820" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EDF3F8"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#073653" flood-opacity="0.22"/>
+    </filter>
+
+    <mask id="pickleballHoles" maskUnits="userSpaceOnUse">
+      <rect width="1024" height="1024" fill="#000000"/>
+      <circle cx="692" cy="318" r="124" fill="#FFFFFF"/>
+      <circle cx="692" cy="318" r="22" fill="#000000"/>
+      <circle cx="692" cy="258" r="21" fill="#000000"/>
+      <circle cx="744" cy="288" r="21" fill="#000000"/>
+      <circle cx="744" cy="348" r="21" fill="#000000"/>
+      <circle cx="692" cy="378" r="21" fill="#000000"/>
+      <circle cx="640" cy="348" r="21" fill="#000000"/>
+      <circle cx="640" cy="288" r="21" fill="#000000"/>
+    </mask>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#backgroundGradient)"/>
+
+  <path
+    d="M250 642 C372 410 520 282 744 246"
+    fill="none"
+    stroke="#FFFFFF"
+    stroke-width="24"
+    stroke-linecap="round"
+    opacity="0.28"/>
+
+  <g filter="url(#softShadow)" transform="rotate(25 512 555)">
+    <rect x="473" y="660" width="108" height="272" rx="54" fill="url(#paddleHandleGradient)"/>
+    <rect x="488" y="686" width="78" height="226" rx="39" fill="#D7E0EA"/>
+    <rect x="326" y="222" width="390" height="540" rx="162" fill="#CBD5E1"/>
+    <rect x="346" y="242" width="350" height="500" rx="145" fill="url(#paddleFaceGradient)"/>
+    <path d="M422 295 C506 256 610 272 660 348" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" opacity="0.58"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <circle cx="692" cy="318" r="132" fill="#DCE5EE"/>
+    <circle cx="692" cy="318" r="124" fill="url(#ballGradient)" mask="url(#pickleballHoles)"/>
+    <circle cx="692" cy="318" r="124" fill="none" stroke="#D7E0EA" stroke-width="8"/>
+    <circle cx="692" cy="318" r="22" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+    <circle cx="692" cy="258" r="21" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+    <circle cx="744" cy="288" r="21" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+    <circle cx="744" cy="348" r="21" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+    <circle cx="692" cy="378" r="21" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+    <circle cx="640" cy="348" r="21" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+    <circle cx="640" cy="288" r="21" fill="none" stroke="#D7E0EA" stroke-width="5"/>
+  </g>
+</svg>
