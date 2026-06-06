@@ -225,3 +225,73 @@ struct SideBySideComparisonView: View {
         v == v.rounded() ? String(Int(v)) : String(format: "%.2f", v)
     }
 }
+
+// MARK: - Preview (SCA-1866 two-panel render verification)
+
+/// A small synthetic frontal skeleton (Vision space, 0–1, bottom-left origin)
+/// so the preview lays out without any bundled asset or capture pipeline.
+private func previewSamplePose() -> [String: JointPosition] {
+    func j(_ x: Float, _ y: Float) -> JointPosition { JointPosition(x: x, y: y, confidence: 0.9) }
+    return [
+        "nose": j(0.50, 0.92), "neck": j(0.50, 0.82),
+        "left_shoulder": j(0.42, 0.80), "right_shoulder": j(0.58, 0.80),
+        "left_elbow": j(0.38, 0.68), "right_elbow": j(0.63, 0.69),
+        "left_wrist": j(0.36, 0.56), "right_wrist": j(0.68, 0.60),
+        "left_hip": j(0.45, 0.55), "right_hip": j(0.55, 0.55),
+        "left_knee": j(0.44, 0.35), "right_knee": j(0.56, 0.35),
+        "left_ankle": j(0.43, 0.15), "right_ankle": j(0.57, 0.15),
+    ]
+}
+
+#Preview("You | Reference (generic)") {
+    let phase = "contact"
+    let reference = ReferenceExemplar(
+        id: "exemplar-generic-pose-forehand-v0",
+        strokeType: "forehand_drive",
+        rightsStatus: "cleared-public",
+        usageScope: "bundled-app",
+        source: "hand-authored generic exemplar (preview)",
+        description: "Pose-only generic exemplar — not a named athlete.",
+        phases: [
+            ReferencePhase(
+                phase: phase,
+                pose: previewSamplePose(),
+                ranges: [
+                    "right_elbow_angle_deg": ReferenceRange(idealMin: 150, idealMax: 175),
+                    "right_knee_angle_deg": ReferenceRange(idealMin: 150, idealMax: 172),
+                ]
+            )
+        ]
+    )
+    let report = ComparisonReport(
+        strokeType: "forehand_drive",
+        referenceId: reference.id,
+        referenceRightsStatus: "cleared-public",
+        method: "range_delta_on_scale_normalized_features",
+        ghostOverlay: false,
+        alignment: "phase_keyed_not_pixel",
+        minJointConfidence: 0.5,
+        phases: [
+            PhaseComparison(
+                phase: phase,
+                userFrameCount: 5,
+                features: [
+                    FeatureComparison(feature: "right_elbow_angle_deg", userValue: 142, idealMin: 150, idealMax: 175, delta: -8, status: "below", featureScore: 0.68),
+                    FeatureComparison(feature: "right_knee_angle_deg", userValue: 160, idealMin: 150, idealMax: 172, delta: 0, status: "within", featureScore: 1.0),
+                ],
+                phaseScore: 84.0,
+                measured: true
+            )
+        ],
+        overallScore: 84.0,
+        measuredPhaseCount: 1,
+        notes: ["Preview: range/delta comparison, no ghost overlay."]
+    )
+    return NavigationStack {
+        SideBySideComparisonView(
+            userPosesByPhase: [phase: previewSamplePose()],
+            reference: reference,
+            report: report
+        )
+    }
+}

@@ -15,6 +15,10 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
       - name: Build (iOS Simulator, no signing)
+        # Compiles the full app target including the SCA-1824 comparison module
+        # (ComparisonEngine / ReferenceExemplar / PoseAnalysisResult /
+        # SideBySideComparisonView + its two-panel #Preview) and bundles both
+        # reference exemplar JSONs as app resources. (SCA-1866)
         run: |
           xcodebuild \
             -project PickleballCoach/PickleballCoach.xcodeproj \
@@ -22,28 +26,40 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \
             build
-      - name: Confirm two-panel view + fixtures are in the built app
-        run: |
-          APP=$(find ~/Library/Developer/Xcode/DerivedData -name 'PickleballCoach.app' -type d | head -1)
-          echo "App bundle: $APP"
-          test -n "$APP" || { echo "no app bundle produced"; exit 1; }
-          for f in reference_forehand_drive_v0.json reference_backhand_drive_v0.json; do
-            test -f "$APP/$f" && echo "bundled: $f" || { echo "MISSING from bundle: $f"; exit 1; }
-          done
 
-  decode-fixtures:
+  exemplar-decode-verify:
+    # SCA-1866 acceptance #3: confirm BOTH bundled exemplars decode into
+    # ReferenceExemplar at runtime. The comparison engine + models are
+    # Foundation-only and pure, so we compile them headless with the existing
+    # SCA-1824 harness on the healthy CI toolchain and decode each exemplar for
+    # real (the harness exits non-zero on any JSONDecoder failure).
     runs-on: macos-15
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
-      - name: Decode both reference exemplars at runtime
+      - name: Show Swift version
+        run: xcrun swift --version
+      - name: Compile comparison harness (Foundation-only sources)
         run: |
-          # Compile the Foundation-only model/service closure (excludes SwiftUI
-          # views and Vision/AVFoundation/Combine services) plus the decode probe,
-          # then run it to prove both fixtures decode into ReferenceExemplar.
-          SRC=$(grep -rLE 'import (SwiftUI|Vision|AVFoundation|UIKit|CoreGraphics|Combine)' \
-                  PickleballCoach/PickleballCoach/Models \
-                  PickleballCoach/PickleballCoach/Services)
-          echo "Compiling sources:"; echo "$SRC"
-          swiftc -parse-as-library -o /tmp/decode_check $SRC tools/decode_check.swift
-          /tmp/decode_check
+          xcrun swiftc -O \
+            PickleballCoach/PickleballCoach/Models/PoseAnalysisResult.swift \
+            PickleballCoach/PickleballCoach/Models/ReferenceExemplar.swift \
+            PickleballCoach/PickleballCoach/Services/ComparisonEngine.swift \
+            tools/sca1824-comparison-harness/main.swift \
+            -o "$RUNNER_TEMP/sca1824-harness"
+      - name: Decode + run forehand exemplar
+        run: |
+          "$RUNNER_TEMP/sca1824-harness" \
+            docs/artifacts/SCA-1819-pose-spike-artifact.json \
+            PickleballCoach/PickleballCoach/Resources/reference_forehand_drive_v0.json \
+            "$RUNNER_TEMP/out_forehand.json"
+          grep -q "exemplar-generic-pose-forehand-v0" "$RUNNER_TEMP/out_forehand.json"
+          echo "✓ forehand exemplar decoded into ReferenceExemplar and ran"
+      - name: Decode + run backhand exemplar
+        run: |
+          "$RUNNER_TEMP/sca1824-harness" \
+            docs/artifacts/SCA-1819-pose-spike-artifact.json \
+            PickleballCoach/PickleballCoach/Resources/reference_backhand_drive_v0.json \
+            "$RUNNER_TEMP/out_backhand.json"
+          grep -q "exemplar-generic-pose-backhand-v0" "$RUNNER_TEMP/out_backhand.json"
+          echo "✓ backhand exemplar decoded into ReferenceExemplar and ran"
