@@ -18,19 +18,14 @@ final class SessionStore: ObservableObject {
 
     init() {
         load()
-        if sessions.isEmpty {
-            seedDemo()
-        }
     }
 
-    // MARK: - Demo seeding
-
-    /// Seeds the demo session on first launch so the app always has testable content.
-    private func seedDemo() {
-        guard let demo = try? DemoSessionService.makeDemoSession() else { return }
-        sessions.append(demo)
-        save()
-    }
+    // SCA-1908: the app no longer seeds a demo session at launch. Seeding put a
+    // sample row in the list before the user did anything, which (a) suppressed
+    // the welcome/empty state — HomeView shows the populated list whenever any
+    // session exists — and (b) duplicated the "Try the Demo" entry point. The
+    // welcome screen is now always the first screen; the demo is reachable solely
+    // via the (idempotent) "Try the Demo" button.
 
     // MARK: - Mutations
 

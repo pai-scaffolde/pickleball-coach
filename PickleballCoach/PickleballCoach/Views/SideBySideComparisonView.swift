@@ -119,13 +119,14 @@ struct SideBySideComparisonView: View {
             HStack(spacing: 8) {
                 panel(title: "You", joints: userPosesByPhase[selectedPhase] ?? [:],
                       tint: .blue, highlight: highlightedJoints)
-                panel(title: "Reference (generic)",
+                panel(title: "Reference — mimic this",
                       joints: reference.phase(selectedPhase)?.pose ?? [:],
-                      tint: .teal, highlight: [])
+                      tint: .teal, highlight: highlightedJoints)
             }
             .frame(height: 240)
 
             scoreBar
+            recommendationsSection
             deltaList
 
             Text("Reference is a pose-only generic exemplar — not a named athlete. Skeletons are compared by range and delta, not pixel overlay.")
@@ -180,6 +181,93 @@ struct SideBySideComparisonView: View {
             Text("Not enough confident pose data for this phase.")
                 .font(.subheadline).foregroundStyle(.secondary)
         }
+    }
+
+    // MARK: - Recommended improvements (SCA-1908)
+
+    /// A coaching recommendation: an out-of-range feature in a specific phase,
+    /// ranked by how much it is dragging the score down.
+    private struct Recommendation: Identifiable {
+        let id: String                 // phase + feature
+        let phase: String
+        let feature: FeatureComparison
+        var impact: Double { 1 - feature.featureScore }   // 0 (in range) … 1 (far off)
+    }
+
+    /// The top out-of-range features across ALL phases, worst first. These are the
+    /// concrete things to fix to raise the overall score — each maps to a delta
+    /// from the reference ("mimic this") pose.
+    private var topRecommendations: [Recommendation] {
+        report.phases
+            .flatMap { p in
+                p.features
+                    .filter { $0.status == "below" || $0.status == "above" }
+                    .filter { $0.userValue != nil }
+                    .map { Recommendation(id: "\(p.phase)-\($0.feature)", phase: p.phase, feature: $0) }
+            }
+            .sorted { $0.impact > $1.impact }
+            .prefix(3)
+            .map { $0 }
+    }
+
+    @ViewBuilder private var recommendationsSection: some View {
+        let recs = topRecommendations
+        if recs.isEmpty {
+            HStack(spacing: 8) {
+                Image(systemName: "checkmark.seal.fill").foregroundStyle(.green)
+                Text("Solid form — every measured feature is within the ideal range.")
+                    .font(.subheadline).foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical, 4)
+        } else {
+            VStack(alignment: .leading, spacing: 10) {
+                Label("Recommended improvements", systemImage: "lightbulb.fill")
+                    .font(.headline)
+                Text("Match the reference (\"mimic this\") on these — biggest score gains first.")
+                    .font(.caption).foregroundStyle(.secondary)
+                ForEach(recs) { rec in
+                    recommendationRow(rec)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(12)
+            .background(Color.blue.opacity(0.08))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
+    }
+
+    private func recommendationRow(_ rec: Recommendation) -> some View {
+        let f = rec.feature
+        let unit = f.feature.contains("_deg") ? "°" : ""
+        let value = f.userValue.map { trim($0) } ?? "—"
+        let off = trim(abs(f.delta))
+        let dir = f.status == "below" ? "below" : "above"
+        return Button {
+            selectedPhase = rec.phase            // tapping focuses that phase's panels
+        } label: {
+            HStack(alignment: .top, spacing: 10) {
+                Image(systemName: "arrow.up.forward.circle.fill")
+                    .foregroundStyle(.blue)
+                    .padding(.top, 1)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("\(label(for: f.feature)) · \(prettyPhase(rec.phase))")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.primary)
+                    Text("You're at \(value)\(unit) — \(off)\(unit) \(dir) the ideal \(trim(f.idealMin))–\(trim(f.idealMax))\(unit). Adjust toward the reference pose.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                Spacer(minLength: 0)
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityElement(children: .combine)
+    }
+
+    private func prettyPhase(_ raw: String) -> String {
+        raw.replacingOccurrences(of: "_", with: " ").capitalized
     }
 
     private var deltaList: some View {
