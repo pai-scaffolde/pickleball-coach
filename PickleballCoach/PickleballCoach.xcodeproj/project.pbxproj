@@ -94,6 +94,7 @@
 				A1B2C3D4E5F60006A7B8C9D0 /* Views */,
 				A1B2C3D4E5F60076A7B8C9D0 /* Resources */,
 				A1B2C3D4E5F60024A7B8C9D0 /* Assets.xcassets */,
+				A1B2C3D4E5F60044A7B8C9D0 /* Resources */,
 				A1B2C3D4E5F60028A7B8C9D0 /* Info.plist */,
 				A1B2C3D4E5F60008A7B8C9D0 /* Preview Content */,
 			);
@@ -140,6 +141,15 @@
 				A1B2C3D4E5F60070A7B8C9D0 /* SideBySideComparisonView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F60044A7B8C9D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F60045A7B8C9D0 /* reference_forehand_drive_v0.json */,
+				A1B2C3D4E5F60047A7B8C9D0 /* reference_backhand_drive_v0.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60007A7B8C9D0 /* Products */ = {
