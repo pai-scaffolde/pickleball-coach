@@ -1,0 +1,683 @@
+{
+  "id": "exemplar-generic-pose-forehand-v0",
+  "strokeType": "forehand_drive",
+  "rightsStatus": "cleared-public",
+  "usageScope": "bundled-app",
+  "source": "hand-authored idealized skeleton (Option C, docs/RIGHTS_PLAN.md)",
+  "description": "Pose-only generic forehand-drive exemplar. No identifiable person; not derived from any named pro's footage. Idealized skeleton for the side-by-side reference panel plus generic ideal feature ranges for range/delta comparison. Normalized Vision space (origin bottom-left, x/y in 0-1).",
+  "phases": [
+    {
+      "phase": "ready",
+      "pose": {
+        "nose": {
+          "x": 0.52,
+          "y": 0.88,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.515,
+          "y": 0.805,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.455,
+          "y": 0.735,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.575,
+          "y": 0.735,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.405,
+          "y": 0.64,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.615,
+          "y": 0.64,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.47,
+          "y": 0.585,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.56,
+          "y": 0.585,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.47,
+          "y": 0.51,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.55,
+          "y": 0.51,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.472,
+          "y": 0.31,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.548,
+          "y": 0.31,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.475,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.545,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.51,
+          "y": 0.51,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_elbow_angle_deg": {
+          "idealMin": 95,
+          "idealMax": 180
+        },
+        "right_knee_angle_deg": {
+          "idealMin": 159,
+          "idealMax": 180
+        },
+        "hip_shoulder_separation_deg": {
+          "idealMin": 0,
+          "idealMax": 23
+        }
+      }
+    },
+    {
+      "phase": "load",
+      "pose": {
+        "nose": {
+          "x": 0.505,
+          "y": 0.87,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.5,
+          "y": 0.795,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.44,
+          "y": 0.725,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.56,
+          "y": 0.728,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.38,
+          "y": 0.628,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.6,
+          "y": 0.63,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.43,
+          "y": 0.565,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.545,
+          "y": 0.56,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.455,
+          "y": 0.5,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.535,
+          "y": 0.502,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.46,
+          "y": 0.3,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.54,
+          "y": 0.305,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.47,
+          "y": 0.115,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.54,
+          "y": 0.118,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.495,
+          "y": 0.501,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_knee_angle_deg": {
+          "idealMin": 164,
+          "idealMax": 180
+        },
+        "hip_shoulder_separation_deg": {
+          "idealMin": 0,
+          "idealMax": 24
+        }
+      }
+    },
+    {
+      "phase": "takeback",
+      "pose": {
+        "nose": {
+          "x": 0.5,
+          "y": 0.868,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.498,
+          "y": 0.793,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.435,
+          "y": 0.722,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.558,
+          "y": 0.726,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.35,
+          "y": 0.69,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.6,
+          "y": 0.64,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.29,
+          "y": 0.715,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.56,
+          "y": 0.6,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.452,
+          "y": 0.5,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.532,
+          "y": 0.503,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.458,
+          "y": 0.302,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.538,
+          "y": 0.306,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.468,
+          "y": 0.116,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.538,
+          "y": 0.118,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.492,
+          "y": 0.502,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_elbow_angle_deg": {
+          "idealMin": 156,
+          "idealMax": 180
+        },
+        "arm_extension_rel_torso": {
+          "idealMin": 0.84,
+          "idealMax": 1.24
+        }
+      }
+    },
+    {
+      "phase": "turn",
+      "pose": {
+        "nose": {
+          "x": 0.515,
+          "y": 0.868,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.512,
+          "y": 0.793,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.45,
+          "y": 0.728,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.585,
+          "y": 0.715,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.47,
+          "y": 0.64,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.62,
+          "y": 0.628,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.52,
+          "y": 0.595,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.6,
+          "y": 0.585,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.47,
+          "y": 0.505,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.56,
+          "y": 0.52,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.475,
+          "y": 0.305,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.555,
+          "y": 0.312,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.478,
+          "y": 0.118,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.55,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.515,
+          "y": 0.512,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_elbow_angle_deg": {
+          "idealMin": 99,
+          "idealMax": 179
+        },
+        "hip_shoulder_separation_deg": {
+          "idealMin": 0,
+          "idealMax": 29
+        },
+        "arm_extension_rel_torso": {
+          "idealMin": 0.45,
+          "idealMax": 0.92
+        }
+      }
+    },
+    {
+      "phase": "contact",
+      "pose": {
+        "nose": {
+          "x": 0.53,
+          "y": 0.87,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.527,
+          "y": 0.795,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.47,
+          "y": 0.73,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.59,
+          "y": 0.728,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.56,
+          "y": 0.7,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.62,
+          "y": 0.64,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.65,
+          "y": 0.675,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.6,
+          "y": 0.6,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.48,
+          "y": 0.508,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.56,
+          "y": 0.51,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.485,
+          "y": 0.308,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.555,
+          "y": 0.31,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.488,
+          "y": 0.118,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.55,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.52,
+          "y": 0.509,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_elbow_angle_deg": {
+          "idealMin": 98,
+          "idealMax": 180
+        },
+        "wrist_height_rel_torso": {
+          "idealMin": -1.04,
+          "idealMax": -0.55
+        },
+        "arm_extension_rel_torso": {
+          "idealMin": 0.58,
+          "idealMax": 1.05
+        }
+      }
+    },
+    {
+      "phase": "follow_through",
+      "pose": {
+        "nose": {
+          "x": 0.545,
+          "y": 0.872,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.542,
+          "y": 0.797,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.485,
+          "y": 0.732,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.605,
+          "y": 0.73,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.56,
+          "y": 0.79,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.63,
+          "y": 0.66,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.61,
+          "y": 0.86,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.61,
+          "y": 0.62,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.49,
+          "y": 0.51,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.57,
+          "y": 0.512,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.492,
+          "y": 0.31,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.56,
+          "y": 0.312,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.494,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.555,
+          "y": 0.122,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.528,
+          "y": 0.511,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_elbow_angle_deg": {
+          "idealMin": 94,
+          "idealMax": 170
+        },
+        "wrist_height_rel_torso": {
+          "idealMin": -0.91,
+          "idealMax": -0.5
+        }
+      }
+    },
+    {
+      "phase": "recovery",
+      "pose": {
+        "nose": {
+          "x": 0.52,
+          "y": 0.88,
+          "confidence": 1.0
+        },
+        "neck": {
+          "x": 0.516,
+          "y": 0.805,
+          "confidence": 1.0
+        },
+        "right_shoulder": {
+          "x": 0.456,
+          "y": 0.735,
+          "confidence": 1.0
+        },
+        "left_shoulder": {
+          "x": 0.576,
+          "y": 0.735,
+          "confidence": 1.0
+        },
+        "right_elbow": {
+          "x": 0.408,
+          "y": 0.642,
+          "confidence": 1.0
+        },
+        "left_elbow": {
+          "x": 0.616,
+          "y": 0.642,
+          "confidence": 1.0
+        },
+        "right_wrist": {
+          "x": 0.472,
+          "y": 0.588,
+          "confidence": 1.0
+        },
+        "left_wrist": {
+          "x": 0.56,
+          "y": 0.588,
+          "confidence": 1.0
+        },
+        "right_hip": {
+          "x": 0.47,
+          "y": 0.51,
+          "confidence": 1.0
+        },
+        "left_hip": {
+          "x": 0.55,
+          "y": 0.51,
+          "confidence": 1.0
+        },
+        "right_knee": {
+          "x": 0.472,
+          "y": 0.31,
+          "confidence": 1.0
+        },
+        "left_knee": {
+          "x": 0.548,
+          "y": 0.31,
+          "confidence": 1.0
+        },
+        "right_ankle": {
+          "x": 0.475,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "left_ankle": {
+          "x": 0.545,
+          "y": 0.12,
+          "confidence": 1.0
+        },
+        "root": {
+          "x": 0.51,
+          "y": 0.51,
+          "confidence": 1.0
+        }
+      },
+      "ranges": {
+        "right_knee_angle_deg": {
+          "idealMin": 162,
+          "idealMax": 180
+        },
+        "hip_shoulder_separation_deg": {
+          "idealMin": 0,
+          "idealMax": 22
+        }
+      }
+    }
+  ],
+  "calibration": {
+    "issue": "SCA-1869",
+    "method": "robust per-phase percentile band on scale-normalized features, padded and floored to generic minimum width (Option C)",
+    "feature_geometry": "imported from ComparisonEngine reference port (parity)",
+    "policy": {
+      "angle": {
+        "pad": 8.0,
+        "min_width": 30.0,
+        "clamp": [
+          0.0,
+          180.0
+        ],
+        "ndigits": 0
+      },
+      "ratio": {
+        "pad": 0.1,
+        "min_width": 0.4,
+        "clamp": [
+          null,
+          null
+        ],
+        "ndigits": 2
+      },
+      "lo_pct": 15,
+      "hi_pct": 85
+    },
+    "dry_run": false,
+    "rights_id": "yt-forehand-drive-navratil-v0",
+    "shippable": true,
+    "review_status": "machine_proposed_pending_coach_review"
+  }
+}

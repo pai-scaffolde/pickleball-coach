@@ -1,0 +1,236 @@
+{
+  "_meta": {
+    "artifact_type": "calibration_report",
+    "issue": "SCA-1869",
+    "generated_by": "tools/sca1869-calibration/calibrate.py",
+    "reference_id": "exemplar-generic-pose-backhand-v0",
+    "stroke_type": "backhand_drive",
+    "rights_id": "yt-backhand-drive-selkirk-v0",
+    "dry_run": false,
+    "shippable": true,
+    "pose_source": "pose_analysis_result",
+    "note": "Machine-proposed generic bands; coach review required before bundling."
+  },
+  "phases": [
+    {
+      "phase": "ready",
+      "frameCount": 6,
+      "features": [
+        {
+          "feature": "right_elbow_angle_deg",
+          "idealMin": 141,
+          "idealMax": 177,
+          "source": "calibrated",
+          "nSamples": 6,
+          "observedMedian": 163.17,
+          "basis": "p15-p85",
+          "priorMin": 90,
+          "priorMax": 130
+        },
+        {
+          "feature": "right_knee_angle_deg",
+          "idealMin": 150,
+          "idealMax": 170,
+          "source": "hand_authored_carryforward",
+          "nSamples": 0,
+          "reason": "no measurable frames for this feature in this phase"
+        },
+        {
+          "feature": "hip_shoulder_separation_deg",
+          "idealMin": 0,
+          "idealMax": 20,
+          "source": "calibrated",
+          "nSamples": 5,
+          "observedMedian": 4.152,
+          "basis": "p15-p85",
+          "priorMin": 0,
+          "priorMax": 12
+        }
+      ]
+    },
+    {
+      "phase": "load",
+      "frameCount": 5,
+      "features": [
+        {
+          "feature": "right_knee_angle_deg",
+          "idealMin": 125,
+          "idealMax": 155,
+          "source": "hand_authored_carryforward",
+          "nSamples": 0,
+          "reason": "no measurable frames for this feature in this phase"
+        },
+        {
+          "feature": "hip_shoulder_separation_deg",
+          "idealMin": 0,
+          "idealMax": 21,
+          "source": "calibrated",
+          "nSamples": 5,
+          "observedMedian": 6.927,
+          "basis": "p15-p85",
+          "priorMin": 5,
+          "priorMax": 20
+        }
+      ]
+    },
+    {
+      "phase": "takeback",
+      "frameCount": 1,
+      "features": [
+        {
+          "feature": "right_elbow_angle_deg",
+          "idealMin": 147,
+          "idealMax": 177,
+          "source": "calibrated",
+          "nSamples": 1,
+          "observedMedian": 162.076,
+          "basis": "median (too few frames for percentiles)",
+          "priorMin": 55,
+          "priorMax": 100
+        },
+        {
+          "feature": "arm_extension_rel_torso",
+          "idealMin": 0.83,
+          "idealMax": 1.23,
+          "source": "calibrated",
+          "nSamples": 1,
+          "observedMedian": 1.033,
+          "basis": "median (too few frames for percentiles)",
+          "priorMin": 0.35,
+          "priorMax": 0.75
+        }
+      ]
+    },
+    {
+      "phase": "turn",
+      "frameCount": 88,
+      "features": [
+        {
+          "feature": "right_elbow_angle_deg",
+          "idealMin": 118,
+          "idealMax": 180,
+          "source": "calibrated",
+          "nSamples": 88,
+          "observedMedian": 158.002,
+          "basis": "p15-p85",
+          "priorMin": 100,
+          "priorMax": 150
+        },
+        {
+          "feature": "hip_shoulder_separation_deg",
+          "idealMin": 0,
+          "idealMax": 23,
+          "source": "calibrated",
+          "nSamples": 82,
+          "observedMedian": 5.63,
+          "basis": "p15-p85",
+          "priorMin": 20,
+          "priorMax": 40
+        },
+        {
+          "feature": "arm_extension_rel_torso",
+          "idealMin": 0.59,
+          "idealMax": 1.2,
+          "source": "calibrated",
+          "nSamples": 82,
+          "observedMedian": 0.965,
+          "basis": "p15-p85",
+          "priorMin": 0.55,
+          "priorMax": 1.0
+        }
+      ]
+    },
+    {
+      "phase": "contact",
+      "frameCount": 25,
+      "features": [
+        {
+          "feature": "right_elbow_angle_deg",
+          "idealMin": 140,
+          "idealMax": 180,
+          "source": "calibrated",
+          "nSamples": 25,
+          "observedMedian": 165.023,
+          "basis": "p15-p85",
+          "priorMin": 150,
+          "priorMax": 175
+        },
+        {
+          "feature": "wrist_height_rel_torso",
+          "idealMin": -1.31,
+          "idealMax": -0.87,
+          "source": "calibrated",
+          "nSamples": 24,
+          "observedMedian": -1.041,
+          "basis": "p15-p85",
+          "priorMin": -0.4,
+          "priorMax": 0.15
+        },
+        {
+          "feature": "arm_extension_rel_torso",
+          "idealMin": 0.9,
+          "idealMax": 1.36,
+          "source": "calibrated",
+          "nSamples": 24,
+          "observedMedian": 1.048,
+          "basis": "p15-p85",
+          "priorMin": 0.9,
+          "priorMax": 1.3
+        }
+      ]
+    },
+    {
+      "phase": "follow_through",
+      "frameCount": 69,
+      "features": [
+        {
+          "feature": "right_elbow_angle_deg",
+          "idealMin": 142,
+          "idealMax": 180,
+          "source": "calibrated",
+          "nSamples": 69,
+          "observedMedian": 166.274,
+          "basis": "p15-p85",
+          "priorMin": 70,
+          "priorMax": 120
+        },
+        {
+          "feature": "wrist_height_rel_torso",
+          "idealMin": -1.24,
+          "idealMax": -0.43,
+          "source": "calibrated",
+          "nSamples": 63,
+          "observedMedian": -0.946,
+          "basis": "p15-p85",
+          "priorMin": 0.1,
+          "priorMax": 0.75
+        }
+      ]
+    },
+    {
+      "phase": "recovery",
+      "frameCount": 1,
+      "features": [
+        {
+          "feature": "right_knee_angle_deg",
+          "idealMin": 150,
+          "idealMax": 170,
+          "source": "hand_authored_carryforward",
+          "nSamples": 0,
+          "reason": "no measurable frames for this feature in this phase"
+        },
+        {
+          "feature": "hip_shoulder_separation_deg",
+          "idealMin": 0,
+          "idealMax": 19,
+          "source": "calibrated",
+          "nSamples": 1,
+          "observedMedian": 4.394,
+          "basis": "median (too few frames for percentiles)",
+          "priorMin": 0,
+          "priorMax": 12
+        }
+      ]
+    }
+  ]
+}
