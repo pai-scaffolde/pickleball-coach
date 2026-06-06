@@ -21,6 +21,14 @@ struct HomeView: View {
             }
             .navigationTitle("Sessions")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        startDemo()
+                    } label: {
+                        Image(systemName: "play.circle")
+                    }
+                    .accessibilityLabel("Try Demo Session")
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingImport = true

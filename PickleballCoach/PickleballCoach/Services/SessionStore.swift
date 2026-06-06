@@ -18,6 +18,18 @@ final class SessionStore: ObservableObject {
 
     init() {
         load()
+        if sessions.isEmpty {
+            seedDemo()
+        }
+    }
+
+    // MARK: - Demo seeding
+
+    /// Seeds the demo session on first launch so the app always has testable content.
+    private func seedDemo() {
+        guard let demo = try? DemoSessionService.makeDemoSession() else { return }
+        sessions.append(demo)
+        save()
     }
 
     // MARK: - Mutations

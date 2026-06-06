@@ -63,7 +63,7 @@ struct ImportVideoView: View {
                                                  in: .userDomainMask)[0]
         let destURL = documents.appendingPathComponent(fileName)
 
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             do {
                 if FileManager.default.fileExists(atPath: destURL.path) {
                     try FileManager.default.removeItem(at: destURL)
@@ -71,10 +71,11 @@ struct ImportVideoView: View {
                 try FileManager.default.copyItem(at: sourceURL, to: destURL)
 
                 let asset = AVURLAsset(url: destURL)
-                let duration = CMTimeGetSeconds(asset.duration)
-                let safeDuration = duration.isFinite ? duration : 0
+                let duration = try await asset.load(.duration)
+                let seconds = CMTimeGetSeconds(duration)
+                let safeDuration = seconds.isFinite ? seconds : 0
 
-                DispatchQueue.main.async {
+                await MainActor.run {
                     if let reimportSessionID {
                         store.reimport(sessionID: reimportSessionID,
                                        videoFileName: fileName,
@@ -91,7 +92,7 @@ struct ImportVideoView: View {
                     dismiss()
                 }
             } catch {
-                DispatchQueue.main.async {
+                await MainActor.run {
                     presentError("Could not save the selected video: \(error.localizedDescription)")
                 }
             }
