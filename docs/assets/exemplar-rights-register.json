@@ -108,6 +108,20 @@
       "expiry": null,
       "owner": "Product",
       "notes": "PLACEHOLDER. Stays usage_scope=none until a signed talent/likeness release exists; then set license_ref to the release path and promote to cleared-public per Appendix A of RIGHTS_PLAN.md."
+    },
+    {
+      "id": "fixture-forehand-drive-1rep-v0",
+      "description": "Canonical test fixture video: single forehand drive rep, self-recorded by team member with signed release. Used in tests/fixtures/rep-annotations.json for rep segmentation validation.",
+      "asset_type": "video",
+      "asset_path": "tests/fixtures/fixture-forehand-drive-1rep-v0.mp4",
+      "source": "self-recorded by team / Option A (RIGHTS_PLAN.md §2)",
+      "rights_holder": "Pickleball Coach",
+      "usage_scope": "internal-dev",
+      "rights_status": "cleared-internal",
+      "license_ref": "docs/assets/releases/fixture-forehand-drive-1rep-v0-release.pdf",
+      "expiry": null,
+      "owner": "Engineering",
+      "notes": "Test fixture only. Must not be bundled into app binary or used on any public surface. Promote to cleared-public and update usage_scope only after a public-facing talent/likeness release is signed (Appendix A of RIGHTS_PLAN.md). license_ref is the required release doc path; create and commit it before using this asset outside internal-dev."
     }
   ]
 }
