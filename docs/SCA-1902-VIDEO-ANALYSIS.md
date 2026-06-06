@@ -1,7 +1,7 @@
 # SCA-1902 — Video Analysis: Ben Johns & Anna Leigh Waters, Ultra Slow Motion
 
-Frame-by-frame mechanics breakdown of the seven shots Gary flagged (four in the
-original brief, three added in follow-up comments) in
+Frame-by-frame mechanics breakdown of the eight shots Gary flagged (four in the
+original brief, four added in follow-up comments) in
 [*"Ben Johns & Anna Leigh Waters in Ultra Slow Motion"* — Johnkew Pickleball](https://youtu.be/VbtNRKB3xB8)
 (11:01, 1080p/24fps). Goal: extract the copyable mechanics of each shot in the
 app's mechanics-scoring vocabulary (kinetic chain → contact point → low-to-high
@@ -22,13 +22,13 @@ brush → follow-through), so they can be drilled and, where useful, added as
    (`reference_forehand_drive_v0.json`, `reference_backhand_drive_v0.json`).
 
 Artifacts **committed** to `docs/artifacts/sca1902-frames/` (stills = analysis/commentary):
-- `shot{A,B,C,C2,D,E,F}_*_*.jpg` — full-res hero contact frames
-- `shot{A,B,C,D,E,F}_sequence-*.jpg` — kinetic-chain contact sheets
+- `shot{A,B,C,C2,D,E,F,G}_*_*.jpg` — full-res hero contact frames
+- `shot{A,B,C,D,E,F,G}_sequence-*.jpg` — kinetic-chain contact sheets
 
 Isolated slow-mo clips + full source are kept **local, not committed**
 (`~/Movies/sca1902-clips/` — copyrighted Johnkew footage; mirrors the
 `exemplar-rights-register.json` posture):
-- `shot{A,B,C,C2,D,E,F}_*.mp4` — single-shot slow-mo clips to rewatch
+- `shot{A,B,C,C2,D,E,F,G}_*.mp4` — single-shot slow-mo clips to rewatch
 - `source_full_VbtNRKB3xB8.mp4` — full download, re-extract any window with
   `ffmpeg -ss <sec> -i source_full_VbtNRKB3xB8.mp4 -t <dur> out.mp4`
 
@@ -196,12 +196,52 @@ actually face — under pressure, out of position, saved by early footwork.
 
 ---
 
+## Shot G — Ben Johns, pronation change-of-direction jump slam (≈7:31 → extracted 450–458 s)
+
+**What it is.** Johns springs **straight up off both feet** for an overhead and, at
+the last instant, **pronates his forearm** (the paddle face rotates/snaps over) to
+**change the direction of the slam after the opponent has committed**. Gary's note is
+the key: *he gets in the air to let his body do this* — being airborne is what frees
+the rotation that powers the late redirect.
+Jump load: `shotG_sequence-1-jump.jpg`; contact + pronation: `shotG_sequence-2-pronation.jpg`;
+hero: `shotG_johns-pronation-jump-slam_contact.jpg`; clip (local): `shotG_johns-pronation-jump-slam.mp4`.
+
+**Why the jump enables the shot (the lesson):**
+1. **Unweight the feet → free the hips.** On the ground, the planted stance and foot
+   friction *brake* trunk rotation — the legs have to anchor. Jumping unweights the
+   feet so the hips and shoulders rotate as a free system; angular momentum carries
+   through instead of being checked.
+2. **Pronation is the disguise.** The forearm stays neutral until the last instant,
+   then **rotates through contact** (palm/paddle face turning over). The face direction
+   is set *after* the opponent reads the swing → they break the wrong way. This is a
+   direction change, not just a power add.
+3. **Height = a downward angle + time at the peak.** Getting up to the ball lets him
+   take it at the top and hit *down*, and the hang time gives the forearm room to fire
+   the pronation cleanly.
+
+**Kinetic chain (copyable cues):**
+1. **Read early, explosive two-foot jump straight up** — load both legs, spring
+   vertically (not forward), paddle up early.
+2. **Airborne coil** — body rotates freely; contact **out in front and above the head**.
+3. **Late forearm pronation at contact** — keep the face neutral, then snap the forearm
+   over *through* the ball to angle it sharply and change its line.
+4. **Balanced landing + instant recovery** — absorb on landing, reset for the next ball.
+
+**Drill it (advanced):** this is a high-skill, high-risk put-away — build it only once
+the grounded overhead is solid. Start with a stationary two-foot jump and a *neutral*
+overhead, then layer in the forearm pronation to redirect line at the last instant.
+Cue: "jump to free the hips, turn the forearm over late." Don't reach forward off-balance
+— the jump is **up**, the redirect is **in the forearm**, not the shoulder.
+
+---
+
 ## Takeaways & app follow-ups
 
-**For Gary's game.** Two themes run through all seven shots: **brush for margin**
-(A, C, D, E all win by spinning the ball, never flattening it) and **set the base
+**For Gary's game.** Three themes run through all eight shots: **brush for margin**
+(A, C, D, E all win by spinning the ball, never flattening it); **set the base
 early** (B and especially F — power comes from a planted, rotated body, not a
-reaching arm).
+reaching arm); and **free the body to rotate** (F plants to rotate; G jumps to
+*un*plant and rotate — opposite tactics, same goal of letting the trunk fire).
 
 Priority order:
 1. **ALW early foot-plant → 2-hand slam (Shot F)** — the highest-leverage *habit*
@@ -216,11 +256,15 @@ Priority order:
 5. **Low forehand roll (Shot A)** — knees-down, low-to-high brush.
 6. **Brush-over → put-away sequence (Shot C)** — topspin buys margin from a stretch
    and sets up the next-ball kill.
+7. **Pronation jump slam (Shot G)** — *advanced/high-risk.* Build last, after the
+   grounded overhead is solid: jump to free the hips, turn the forearm over late to
+   redirect line. A disguise weapon, not a default put-away.
 
 **For the pickleball-coach app (optional, not in this issue's scope):**
 - The app currently models only forehand/backhand *drives*. Most shots here are
   unmodeled types — two-hand overhead (B, F), low roll (A), cut drop (D), backhand
-  flick (E). The isolated slow-mo clips are clean, single-shot exemplars — good source
+  flick (E), jumping pronation overhead (G). The isolated slow-mo clips are clean,
+  single-shot exemplars — good source
   material for new `ReferenceExemplar` entries **if rights/attribution clear** (Johnkew
   Pickleball; see `exemplar-rights-register.json`). Flagging as a candidate, not
   building it here.
