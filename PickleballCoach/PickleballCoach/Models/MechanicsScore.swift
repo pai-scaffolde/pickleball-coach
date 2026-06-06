@@ -6,6 +6,7 @@ struct MechanicsScore: Identifiable, Codable {
     let id: UUID
     let clipId: UUID
     let strokeType: String
+    let keyFrameTimestamp: Double
     let scores: [String: Double]
     let observations: [FeedbackObservation]
 }

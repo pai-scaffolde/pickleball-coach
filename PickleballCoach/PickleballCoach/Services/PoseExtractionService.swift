@@ -76,7 +76,7 @@ final class PoseExtractionService {
         .root: "root"
     ]
 
-    init(sampleRate: Double = Self.defaultSampleRate, minJointConfidence: Float = 0.30) {
+    init(sampleRate: Double = 10.0, minJointConfidence: Float = 0.30) {
         self.sampleRate = sampleRate > 0 ? sampleRate : Self.defaultSampleRate
         self.minJointConfidence = minJointConfidence
     }
