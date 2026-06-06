@@ -14,9 +14,10 @@
     "method": "range_delta_on_scale_normalized_features",
     "minJointConfidence": 0.5,
     "notes": [
+      "hip_shoulder_separation_deg is down-weighted (\u00d70.25): a single-camera 2D line-angle is a weak axial-rotation proxy. Reliable torso rotation needs depth/3D pose.",
       "Comparison is range/delta on scale-normalized features. No pixel alignment, no ghost overlay, no pro footage."
     ],
-    "overallScore": 41.8,
+    "overallScore": 48.3,
     "phases": [
       {
         "features": [
@@ -50,7 +51,7 @@
         ],
         "measured": true,
         "phase": "ready",
-        "phaseScore": 55.2,
+        "phaseScore": 40.3,
         "userFrameCount": 2
       },
       {
@@ -76,7 +77,7 @@
         ],
         "measured": true,
         "phase": "load",
-        "phaseScore": 43.4,
+        "phaseScore": 28.5,
         "userFrameCount": 1
       },
       {
@@ -108,6 +109,15 @@
       {
         "features": [
           {
+            "delta": 0.0,
+            "feature": "right_elbow_angle_deg",
+            "featureScore": 1.0,
+            "idealMax": 155,
+            "idealMin": 110,
+            "status": "within",
+            "userValue": 148.291
+          },
+          {
             "delta": -29.617,
             "feature": "hip_shoulder_separation_deg",
             "featureScore": 0.0,
@@ -115,11 +125,20 @@
             "idealMin": 30,
             "status": "below",
             "userValue": 0.383
+          },
+          {
+            "delta": 0.0,
+            "feature": "arm_extension_rel_torso",
+            "featureScore": 1.0,
+            "idealMax": 1.05,
+            "idealMin": 0.6,
+            "status": "within",
+            "userValue": 0.609
           }
         ],
         "measured": true,
         "phase": "turn",
-        "phaseScore": 0.0,
+        "phaseScore": 88.9,
         "userFrameCount": 3
       },
       {
@@ -206,7 +225,7 @@
         ],
         "measured": true,
         "phase": "recovery",
-        "phaseScore": 77.8,
+        "phaseScore": 64.6,
         "userFrameCount": 6
       }
     ],

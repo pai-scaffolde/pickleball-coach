@@ -99,7 +99,9 @@
         "root":           { "x": 0.515, "y": 0.512, "confidence": 1.0 }
       },
       "ranges": {
-        "hip_shoulder_separation_deg": { "idealMin": 30, "idealMax": 45 }
+        "right_elbow_angle_deg":       { "idealMin": 110, "idealMax": 155 },
+        "arm_extension_rel_torso":     { "idealMin": 0.60, "idealMax": 1.05 },
+        "hip_shoulder_separation_deg": { "idealMin": 30,  "idealMax": 45 }
       }
     },
     {

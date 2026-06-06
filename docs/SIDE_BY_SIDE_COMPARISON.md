@@ -92,6 +92,7 @@ elbow 80–120°", not "match athlete X frame 47".
 | Comparison engine | `PickleballCoach/Services/ComparisonEngine.swift` | Pure Swift. Phase mapping, body-scale normalization, feature extraction, range/delta scoring. |
 | Reference model | `PickleballCoach/Models/ReferenceExemplar.swift` | Codable for the generic exemplar (pose track + ranges + rights metadata). |
 | Reference asset | `PickleballCoach/Resources/reference_forehand_drive_v0.json` | Option C generic exemplar, 7 phases. Register id `exemplar-generic-pose-forehand-v0` (`cleared-public`, `bundled-app`). |
+| Reference asset (backhand) | `PickleballCoach/Resources/reference_backhand_drive_v0.json` | Option C generic exemplar, 7 phases. Register id `exemplar-generic-pose-backhand-v0` (`cleared-public`, `bundled-app`). Added SCA-1864 (Milestone 4 — second stroke type). |
 | Side-by-side view | `PickleballCoach/Views/SideBySideComparisonView.swift` | SwiftUI two-panel skeletons + delta readout. No overlay. |
 | Run harness | `tools/sca1824-comparison-harness/main.swift` | Swift CLI that runs the engine over a pose artifact + reference and writes the report. |
 | Reference port | `tools/sca1824-comparison-harness/reference_port.py` | Identical-behaviour Python port to regenerate the artifact where the local Swift toolchain is broken (see §6). |
@@ -105,12 +106,18 @@ Input: the SCA-1819 forehand-drive pose artifact (user) vs the generic exemplar
 (reference). Result (`docs/artifacts/SCA-1824-comparison-artifact.json`):
 
 ```
-overall: 41.8/100 across 7 measured phases
-  ready           55.2     takeback   50.0     contact         63.5
-  load            43.4     turn        0.0     follow_through    2.6
-  recovery        77.8
+overall: 48.3/100 across 7 measured phases   (SCA-1864 recalibrated; was 41.8)
+  ready           40.3     takeback   50.0     contact         63.5
+  load            28.5     turn       88.9     follow_through    2.6
+  recovery        64.6
 method=range_delta_on_scale_normalized_features  ghostOverlay=false  alignment=phase_keyed_not_pixel
 ```
+
+> **SCA-1864 change.** `turn` no longer false-zeros (0.0 → 88.9): the phase now scores
+> on 2D-observable features (elbow angle, arm extension) and the unreliable
+> `hip_shoulder_separation_deg` is down-weighted (×0.25). `ready`/`recovery`/`load` drop
+> slightly because the previously full-weight separation feature — which read a *false*
+> ~0° "in range" — no longer inflates them. See §6.
 
 The deltas are explainable, e.g. at **contact** the user's elbow is 144° vs ideal 150–175°
 (delta −5.5°, slightly under-extended) and the wrist sits low (−0.71 vs −0.45–0.10). These
@@ -120,11 +127,18 @@ are coachable observations, exactly the inputs the feedback module (SCA-1823) co
 
 ## 6. Known limitations (honest)
 
-- **2D rotation under-detection.** `hip_shoulder_separation_deg` measured ~0.4° on the
-  side-on sample (ideal 30–45°) → phase `turn` scored 0. In a pure side-on view the
-  shoulder and hip lines foreshorten together, so a 2D line-angle proxy cannot see torso
-  rotation. Mitigation options: use depth/3D pose, a torso-width-ratio proxy, or weight
-  this feature down for side-on captures. Tracked as an open item for Milestone 4.
+- **2D rotation under-detection — mitigated in SCA-1864.** `hip_shoulder_separation_deg`
+  measured ~0.4° (ideal 30–45°) → phase `turn` scored a *false* 0. Root cause is deeper
+  than "side-on": a 2D **line-angle** between two near-horizontal segments cannot observe
+  **axial** torso rotation (the hip/shoulder X-factor) from a single camera on a side-on
+  *or* a frontal view. Mitigation shipped: (1) the feature is **down-weighted ×0.25** so it
+  cannot dominate a phase score; (2) it is **fully excluded** (`low_view_confidence`) on
+  true side-on captures (shoulder-width/torso < 0.30), where even tilt is unreadable;
+  (3) phases that depended on it (e.g. `turn`) now also carry 2D-observable features
+  (elbow angle, arm extension) so they score on real signal. **True** axial rotation still
+  needs depth/3D pose (VNHumanBodyPose3D / ARKit) — tracked as the SCA-1864 3D follow-up
+  child. The mitigation is verified in both the down-weight path (frontal: `turn` 0.0 →
+  88.9) and the exclude path (synthetic side-on: separation → `low_view_confidence`).
 - **Single representative frame for rendering.** The side-by-side panels draw one
   representative pose per phase; scoring still uses all in-phase frames.
 - **Generic ranges are v0.** The bands are reasonable but uncalibrated; tighten with
