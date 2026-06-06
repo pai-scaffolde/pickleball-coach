@@ -25,6 +25,7 @@ struct SessionDetailView: View {
                 }
                 videoSection
                 titleSection
+                summarySection
                 metadataSection
                 actionSection
             }
@@ -45,7 +46,7 @@ struct SessionDetailView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Sample session")
                     .font(.subheadline.weight(.semibold))
-                Text("A bundled demo built from a generic reference stroke — no video of your own. Swipe to delete it from Sessions anytime.")
+                Text("A bundled demo built from a generic reference stroke — the clip shows an idealized forehand, not video of your own. Swipe to delete it from Sessions anytime.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -56,7 +57,7 @@ struct SessionDetailView: View {
         .background(.tint.opacity(0.1))
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Sample session. A bundled demo built from a generic reference stroke. Swipe to delete it from Sessions anytime.")
+        .accessibilityLabel("Sample session. A bundled demo built from a generic reference stroke — the clip shows an idealized forehand, not video of your own. Swipe to delete it from Sessions anytime.")
     }
 
     @ViewBuilder
@@ -101,6 +102,121 @@ struct SessionDetailView: View {
                 LabeledRow(label: "Duration", value: formatDuration(duration))
             }
         }
+    }
+
+    // MARK: - Summary (SCA-1908: surface accurate, informative details up front)
+    //
+    // The old detail screen showed only Date/Status/Duration — "very basic". This
+    // pulls the actual analysis result forward: overall mechanics score + grade,
+    // stroke, rep count, contact time, the single most useful coaching point, and
+    // per-category score bars so the screen is informative at a glance.
+
+    private var scored: MechanicsScore? { session.mechanicsScores.first }
+
+    @ViewBuilder
+    private var summarySection: some View {
+        if let score = scored, !score.scores.isEmpty {
+            VStack(alignment: .leading, spacing: 14) {
+                scoreHeader(score)
+                if let obs = headlineObservation(score) {
+                    headlineCard(obs)
+                }
+                categoryBars(score)
+            }
+            .padding(14)
+            .background(Color(.secondarySystemBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 14))
+        }
+    }
+
+    private func scoreHeader(_ score: MechanicsScore) -> some View {
+        let overall = overallScore(score)
+        return HStack(alignment: .center, spacing: 16) {
+            VStack(spacing: 0) {
+                Text("\(overall)")
+                    .font(.system(size: 46, weight: .bold, design: .rounded))
+                    .foregroundStyle(gradeColor(overall))
+                Text("/ 100").font(.caption).foregroundStyle(.secondary)
+            }
+            VStack(alignment: .leading, spacing: 4) {
+                Text(strokeDisplay(score)).font(.title3.bold())
+                Text("\(gradeLabel(overall)) · \(repCount) rep\(repCount == 1 ? "" : "s") · contact \(String(format: "%.2f", score.keyFrameTimestamp))s")
+                    .font(.caption).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer(minLength: 0)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(strokeDisplay(score)) mechanics score \(overall) out of 100, \(gradeLabel(overall)), \(repCount) reps.")
+    }
+
+    private func headlineCard(_ obs: FeedbackObservation) -> some View {
+        let improving = obs.severity == .improvement
+        return VStack(alignment: .leading, spacing: 4) {
+            Label(improving ? "Top focus" : "Strength",
+                  systemImage: improving ? "target" : "checkmark.seal.fill")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(improving ? .orange : .green)
+            Text(obs.observation).font(.subheadline)
+                .fixedSize(horizontal: false, vertical: true)
+            if improving, !obs.correction.isEmpty {
+                Text(obs.correction).font(.caption).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(10)
+        .background(Color(.tertiarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+
+    private func categoryBars(_ score: MechanicsScore) -> some View {
+        // Worst category first — shows where the score is being lost.
+        let rows = score.scores.sorted { $0.value < $1.value }
+        return VStack(spacing: 6) {
+            ForEach(rows, id: \.key) { key, value in
+                HStack(spacing: 10) {
+                    Text(MechanicsScoringEngine.categoryLabel(key).capitalized)
+                        .font(.caption)
+                        .frame(width: 120, alignment: .leading)
+                    ProgressView(value: max(0, min(1, value / 100)))
+                        .tint(gradeColor(Int(value.rounded())))
+                    Text("\(Int(value.rounded()))")
+                        .font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                        .frame(width: 28, alignment: .trailing)
+                }
+            }
+        }
+    }
+
+    private func overallScore(_ score: MechanicsScore) -> Int {
+        guard !score.scores.isEmpty else { return 0 }
+        return Int((score.scores.values.reduce(0, +) / Double(score.scores.count)).rounded())
+    }
+
+    private func gradeColor(_ s: Int) -> Color { s >= 80 ? .green : (s >= 60 ? .orange : .red) }
+    private func gradeLabel(_ s: Int) -> String { s >= 80 ? "Strong" : (s >= 60 ? "Solid" : "Needs work") }
+
+    private func strokeDisplay(_ score: MechanicsScore) -> String {
+        score.strokeType.replacingOccurrences(of: "_", with: " ").capitalized
+    }
+
+    /// The single most useful coaching point: prefer an improvement, else a
+    /// strength, else any observation.
+    private func headlineObservation(_ score: MechanicsScore) -> FeedbackObservation? {
+        score.observations.first { $0.severity == .improvement }
+            ?? score.observations.first { $0.severity == .strength }
+            ?? score.observations.first
+    }
+
+    /// Rep count from the on-disk pose timeline (falls back to stored clips).
+    private var repCount: Int {
+        let frames = loadFrames()
+        guard !frames.isEmpty else { return max(session.clipIntervals.count, 1) }
+        let n = SegmentationService().segment(frames: frames,
+                                              videoDuration: session.durationSeconds ?? 0).clips.count
+        return max(n, 1)
     }
 
     private var actionSection: some View {

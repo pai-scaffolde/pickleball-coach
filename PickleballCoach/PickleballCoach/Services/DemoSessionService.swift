@@ -75,11 +75,24 @@ enum DemoSessionService {
         let scoringFrames = contactApproach(in: frames, exemplar: exemplar)
         let score = MechanicsScoringEngine().score(frames: scoringFrames, clip: clip, reference: exemplar)
 
+        // SCA-1907: render the demo clip from the pose timeline at runtime.
+        // The clip is a synthetic skeleton animation — no third-party footage.
+        // Idempotent: if the file already exists from a prior call, reuse it.
+        let videoFileName = demoVideoFileName(sessionID: demoSessionID)
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let videoURL = docs.appendingPathComponent(videoFileName)
+        if !FileManager.default.fileExists(atPath: videoURL.path) {
+            try? DemoClipRenderer.render(frames: frames, to: videoURL)
+        }
+        let resolvedVideoFileName: String? = FileManager.default.fileExists(atPath: videoURL.path)
+            ? videoFileName
+            : nil
+
         return Session(
             id: demoSessionID,
             title: title,
             status: .ready,
-            videoFileName: nil,
+            videoFileName: resolvedVideoFileName,
             durationSeconds: frames.last?.timestamp,
             poseTimelineFileName: timelineFileName(sessionID: demoSessionID),
             clipIntervals: [clip],
@@ -116,6 +129,10 @@ enum DemoSessionService {
 
     private static func timelineFileName(sessionID: UUID) -> String {
         "pose-timeline-\(sessionID.uuidString).json"
+    }
+
+    private static func demoVideoFileName(sessionID: UUID) -> String {
+        "demo-video-\(sessionID.uuidString).mp4"
     }
 
     private static func writeTimeline(_ frames: [PoseFrame], sessionID: UUID) {

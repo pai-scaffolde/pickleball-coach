@@ -139,17 +139,18 @@
     },
     {
       "id": "yt-forehand-drive-navratil-v0",
-      "description": "YouTube: COMPLETE Forehand Drive Tutorial by Zane Navratil Pickleball (first 90s segment, 640x360). Public instructional video for v0 forehand-drive calibration.",
+      "description": "YouTube: COMPLETE Forehand Drive Tutorial by Zane Navratil Pickleball (first 90s segment, 640x360). Public instructional video used as a concept example. Bundled into the app target (Resources/) as the staged real-pipeline sample clip so Analyze exercises PoseExtractionService → CaptureQualityGate → scoring on real footage (SCA-1909).",
       "asset_type": "video",
       "asset_path": "tests/fixtures/yt-forehand-drive-navratil-v0.mp4",
+      "bundled_path": "PickleballCoach/PickleballCoach/Resources/yt-forehand-drive-navratil-v0.mp4",
       "source": "YouTube / publicly available instructional video — https://www.youtube.com/watch?v=YHjdSLwZCuU (Zane Navratil Pickleball)",
       "rights_holder": "Zane Navratil Pickleball (YouTube channel)",
-      "usage_scope": "internal-dev",
+      "usage_scope": "bundled-app",
       "rights_status": "cleared-public",
       "license_ref": "docs/assets/releases/yt-forehand-drive-navratil-v0-source.md",
       "expiry": null,
       "owner": "Engineering",
-      "notes": "Sourced per board decision SCA-1875 (2026-06-06): board accepted copyright/NIL/Lanham Act risk as principal (confirmation 305810d2). Internal calibration only — never bundle or publish. license_ref documents source URL and board decision."
+      "notes": "Promoted internal-dev → bundled-app per board decision on SCA-1906 (2026-06-06): board ruled the rights constraint too tight for a demo app — 'These videos are being used as concept examples. Stop blocking their use.' Builds on SCA-1875 (board accepted copyright/NIL/Lanham Act risk as principal, confirmation 305810d2). Scoped to bundled-app (ships inside the demo app binary) — NOT public-marketing (App Store/ads), which would need a separate board call. license_ref documents source URL and prior decision."
     },
     {
       "id": "yt-backhand-drive-selkirk-v0",
