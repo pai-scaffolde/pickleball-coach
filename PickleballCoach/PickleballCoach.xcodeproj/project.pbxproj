@@ -12,6 +12,7 @@
 		A1B2C3D4E5F60017A7B8C9D0 /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60016A7B8C9D0 /* VideoAsset.swift */; };
 		A1B2C3D4E5F60019A7B8C9D0 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */; };
 		A1B2C3D4E5F600F2A7B8C9DA /* DemoSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600F1A7B8C9DA /* DemoSessionService.swift */; };
+		5CA1909000000000000000B2 /* StagedClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1909000000000000000A2 /* StagedClipService.swift */; };
 		A1B2C3D4E5F6001BA7B8C9D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6001AA7B8C9D0 /* HomeView.swift */; };
 		C1A2B3D4E5F60073A7B8C9D0 /* ClipFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2B3D4E5F60072A7B8C9D0 /* ClipFeedbackView.swift */; };
 		A1B2C3D4E5F6001DA7B8C9D0 /* ImportVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6001CA7B8C9D0 /* ImportVideoView.swift */; };
@@ -74,6 +75,7 @@
 		A1B2C3D4E5F60016A7B8C9D0 /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F600F1A7B8C9DA /* DemoSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSessionService.swift; sourceTree = "<group>"; };
+		5CA1909000000000000000A2 /* StagedClipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedClipService.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001AA7B8C9D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C1A2B3D4E5F60072A7B8C9D0 /* ClipFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFeedbackView.swift; sourceTree = "<group>"; };
 		DD19040000000000000000C1 /* RepClipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepClipsView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */,
 				A1B2C3D4E5F600F1A7B8C9DA /* DemoSessionService.swift */,
+				5CA1909000000000000000A2 /* StagedClipService.swift */,
 				A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */,
 				A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */,
 				A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */,
@@ -366,6 +369,7 @@
 				A1B2C3D4E5F60015A7B8C9D0 /* Session.swift in Sources */,
 				A1B2C3D4E5F60019A7B8C9D0 /* SessionStore.swift in Sources */,
 				A1B2C3D4E5F600F2A7B8C9DA /* DemoSessionService.swift in Sources */,
+				5CA1909000000000000000B2 /* StagedClipService.swift in Sources */,
 				A1B2C3D4E5F6001BA7B8C9D0 /* HomeView.swift in Sources */,
 				C1A2B3D4E5F60073A7B8C9D0 /* ClipFeedbackView.swift in Sources */,
 				A1B2C3D4E5F60013A7B8C9D0 /* PickleballCoachApp.swift in Sources */,

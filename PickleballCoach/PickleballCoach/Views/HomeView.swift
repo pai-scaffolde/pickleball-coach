@@ -4,8 +4,8 @@ struct HomeView: View {
     @EnvironmentObject var store: SessionStore
     @State private var showingImport = false
     @State private var showingOnboarding = false
-    @State private var demoSession: Session?
-    @State private var demoError: String?
+    @State private var presentedSession: Session?
+    @State private var sampleError: String?
 
     private var sortedSessions: [Session] {
         store.sessions.sorted { $0.createdAt > $1.createdAt }
@@ -49,20 +49,20 @@ struct HomeView: View {
             .sheet(isPresented: $showingOnboarding) {
                 onboardingSheet
             }
-            .navigationDestination(item: $demoSession) { session in
+            .navigationDestination(item: $presentedSession) { session in
                 SessionDetailView(session: session)
                     .environmentObject(store)
             }
-            .alert("Demo unavailable", isPresented: demoErrorBinding) {
+            .alert("Sample unavailable", isPresented: sampleErrorBinding) {
                 Button("OK", role: .cancel) {}
             } message: {
-                Text(demoError ?? "")
+                Text(sampleError ?? "")
             }
         }
     }
 
-    private var demoErrorBinding: Binding<Bool> {
-        Binding(get: { demoError != nil }, set: { if !$0 { demoError = nil } })
+    private var sampleErrorBinding: Binding<Bool> {
+        Binding(get: { sampleError != nil }, set: { if !$0 { sampleError = nil } })
     }
 
     /// Builds (or refreshes) the bundled rights-clean sample session and opens it.
@@ -75,9 +75,29 @@ struct HomeView: View {
             } else {
                 store.add(demo)
             }
-            demoSession = demo
+            presentedSession = demo
         } catch {
-            demoError = error.localizedDescription
+            sampleError = error.localizedDescription
+        }
+    }
+
+    /// SCA-1909: stages a bundled REAL clip as an `.imported` session and opens it,
+    /// so tapping "Analyze" in the detail screen runs the genuine
+    /// PoseExtractionService → CaptureQualityGate → MechanicsScoringEngine pipeline.
+    /// The synthetic demo above is pre-scored and bypasses that path; this is the
+    /// only in-app affordance that exercises the real Vision pipeline end-to-end.
+    /// Idempotent via the staged session's stable id.
+    private func startStagedClip() {
+        do {
+            let staged = try StagedClipService.makeStagedSession()
+            if store.sessions.contains(where: { $0.id == staged.id }) {
+                store.update(staged)
+            } else {
+                store.add(staged)
+            }
+            presentedSession = staged
+        } catch {
+            sampleError = error.localizedDescription
         }
     }
 
@@ -186,6 +206,17 @@ struct HomeView: View {
         }
         .buttonStyle(.bordered)
         .accessibilityHint("Opens a bundled sample session with a scorecard and side-by-side comparison")
+
+        Button {
+            startStagedClip()
+        } label: {
+            Label("Try a Real Clip", systemImage: "video.badge.waveform")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
+        }
+        .buttonStyle(.bordered)
+        .accessibilityHint("Stages a bundled real pickleball clip so Analyze runs the full pose-analysis pipeline")
     }
 
     /// Home screen shown once sessions exist: the demo/import CTAs stay pinned at

@@ -40,6 +40,24 @@ HomeView
     └── Review button (enabled when status = ready) → ReviewPlaceholderView  (placeholder, Milestones 4-5)
 ```
 
+## Real-pipeline sample ("Try a Real Clip") — requires a physical device
+
+The home screen's **Try a Real Clip** button (SCA-1909) stages an `.imported`
+session backed by a bundled real pickleball clip
+(`yt-forehand-drive-navratil-v0.mp4`, rights-cleared to `bundled-app` per the
+SCA-1906 board decision). Tapping **Analyze** runs the genuine
+`PoseExtractionService → CaptureQualityGate → MechanicsScoringEngine` path —
+unlike **Try the Demo**, which is pre-scored and bypasses Vision.
+
+> **iOS Simulator limitation:** `VNDetectHumanBodyPoseRequest` does **not**
+> return observations on the iOS Simulator. On the simulator, frame extraction
+> runs (you'll see "Extracting … / 901 frames") but pose detection finds nothing,
+> so Analyze ends in **"Analysis failed — No body detected in any frame."** This
+> is an Apple platform constraint, **not** a problem with the clip or pipeline.
+> The byte-identical clip passes the real gate on macOS Vision (803/901 frames,
+> 89.1% coverage) via `tools/sca1888-corpus-gate`. **Run the real-clip analysis
+> on a physical iOS device** to see the full green scorecard end-to-end.
+
 ## Known limitations (Milestone 0-1 scope)
 
 - Analysis, segmentation, scoring, and coaching feedback are not yet implemented (Milestones 2-5).

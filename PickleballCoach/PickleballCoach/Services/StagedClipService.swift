@@ -78,13 +78,20 @@ enum StagedClipService {
             }
         }
 
+        // NOT isDemo: unlike the synthetic DemoSessionService (pre-scored, no real
+        // video), this is a genuine `.imported` session backed by real footage. It
+        // must show the "Analyze" action so tapping it runs the real
+        // PoseExtractionService → CaptureQualityGate → MechanicsScoringEngine path
+        // — the whole point of the staged clip. The title ("…Real Clip") labels it
+        // as a sample; the demo-only banner ("idealized forehand, not your own
+        // video") would be inaccurate here.
         return Session(
             id: stagedSessionID,
             title: title,
             status: .imported,
             videoFileName: videoFileName,
             durationSeconds: durationSeconds,
-            isDemo: true
+            isDemo: false
         )
     }
 
