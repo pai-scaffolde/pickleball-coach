@@ -25,7 +25,7 @@ This is not a full coaching platform. The MVP proves the loop:
 - 2-3 supported stroke types for MVP: forehand drive, backhand drive, serve or dink.
 - Automatic or semi-automatic segmentation into 8-10 clips.
 - Basic mechanics scoring from pose-derived features.
-- Small bundled reference library with JSON pose metrics and short annotated example clips.
+- Small bundled reference library with JSON pose metrics and short annotated example clips. All reference assets must be rights-cleared per `docs/RIGHTS_PLAN.md` (use pose-only generic exemplars or self-recorded/licensed footage; no unlicensed pro footage).
 - LLM-generated feedback from structured analysis data, not raw video.
 - Simple result screen with clips, scores, and coaching notes.
 

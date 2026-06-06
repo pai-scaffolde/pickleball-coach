@@ -40,6 +40,11 @@ Relevant skills/routes:
 - Keep LLM feedback downstream of deterministic pose metrics.
 - Do not use unlicensed pro footage as bundled commercial reference material.
 - Do not claim medical-grade biomechanics or professional coaching accuracy.
+- Follow `docs/RIGHTS_PLAN.md` for all pro references and demo assets. Ben Johns, Hayden
+  Patriquin, Anna Leigh Waters, and Leigh Waters are aspirational references only until
+  licensed. Every exemplar/demo/marketing asset must have a row in
+  `docs/assets/exemplar-rights-register.json` whose `usage_scope` permits the surface it
+  appears on — no row, no ship.
 
 ## Verification standard
 

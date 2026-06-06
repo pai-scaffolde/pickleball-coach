@@ -11,6 +11,8 @@ Use iPhone video to turn a practice session into 8-10 slow-motion clips with pos
 ## Canonical artifacts
 
 - `docs/MVP_PLAN.md` — implementation plan and acceptance criteria.
+- `docs/RIGHTS_PLAN.md` — rights/legal policy for pro references and demo assets (binding before any public pro comparison).
+- `docs/assets/exemplar-rights-register.json` — per-asset rights status (source of truth; no row, no ship).
 - `docs/SCAFFOLDE_CAPABILITY_SETUP.md` — how this project uses Scaffolde capabilities without becoming part of Scaffolde.
 - Paperclip project: Pickleball Coach, ID `d78b78a0-1a6c-45d5-ac6b-6863d9958a3e`.
 

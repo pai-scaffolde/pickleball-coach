@@ -1,0 +1,112 @@
+{
+  "$schema_version": "1.0",
+  "description": "Source of truth for the rights status of every exemplar/demo/marketing asset in Pickleball Coach. Governed by docs/RIGHTS_PLAN.md. No asset ships to a bundled or public surface without a row here whose usage_scope permits that surface.",
+  "issue": "SCA-1821",
+  "last_updated": "2026-06-05",
+  "rights_status_values": {
+    "cleared-public": "Written rights cover public/marketing use of this asset.",
+    "cleared-internal": "Usable for development/calibration only; not bundled, not public.",
+    "pending": "Rights requested / under negotiation; not yet granted.",
+    "aspirational-reference": "A named target studied privately; not a shippable asset.",
+    "prohibited": "Must not be used in any shipped or public form."
+  },
+  "usage_scope_values": {
+    "none": "Not usable as an asset on any surface.",
+    "internal-dev": "Development/calibration only; never bundled, never public.",
+    "bundled-app": "May ship inside the app binary/reference library.",
+    "public-marketing": "May appear in App Store, web, social, ads, demos, screenshots."
+  },
+  "required_fields": [
+    "id",
+    "description",
+    "asset_type",
+    "source",
+    "rights_holder",
+    "usage_scope",
+    "rights_status",
+    "license_ref",
+    "expiry",
+    "owner",
+    "notes"
+  ],
+  "assets": [
+    {
+      "id": "ref-ben-johns",
+      "description": "Ben Johns — aspirational mechanics reference (named athlete, not an asset).",
+      "asset_type": "named-reference",
+      "source": "publicly available footage (study only)",
+      "rights_holder": "Ben Johns / respective footage owners",
+      "usage_scope": "none",
+      "rights_status": "aspirational-reference",
+      "license_ref": null,
+      "expiry": null,
+      "owner": "Product",
+      "notes": "Aspirational only until licensed. No name, likeness, footage, or derived pose track may ship or appear publicly. Moving to cleared-public requires a written NIL/likeness license recorded in license_ref + counsel sign-off."
+    },
+    {
+      "id": "ref-hayden-patriquin",
+      "description": "Hayden Patriquin — aspirational mechanics reference (named athlete, not an asset).",
+      "asset_type": "named-reference",
+      "source": "publicly available footage (study only)",
+      "rights_holder": "Hayden Patriquin / respective footage owners",
+      "usage_scope": "none",
+      "rights_status": "aspirational-reference",
+      "license_ref": null,
+      "expiry": null,
+      "owner": "Product",
+      "notes": "Aspirational only until licensed. Same constraints as ref-ben-johns."
+    },
+    {
+      "id": "ref-anna-leigh-waters",
+      "description": "Anna Leigh Waters — aspirational mechanics reference (named athlete, not an asset).",
+      "asset_type": "named-reference",
+      "source": "publicly available footage (study only)",
+      "rights_holder": "Anna Leigh Waters / respective footage owners",
+      "usage_scope": "none",
+      "rights_status": "aspirational-reference",
+      "license_ref": null,
+      "expiry": null,
+      "owner": "Product",
+      "notes": "Aspirational only until licensed. Minor-status/guardian considerations may apply depending on dates; verify before any future licensing."
+    },
+    {
+      "id": "ref-leigh-waters",
+      "description": "Leigh Waters — aspirational mechanics reference (named athlete, not an asset).",
+      "asset_type": "named-reference",
+      "source": "publicly available footage (study only)",
+      "rights_holder": "Leigh Waters / respective footage owners",
+      "usage_scope": "none",
+      "rights_status": "aspirational-reference",
+      "license_ref": null,
+      "expiry": null,
+      "owner": "Product",
+      "notes": "Aspirational only until licensed. Same constraints as ref-ben-johns."
+    },
+    {
+      "id": "exemplar-generic-pose-forehand-v0",
+      "description": "Pose-only generic forehand-drive exemplar (synthetic/idealized skeleton, no identifiable person).",
+      "asset_type": "pose-json",
+      "source": "hand-authored / calibrated from internal research (Option C)",
+      "rights_holder": "Pickleball Coach",
+      "usage_scope": "bundled-app",
+      "rights_status": "cleared-public",
+      "license_ref": null,
+      "expiry": null,
+      "owner": "CV/Product",
+      "notes": "PLACEHOLDER row for the MVP reference library. No real person depicted; must not be reverse-derived from a specific pro's copyrighted footage. Fill in the actual asset path when authored."
+    },
+    {
+      "id": "demo-selfrecorded-coach-v0",
+      "description": "Self-recorded coach/player demo clip for marketing + in-app demo (Option A).",
+      "asset_type": "video",
+      "source": "originally recorded by team/consenting talent",
+      "rights_holder": "Pickleball Coach",
+      "usage_scope": "none",
+      "rights_status": "pending",
+      "license_ref": null,
+      "expiry": null,
+      "owner": "Product",
+      "notes": "PLACEHOLDER. Stays usage_scope=none until a signed talent/likeness release exists; then set license_ref to the release path and promote to cleared-public per Appendix A of RIGHTS_PLAN.md."
+    }
+  ]
+}
