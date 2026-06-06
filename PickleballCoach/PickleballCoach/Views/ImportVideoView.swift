@@ -6,6 +6,11 @@ import UniformTypeIdentifiers
 /// Presents the system photo picker filtered to videos, copies the selected
 /// video into the app's Documents directory, and creates a new Session.
 struct ImportVideoView: View {
+    /// When set, the picked clip replaces the video on this existing session and
+    /// increments its capture-attempt count (SCA-1870 Gate 1) instead of creating
+    /// a new session. Used by the quality-gate "try again" re-import path.
+    var reimportSessionID: UUID? = nil
+
     @EnvironmentObject var store: SessionStore
     @Environment(\.dismiss) private var dismiss
 
@@ -69,15 +74,19 @@ struct ImportVideoView: View {
                 let duration = CMTimeGetSeconds(asset.duration)
                 let safeDuration = duration.isFinite ? duration : 0
 
-                let session = Session(
-                    title: defaultTitle(),
-                    status: .imported,
-                    videoFileName: fileName,
-                    durationSeconds: safeDuration
-                )
-
                 DispatchQueue.main.async {
-                    store.add(session)
+                    if let reimportSessionID {
+                        store.reimport(sessionID: reimportSessionID,
+                                       videoFileName: fileName,
+                                       durationSeconds: safeDuration)
+                    } else {
+                        store.add(Session(
+                            title: defaultTitle(),
+                            status: .imported,
+                            videoFileName: fileName,
+                            durationSeconds: safeDuration
+                        ))
+                    }
                     isImporting = false
                     dismiss()
                 }

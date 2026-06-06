@@ -42,6 +42,8 @@
 		A1B2C3D4E5F600B2A7B8C9D0 /* MechanicsScorecardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600C2A7B8C9D0 /* MechanicsScorecardView.swift */; };
 		A1B2C3D4E5F60061A7B8C9DA /* PoseExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */; };
 		A1B2C3D4E5F600B4A7B8C9DA /* MechanicsScoringEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600B5A7B8C9DA /* MechanicsScoringEngineTests.swift */; };
+		A1B2C3D4E5F600E0A7B8C9DA /* CaptureAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600E1A7B8C9DA /* CaptureAnalytics.swift */; };
+		A1B2C3D4E5F600E2A7B8C9DA /* CaptureAnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600E3A7B8C9DA /* CaptureAnalyticsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,7 @@
 		A1B2C3D4E5F60074A7B8C9D0 /* reference_backhand_drive_v0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reference_backhand_drive_v0.json; sourceTree = "<group>"; };
 		A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseExtractionService.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureQualityGate.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F600E1A7B8C9DA /* CaptureAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureAnalytics.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsGate.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60092A7B8C9D0 /* ComparisonInputBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonInputBuilder.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F600B1A7B8C9D0 /* MechanicsScoringEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsScoringEngine.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		A1B2C3D4E5F600C2A7B8C9D0 /* MechanicsScorecardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsScorecardView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseExtractionServiceTests.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F600B5A7B8C9DA /* MechanicsScoringEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsScoringEngineTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F600E3A7B8C9DA /* CaptureAnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureAnalyticsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 				A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */,
 				A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */,
 				A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */,
+				A1B2C3D4E5F600E1A7B8C9DA /* CaptureAnalytics.swift */,
 				A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */,
 				A1B2C3D4E5F60038A7B8C9D0 /* ComparisonEngine.swift */,
 				A1B2C3D4E5F60092A7B8C9D0 /* ComparisonInputBuilder.swift */,
@@ -226,6 +231,7 @@
 			children = (
 				A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */,
 				A1B2C3D4E5F600B5A7B8C9DA /* MechanicsScoringEngineTests.swift */,
+				A1B2C3D4E5F600E3A7B8C9DA /* CaptureAnalyticsTests.swift */,
 			);
 			path = PickleballCoachTests;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 				A1B2C3D4E5F6002CA7B8C9D0 /* PoseCaptureService.swift in Sources */,
 				A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */,
 				A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */,
+				A1B2C3D4E5F600E0A7B8C9DA /* CaptureAnalytics.swift in Sources */,
 				A1B2C3D4E5F60073A7B8C9DA /* RightsGate.swift in Sources */,
 				A1B2C3D4E5F6002EA7B8C9D0 /* PoseOverlayView.swift in Sources */,
 				A1B2C3D4E5F6003BA7B8C9D0 /* ReferenceExemplar.swift in Sources */,
@@ -362,6 +369,7 @@
 			files = (
 				A1B2C3D4E5F60061A7B8C9DA /* PoseExtractionServiceTests.swift in Sources */,
 				A1B2C3D4E5F600B4A7B8C9DA /* MechanicsScoringEngineTests.swift in Sources */,
+				A1B2C3D4E5F600E2A7B8C9DA /* CaptureAnalyticsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@ struct AnalysisProgressView: View {
     @State private var progress: PoseExtractionService.ExtractionProgress?
     @State private var error: String?
     @State private var analysisStarted = false
+    @State private var showReimport = false
 
     var body: some View {
         Group {
@@ -25,6 +26,10 @@ struct AnalysisProgressView: View {
         .navigationTitle(frames != nil ? "Pose Analysis" : "Analyzing…")
         .navigationBarTitleDisplayMode(.inline)
         .task { await runAnalysis() }
+        .sheet(isPresented: $showReimport) {
+            ImportVideoView(reimportSessionID: session.id)
+                .environmentObject(store)
+        }
     }
 
     // MARK: - States
@@ -91,6 +96,15 @@ struct AnalysisProgressView: View {
                     .background(.regularMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
+
+                Button {
+                    showReimport = true
+                } label: {
+                    Label("Record a new clip", systemImage: "arrow.clockwise")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
             }
             .padding()
         }
@@ -128,6 +142,12 @@ struct AnalysisProgressView: View {
                 Task { @MainActor in self.progress = p }
             }
             let gate = CaptureQualityGate.evaluate(extracted, videoDuration: session.durationSeconds)
+            // SCA-1870 (Gate 1): record every gate evaluation with the current
+            // attempt count and whether it was accepted. The value at the first
+            // accepted attempt is what the 80%-within-2-attempts gate measures.
+            CaptureAnalytics.shared.record(sessionId: session.id,
+                                           captureAttemptCount: session.captureAttemptCount,
+                                           accepted: gate.passed)
             qualityGateResult = gate
             guard gate.passed else { return }
             persist(extracted)

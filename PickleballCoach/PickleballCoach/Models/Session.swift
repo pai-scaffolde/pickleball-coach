@@ -25,6 +25,13 @@ struct Session: Identifiable, Codable {
     var clipIntervals: [ClipInterval]
     var mechanicsScores: [MechanicsScore]
 
+    /// SCA-1870 (Gate 1) instrumentation: how many capture attempts this session
+    /// has taken. Starts at 1 for the initial import and is incremented on every
+    /// re-import attempt made before an analysis is accepted
+    /// (`CaptureQualityGate.passed == true`). The value at acceptance is what the
+    /// beta gate measures (target: ≥80% of sessions accepted within 2 attempts).
+    var captureAttemptCount: Int
+
     init(id: UUID = UUID(),
          title: String = "",
          createdAt: Date = Date(),
@@ -34,7 +41,8 @@ struct Session: Identifiable, Codable {
          poseAnalysisFileName: String? = nil,
          poseTimelineFileName: String? = nil,
          clipIntervals: [ClipInterval] = [],
-         mechanicsScores: [MechanicsScore] = []) {
+         mechanicsScores: [MechanicsScore] = [],
+         captureAttemptCount: Int = 1) {
         self.id = id
         self.title = title
         self.createdAt = createdAt
@@ -45,6 +53,7 @@ struct Session: Identifiable, Codable {
         self.poseTimelineFileName = poseTimelineFileName
         self.clipIntervals = clipIntervals
         self.mechanicsScores = mechanicsScores
+        self.captureAttemptCount = captureAttemptCount
     }
 
     // Custom Decodable init so legacy session JSON (pre-M2) lacking clipIntervals or
@@ -62,6 +71,16 @@ struct Session: Identifiable, Codable {
         poseTimelineFileName = try c.decodeIfPresent(String.self, forKey: .poseTimelineFileName)
         clipIntervals = try c.decodeIfPresent([ClipInterval].self, forKey: .clipIntervals) ?? []
         mechanicsScores = try c.decodeIfPresent([MechanicsScore].self, forKey: .mechanicsScores) ?? []
+        // Legacy sessions (pre-SCA-1870) lack captureAttemptCount; treat them as a
+        // single attempt rather than failing the decode.
+        captureAttemptCount = try c.decodeIfPresent(Int.self, forKey: .captureAttemptCount) ?? 1
+    }
+
+    /// Marks a re-import attempt: bumps the capture-attempt counter. Only
+    /// meaningful before acceptance — once an analysis passes the quality gate the
+    /// session is `.ready` and the count is frozen for measurement.
+    mutating func registerReimportAttempt() {
+        captureAttemptCount += 1
     }
 
     /// Resolves the full URL to the video file by looking it up in the app's

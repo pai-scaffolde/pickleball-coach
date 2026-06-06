@@ -45,6 +45,23 @@ final class SessionStore: ObservableObject {
         }
     }
 
+    /// SCA-1870 (Gate 1): records a re-import attempt against an existing session.
+    /// Swaps in the freshly imported clip, increments the capture-attempt counter,
+    /// and resets the session to `.imported` so it re-runs the quality gate. The
+    /// incremented count is what the next gate evaluation logs to analytics.
+    func reimport(sessionID: UUID, videoFileName: String, durationSeconds: Double?) {
+        performOnMain {
+            guard let index = self.sessions.firstIndex(where: { $0.id == sessionID }) else { return }
+            self.sessions[index].registerReimportAttempt()
+            self.sessions[index].videoFileName = videoFileName
+            self.sessions[index].durationSeconds = durationSeconds
+            self.sessions[index].status = .imported
+            self.sessions[index].poseTimelineFileName = nil
+            self.sessions[index].poseAnalysisFileName = nil
+            self.save()
+        }
+    }
+
     // MARK: - Persistence
 
     private func load() {
