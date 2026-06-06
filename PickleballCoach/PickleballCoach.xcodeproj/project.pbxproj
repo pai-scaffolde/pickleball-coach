@@ -58,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		A1B2C3D4E5F60009A7B8C9D0 /* PickleballCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickleballCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickleballCoachTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D4E5F60012A7B8C9D0 /* PickleballCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickleballCoachApp.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60014A7B8C9D0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60016A7B8C9D0 /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
