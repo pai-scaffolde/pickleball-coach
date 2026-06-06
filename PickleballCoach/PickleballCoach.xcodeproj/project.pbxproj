@@ -12,6 +12,7 @@
 		A1B2C3D4E5F60017A7B8C9D0 /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60016A7B8C9D0 /* VideoAsset.swift */; };
 		A1B2C3D4E5F60019A7B8C9D0 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */; };
 		A1B2C3D4E5F6001BA7B8C9D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6001AA7B8C9D0 /* HomeView.swift */; };
+		C1A2B3D4E5F60073A7B8C9D0 /* ClipFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2B3D4E5F60072A7B8C9D0 /* ClipFeedbackView.swift */; };
 		A1B2C3D4E5F6001DA7B8C9D0 /* ImportVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6001CA7B8C9D0 /* ImportVideoView.swift */; };
 		A1B2C3D4E5F6001FA7B8C9D0 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6001EA7B8C9D0 /* SessionDetailView.swift */; };
 		A1B2C3D4E5F60021A7B8C9D0 /* AnalysisProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60020A7B8C9D0 /* AnalysisProgressView.swift */; };
@@ -64,6 +65,7 @@
 		A1B2C3D4E5F60016A7B8C9D0 /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001AA7B8C9D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C1A2B3D4E5F60072A7B8C9D0 /* ClipFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFeedbackView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001CA7B8C9D0 /* ImportVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVideoView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001EA7B8C9D0 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60020A7B8C9D0 /* AnalysisProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisProgressView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F6001AA7B8C9D0 /* HomeView.swift */,
+				C1A2B3D4E5F60072A7B8C9D0 /* ClipFeedbackView.swift */,
 				A1B2C3D4E5F6001CA7B8C9D0 /* ImportVideoView.swift */,
 				A1B2C3D4E5F6001EA7B8C9D0 /* SessionDetailView.swift */,
 				A1B2C3D4E5F60020A7B8C9D0 /* AnalysisProgressView.swift */,
@@ -334,6 +337,7 @@
 				A1B2C3D4E5F60015A7B8C9D0 /* Session.swift in Sources */,
 				A1B2C3D4E5F60019A7B8C9D0 /* SessionStore.swift in Sources */,
 				A1B2C3D4E5F6001BA7B8C9D0 /* HomeView.swift in Sources */,
+				C1A2B3D4E5F60073A7B8C9D0 /* ClipFeedbackView.swift in Sources */,
 				A1B2C3D4E5F60013A7B8C9D0 /* PickleballCoachApp.swift in Sources */,
 				A1B2C3D4E5F60017A7B8C9D0 /* VideoAsset.swift in Sources */,
 				A1B2C3D4E5F6001DA7B8C9D0 /* ImportVideoView.swift in Sources */,
