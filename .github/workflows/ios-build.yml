@@ -45,5 +45,5 @@ jobs:
                   PickleballCoach/PickleballCoach/Models \
                   PickleballCoach/PickleballCoach/Services)
           echo "Compiling sources:"; echo "$SRC"
-          swiftc -o /tmp/decode_check $SRC tools/decode_check.swift
+          swiftc -parse-as-library -o /tmp/decode_check $SRC tools/decode_check.swift
           /tmp/decode_check
