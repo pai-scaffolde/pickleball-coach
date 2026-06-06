@@ -18,7 +18,11 @@ cd "$(dirname "$0")/../.."   # repo root
 
 XCODE_APP="${XCODE_APP:-/Applications/Xcode.app}"
 DEV="$XCODE_APP/Contents/Developer"
-SWIFTC="$DEV/usr/bin/swiftc"
+# Real swiftc lives in the bundled toolchain; Developer/usr/bin/swiftc is not
+# always populated on a fresh Xcode (needs xcode-select). Use the toolchain dir
+# directly so we stay sudo-free.
+SWIFTC="$DEV/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+[[ -x "$SWIFTC" ]] || SWIFTC="$DEV/usr/bin/swiftc"
 SDK="$DEV/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
 
 USER_ART="docs/artifacts/SCA-1819-pose-spike-artifact.json"
@@ -27,6 +31,8 @@ SRC=(
   "tools/sca1824-comparison-harness/main.swift"
   "PickleballCoach/PickleballCoach/Services/ComparisonEngine.swift"
   "PickleballCoach/PickleballCoach/Models/ReferenceExemplar.swift"
+  "PickleballCoach/PickleballCoach/Models/PoseAnalysisResult.swift"
+  "PickleballCoach/PickleballCoach/Services/RightsGate.swift"
 )
 OUT_SWIFT="/tmp/sca1824-swift-report.json"
 OUT_PY="/tmp/sca1824-py-report.json"
