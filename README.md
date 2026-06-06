@@ -17,6 +17,27 @@ import video ──▶ Vision pose timeline ──▶ rep segmentation ──▶
 Every coaching statement is downstream of a measured metric. The LLM may
 phrase feedback; it never invents biomechanical judgments.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="25%"><img src="docs/artifacts/sca1889/01-onboarding.png" alt="Onboarding — import a clip or try the demo" width="220"></td>
+    <td align="center" width="25%"><img src="docs/artifacts/sca1889/02-detail.png" alt="Session detail — status, duration, and analysis entry points" width="220"></td>
+    <td align="center" width="25%"><img src="docs/artifacts/sca1889/03-scorecard.png" alt="Mechanics score — pose-skeleton key frame with per-metric ideal bands" width="220"></td>
+    <td align="center" width="25%"><img src="docs/artifacts/sca1889/04-comparison.png" alt="Compare — your stroke against a generic reference exemplar, phase by phase" width="220"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Onboarding</b><br>Import a clip or run the bundled demo.</td>
+    <td align="center"><b>Session</b><br>Status, duration, and the analysis entry points.</td>
+    <td align="center"><b>Mechanics score</b><br>Contact key frame with per-metric ideal bands.</td>
+    <td align="center"><b>Compare</b><br>Your stroke vs. a generic reference, phase by phase.</td>
+  </tr>
+</table>
+
+> Screenshots are from the rights-clean in-app demo session, built from a
+> generic pose-only reference exemplar — not a named athlete or licensed
+> footage. See [`docs/RIGHTS_PLAN.md`](docs/RIGHTS_PLAN.md).
+
 ## Status
 
 | Milestone | Scope | State |
