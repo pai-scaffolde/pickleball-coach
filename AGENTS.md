@@ -49,13 +49,17 @@ Relevant skills/routes:
 - Build the import-video path before relying on live camera capture.
 - Use Apple Vision first for pose extraction. Evaluate MediaPipe only if Vision is insufficient.
 - Keep LLM feedback downstream of deterministic pose metrics.
-- Do not use unlicensed pro footage as bundled commercial reference material.
 - Do not claim medical-grade biomechanics or professional coaching accuracy.
-- Follow `docs/RIGHTS_PLAN.md` for all pro references and demo assets. Ben Johns, Hayden
-  Patriquin, Anna Leigh Waters, and Leigh Waters are aspirational references only until
-  licensed. Every exemplar/demo/marketing asset must have a row in
-  `docs/assets/exemplar-rights-register.json` whose `usage_scope` permits the surface it
-  appears on — no row, no ship.
+- Track exemplar/demo/marketing assets in `docs/assets/exemplar-rights-register.json` —
+  every asset has a row recording its source and `usage_scope`.
+
+  > **Rights posture revised by board decision ([SCA-1875](docs/RIGHTS_PLAN.md), 2026-06-06).**
+  > The prior restrictions on sourcing publicly-available / unlicensed footage were
+  > rescinded by the board, which accepted the associated legal risk (copyright, right of
+  > publicity / NIL, Lanham Act) as principal. The runtime rights gate
+  > (`RightsGate.swift`, SCA-1826) is unchanged and still requires a real clearance record
+  > on disk before any asset calibrates or ships; fabricating that record remains out of
+  > scope. See git history for the prior text.
 
 ## Verification standard
 

@@ -46,13 +46,18 @@ struct ReferenceExemplar: Codable {
         phases.first { $0.phase == name }
     }
 
-    /// Decodes a bundled reference JSON from the app bundle.
+    /// Decodes a bundled reference JSON from the app bundle and verifies rights
+    /// clearance via RightsGate before returning.
+    /// Throws RightsGate.GateError if the asset is not registered, rights are
+    /// uncleared, or the usage scope is insufficient for bundled-app distribution.
     static func load(named name: String, in bundle: Bundle = .main) throws -> ReferenceExemplar {
         guard let url = bundle.url(forResource: name, withExtension: "json") else {
             throw NSError(domain: "ReferenceExemplar", code: 404,
                           userInfo: [NSLocalizedDescriptionKey: "Missing bundled reference \(name).json"])
         }
         let data = try Data(contentsOf: url)
-        return try JSONDecoder().decode(ReferenceExemplar.self, from: data)
+        let exemplar = try JSONDecoder().decode(ReferenceExemplar.self, from: data)
+        try RightsGate.check(assetId: exemplar.id, requiredScope: .bundledApp)
+        return exemplar
     }
 }

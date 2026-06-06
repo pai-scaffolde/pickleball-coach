@@ -16,11 +16,11 @@
 		A1B2C3D4E5F6001FA7B8C9D0 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6001EA7B8C9D0 /* SessionDetailView.swift */; };
 		A1B2C3D4E5F60021A7B8C9D0 /* AnalysisProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60020A7B8C9D0 /* AnalysisProgressView.swift */; };
 		A1B2C3D4E5F60023A7B8C9D0 /* ReviewPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60022A7B8C9D0 /* ReviewPlaceholderView.swift */; };
+		A1B2C3D4E5F60025A7B8C9D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60024A7B8C9D0 /* Assets.xcassets */; };
+		A1B2C3D4E5F60027A7B8C9D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60026A7B8C9D0 /* Preview Assets.xcassets */; };
 		A1B2C3D4E5F6002AA7B8C9D0 /* PoseAnalysisResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60029A7B8C9D0 /* PoseAnalysisResult.swift */; };
 		A1B2C3D4E5F6002CA7B8C9D0 /* PoseCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */; };
 		A1B2C3D4E5F6002EA7B8C9D0 /* PoseOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6002DA7B8C9D0 /* PoseOverlayView.swift */; };
-		A1B2C3D4E5F60025A7B8C9D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60024A7B8C9D0 /* Assets.xcassets */; };
-		A1B2C3D4E5F60027A7B8C9D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60026A7B8C9D0 /* Preview Assets.xcassets */; };
 		A1B2C3D4E5F60031A7B8C9D0 /* MechanicsObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60030A7B8C9D0 /* MechanicsObservation.swift */; };
 		A1B2C3D4E5F60033A7B8C9D0 /* FeedbackRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60032A7B8C9D0 /* FeedbackRule.swift */; };
 		A1B2C3D4E5F60035A7B8C9D0 /* FeedbackRuleSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60034A7B8C9D0 /* FeedbackRuleSet.swift */; };
@@ -35,6 +35,16 @@
 		A1B2C3D4E5F60075A7B8C9D0 /* reference_backhand_drive_v0.json in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60074A7B8C9D0 /* reference_backhand_drive_v0.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A1B2C3D4E5F60057A7B8C9DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B2C3D4E5F60001A7B8C9D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3D4E5F6000AA7B8C9D0;
+			remoteInfo = PickleballCoach;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A1B2C3D4E5F60009A7B8C9D0 /* PickleballCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickleballCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D4E5F60012A7B8C9D0 /* PickleballCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickleballCoachApp.swift; sourceTree = "<group>"; };
@@ -46,12 +56,12 @@
 		A1B2C3D4E5F6001EA7B8C9D0 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60020A7B8C9D0 /* AnalysisProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisProgressView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60022A7B8C9D0 /* ReviewPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPlaceholderView.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F60029A7B8C9D0 /* PoseAnalysisResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseAnalysisResult.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseCaptureService.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6002DA7B8C9D0 /* PoseOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseOverlayView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60024A7B8C9D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B2C3D4E5F60026A7B8C9D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1B2C3D4E5F60028A7B8C9D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C3D4E5F60029A7B8C9D0 /* PoseAnalysisResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseAnalysisResult.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseCaptureService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6002DA7B8C9D0 /* PoseOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseOverlayView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60030A7B8C9D0 /* MechanicsObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsObservation.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60032A7B8C9D0 /* FeedbackRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRule.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60034A7B8C9D0 /* FeedbackRuleSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRuleSet.swift; sourceTree = "<group>"; };
@@ -74,6 +84,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1B2C3D4E5F60053A7B8C9DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F60003A7B8C9D0 /* PickleballCoach */,
+				A1B2C3D4E5F60059A7B8C9DA /* PickleballCoachTests */,
 				A1B2C3D4E5F60007A7B8C9D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,7 +141,12 @@
 			children = (
 				A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */,
 				A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */,
+				A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */,
+				A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */,
+				A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */,
 				A1B2C3D4E5F60038A7B8C9D0 /* ComparisonEngine.swift */,
+				A1B2C3D4E5F60092A7B8C9D0 /* ComparisonInputBuilder.swift */,
+				A1B2C3D4E5F600B1A7B8C9D0 /* MechanicsScoringEngine.swift */,
 				A1B2C3D4E5F60036A7B8C9D0 /* FeedbackEngine.swift */,
 			);
 			path = Services;
@@ -156,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F60009A7B8C9D0 /* PickleballCoach.app */,
+				A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +221,23 @@
 			productReference = A1B2C3D4E5F60009A7B8C9D0 /* PickleballCoach.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A1B2C3D4E5F60051A7B8C9DA /* PickleballCoachTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D4E5F60054A7B8C9DA /* Build configuration list for PBXNativeTarget "PickleballCoachTests" */;
+			buildPhases = (
+				A1B2C3D4E5F60052A7B8C9DA /* Sources */,
+				A1B2C3D4E5F60053A7B8C9DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B2C3D4E5F60058A7B8C9DA /* PBXTargetDependency */,
+			);
+			name = PickleballCoachTests;
+			productName = PickleballCoachTests;
+			productReference = A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,10 +246,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2650;
 				TargetAttributes = {
 					A1B2C3D4E5F6000AA7B8C9D0 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					A1B2C3D4E5F60051A7B8C9DA = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = A1B2C3D4E5F6000AA7B8C9D0;
 					};
 				};
 			};
@@ -226,6 +271,7 @@
 			projectRoot = "";
 			targets = (
 				A1B2C3D4E5F6000AA7B8C9D0 /* PickleballCoach */,
+				A1B2C3D4E5F60051A7B8C9DA /* PickleballCoachTests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,12 +306,20 @@
 				A1B2C3D4E5F60023A7B8C9D0 /* ReviewPlaceholderView.swift in Sources */,
 				A1B2C3D4E5F6002AA7B8C9D0 /* PoseAnalysisResult.swift in Sources */,
 				A1B2C3D4E5F6002CA7B8C9D0 /* PoseCaptureService.swift in Sources */,
+				A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */,
+				A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */,
+				A1B2C3D4E5F60073A7B8C9DA /* RightsGate.swift in Sources */,
 				A1B2C3D4E5F6002EA7B8C9D0 /* PoseOverlayView.swift in Sources */,
 				A1B2C3D4E5F6003BA7B8C9D0 /* ReferenceExemplar.swift in Sources */,
 				A1B2C3D4E5F60031A7B8C9D0 /* MechanicsObservation.swift in Sources */,
 				A1B2C3D4E5F60033A7B8C9D0 /* FeedbackRule.swift in Sources */,
 				A1B2C3D4E5F60035A7B8C9D0 /* FeedbackRuleSet.swift in Sources */,
 				A1B2C3D4E5F60039A7B8C9D0 /* ComparisonEngine.swift in Sources */,
+				A1B2C3D4E5F60091A7B8C9D0 /* SideBySideComparisonView.swift in Sources */,
+				A1B2C3D4E5F60093A7B8C9D0 /* ComparisonInputBuilder.swift in Sources */,
+				A1B2C3D4E5F60095A7B8C9D0 /* ComparisonContainerView.swift in Sources */,
+				A1B2C3D4E5F600B0A7B8C9D0 /* MechanicsScoringEngine.swift in Sources */,
+				A1B2C3D4E5F600B2A7B8C9D0 /* MechanicsScorecardView.swift in Sources */,
 				A1B2C3D4E5F60037A7B8C9D0 /* FeedbackEngine.swift in Sources */,
 				A1B2C3D4E5F6003DA7B8C9D0 /* PoseFrame.swift in Sources */,
 				A1B2C3D4E5F6003FA7B8C9D0 /* ClipInterval.swift in Sources */,
@@ -274,7 +328,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1B2C3D4E5F60052A7B8C9DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F60061A7B8C9DA /* PoseExtractionServiceTests.swift in Sources */,
+				A1B2C3D4E5F600B4A7B8C9DA /* MechanicsScoringEngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B2C3D4E5F60058A7B8C9DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B2C3D4E5F6000AA7B8C9D0 /* PickleballCoach */;
+			targetProxy = A1B2C3D4E5F60057A7B8C9DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A1B2C3D4E5F60010A7B8C9D0 /* Debug */ = {
@@ -335,6 +406,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -391,6 +463,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -410,7 +483,6 @@
 				INFOPLIST_FILE = PickleballCoach/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations[ipad]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +510,6 @@
 				INFOPLIST_FILE = PickleballCoach/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations[ipad]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,6 +520,36 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A1B2C3D4E5F60055A7B8C9DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ai.scaffolde.pickleball-coach.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickleballCoach.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PickleballCoach";
+			};
+			name = Debug;
+		};
+		A1B2C3D4E5F60056A7B8C9DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ai.scaffolde.pickleball-coach.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickleballCoach.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PickleballCoach";
 			};
 			name = Release;
 		};
@@ -469,6 +570,15 @@
 			buildConfigurations = (
 				A1B2C3D4E5F60012A7B8C9D1 /* Debug */,
 				A1B2C3D4E5F60013A7B8C9D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D4E5F60054A7B8C9DA /* Build configuration list for PBXNativeTarget "PickleballCoachTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D4E5F60055A7B8C9DA /* Debug */,
+				A1B2C3D4E5F60056A7B8C9DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

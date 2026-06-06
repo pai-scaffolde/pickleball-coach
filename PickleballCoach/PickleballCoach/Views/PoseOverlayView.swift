@@ -22,16 +22,16 @@ private let skeletonBones: [(String, String)] = [
     ("root", "right_hip"),
 ]
 
-// Canvas-based skeleton overlay drawn from a single JointSample.
+// Canvas-based skeleton overlay drawn from a single PoseFrame.
 // Vision coordinates: (0,0) = bottom-left, (1,1) = top-right → Y is flipped for UIKit/SwiftUI.
 struct PoseOverlayView: View {
-    let sample: JointSample
+    let frame: PoseFrame
     var reliableThreshold: Float = 0.70  // green above, orange below
 
     var body: some View {
         Canvas { ctx, size in
             func pt(_ key: String) -> CGPoint? {
-                guard let j = sample.joints[key] else { return nil }
+                guard let j = frame.joints[key] else { return nil }
                 return CGPoint(
                     x: Double(j.x) * size.width,
                     y: (1.0 - Double(j.y)) * size.height
@@ -46,7 +46,7 @@ struct PoseOverlayView: View {
                 ctx.stroke(path, with: .color(.yellow.opacity(0.75)), lineWidth: 2)
             }
 
-            for (key, joint) in sample.joints {
+            for (key, joint) in frame.joints {
                 guard let p = pt(key) else { continue }
                 let r: CGFloat = 5
                 let rect = CGRect(x: p.x - r, y: p.y - r, width: r * 2, height: r * 2)

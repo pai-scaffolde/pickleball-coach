@@ -1,0 +1,236 @@
+{
+  "_meta" : {
+    "artifact_type" : "side_by_side_comparison_report",
+    "generated_by" : "ComparisonEngine (range/delta on scale-normalized features, no ghost overlay)",
+    "issue" : "SCA-1824",
+    "note" : "Phase-keyed comparison of a user clip against a pose-only generic exemplar (Option C). No pixel alignment, no pro footage, no ghost overlay.",
+    "reference_source" : "reference_forehand_drive_v0.json",
+    "user_source" : "SCA-1819-pose-spike-artifact.json"
+  },
+  "report" : {
+    "alignment" : "phase_keyed_not_pixel",
+    "ghostOverlay" : false,
+    "measuredPhaseCount" : 7,
+    "method" : "range_delta_on_scale_normalized_features",
+    "minJointConfidence" : 0.5,
+    "notes" : [
+      "hip_shoulder_separation_deg is down-weighted (×0.25): a single-camera 2D line-angle is a weak axial-rotation proxy. Reliable torso rotation needs depth/3D pose.",
+      "Comparison is range/delta on scale-normalized features. No pixel alignment, no ghost overlay, no pro footage."
+    ],
+    "overallScore" : 48.3,
+    "phases" : [
+      {
+        "features" : [
+          {
+            "delta" : 34.782,
+            "feature" : "right_elbow_angle_deg",
+            "featureScore" : 0.13,
+            "idealMax" : 130,
+            "idealMin" : 90,
+            "status" : "above",
+            "userValue" : 164.782
+          },
+          {
+            "delta" : 9.464,
+            "feature" : "right_knee_angle_deg",
+            "featureScore" : 0.527,
+            "idealMax" : 170,
+            "idealMin" : 150,
+            "status" : "above",
+            "userValue" : 179.464
+          },
+          {
+            "delta" : 0,
+            "feature" : "hip_shoulder_separation_deg",
+            "featureScore" : 1,
+            "idealMax" : 12,
+            "idealMin" : 0,
+            "status" : "within",
+            "userValue" : 0.235
+          }
+        ],
+        "measured" : true,
+        "phase" : "ready",
+        "phaseScore" : 40.3,
+        "userFrameCount" : 2
+      },
+      {
+        "features" : [
+          {
+            "delta" : 24.455,
+            "feature" : "right_knee_angle_deg",
+            "featureScore" : 0.185,
+            "idealMax" : 155,
+            "idealMin" : 125,
+            "status" : "above",
+            "userValue" : 179.455
+          },
+          {
+            "delta" : -4.761,
+            "feature" : "hip_shoulder_separation_deg",
+            "featureScore" : 0.683,
+            "idealMax" : 20,
+            "idealMin" : 5,
+            "status" : "below",
+            "userValue" : 0.239
+          }
+        ],
+        "measured" : true,
+        "phase" : "load",
+        "phaseScore" : 28.5,
+        "userFrameCount" : 1
+      },
+      {
+        "features" : [
+          {
+            "delta" : 43.953,
+            "feature" : "right_elbow_angle_deg",
+            "featureScore" : 0,
+            "idealMax" : 120,
+            "idealMin" : 80,
+            "status" : "above",
+            "userValue" : 163.953
+          },
+          {
+            "delta" : 0,
+            "feature" : "arm_extension_rel_torso",
+            "featureScore" : 1,
+            "idealMax" : 0.85,
+            "idealMin" : 0.45,
+            "status" : "within",
+            "userValue" : 0.849
+          }
+        ],
+        "measured" : true,
+        "phase" : "takeback",
+        "phaseScore" : 50,
+        "userFrameCount" : 4
+      },
+      {
+        "features" : [
+          {
+            "delta" : 0,
+            "feature" : "right_elbow_angle_deg",
+            "featureScore" : 1,
+            "idealMax" : 155,
+            "idealMin" : 110,
+            "status" : "within",
+            "userValue" : 148.291
+          },
+          {
+            "delta" : -29.617,
+            "feature" : "hip_shoulder_separation_deg",
+            "featureScore" : 0,
+            "idealMax" : 45,
+            "idealMin" : 30,
+            "status" : "below",
+            "userValue" : 0.383
+          },
+          {
+            "delta" : 0,
+            "feature" : "arm_extension_rel_torso",
+            "featureScore" : 1,
+            "idealMax" : 1.05,
+            "idealMin" : 0.6,
+            "status" : "within",
+            "userValue" : 0.609
+          }
+        ],
+        "measured" : true,
+        "phase" : "turn",
+        "phaseScore" : 88.9,
+        "userFrameCount" : 3
+      },
+      {
+        "features" : [
+          {
+            "delta" : -5.523,
+            "feature" : "right_elbow_angle_deg",
+            "featureScore" : 0.779,
+            "idealMax" : 175,
+            "idealMin" : 150,
+            "status" : "below",
+            "userValue" : 144.477
+          },
+          {
+            "delta" : -0.256,
+            "feature" : "wrist_height_rel_torso",
+            "featureScore" : 0.535,
+            "idealMax" : 0.1,
+            "idealMin" : -0.45,
+            "status" : "below",
+            "userValue" : -0.706
+          },
+          {
+            "delta" : -0.164,
+            "feature" : "arm_extension_rel_torso",
+            "featureScore" : 0.59,
+            "idealMax" : 1.35,
+            "idealMin" : 0.95,
+            "status" : "below",
+            "userValue" : 0.786
+          }
+        ],
+        "measured" : true,
+        "phase" : "contact",
+        "phaseScore" : 63.5,
+        "userFrameCount" : 4
+      },
+      {
+        "features" : [
+          {
+            "delta" : 47.385,
+            "feature" : "right_elbow_angle_deg",
+            "featureScore" : 0.052,
+            "idealMax" : 110,
+            "idealMin" : 60,
+            "status" : "above",
+            "userValue" : 157.385
+          },
+          {
+            "delta" : -0.979,
+            "feature" : "wrist_height_rel_torso",
+            "featureScore" : 0,
+            "idealMax" : 0.85,
+            "idealMin" : 0.2,
+            "status" : "below",
+            "userValue" : -0.779
+          }
+        ],
+        "measured" : true,
+        "phase" : "follow_through",
+        "phaseScore" : 2.6,
+        "userFrameCount" : 3
+      },
+      {
+        "features" : [
+          {
+            "delta" : 8.869,
+            "feature" : "right_knee_angle_deg",
+            "featureScore" : 0.557,
+            "idealMax" : 170,
+            "idealMin" : 150,
+            "status" : "above",
+            "userValue" : 178.869
+          },
+          {
+            "delta" : 0,
+            "feature" : "hip_shoulder_separation_deg",
+            "featureScore" : 1,
+            "idealMax" : 12,
+            "idealMin" : 0,
+            "status" : "within",
+            "userValue" : 0.477
+          }
+        ],
+        "measured" : true,
+        "phase" : "recovery",
+        "phaseScore" : 64.6,
+        "userFrameCount" : 6
+      }
+    ],
+    "referenceId" : "exemplar-generic-pose-forehand-v0",
+    "referenceRightsStatus" : "cleared-public",
+    "strokeType" : "forehand_drive"
+  }
+}

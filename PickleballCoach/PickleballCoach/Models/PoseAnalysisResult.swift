@@ -13,6 +13,19 @@ struct JointSample: Codable {
     let timestamp: Double   // seconds from video start
     let frameIndex: Int     // original frame number in source video
     let joints: [String: JointPosition]
+    // SCA-1868: stroke-phase label for this sample. The SCA-1819 pose artifact
+    // already carries per-sample phase labels, so the segmentation contract
+    // exists in data form; this surfaces it in the Swift model. Optional because
+    // the live extraction pipeline does not (yet) segment — nil samples are
+    // assigned a phase by time-window fallback in ComparisonInputBuilder.
+    let phase: String?
+
+    init(timestamp: Double, frameIndex: Int, joints: [String: JointPosition], phase: String? = nil) {
+        self.timestamp = timestamp
+        self.frameIndex = frameIndex
+        self.joints = joints
+        self.phase = phase
+    }
 }
 
 // Per-joint confidence summary across the full clip.

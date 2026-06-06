@@ -90,13 +90,12 @@ struct SessionDetailView: View {
             .buttonStyle(.borderedProminent)
 
             NavigationLink {
-                ReviewPlaceholderView()
+                ComparisonContainerView(session: session)
             } label: {
-                Label("Review", systemImage: "list.bullet.clipboard")
+                Label("Compare", systemImage: "figure.tennis")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.bordered)
-            .disabled(session.status != .ready)
         }
         .padding(.top, 8)
     }
