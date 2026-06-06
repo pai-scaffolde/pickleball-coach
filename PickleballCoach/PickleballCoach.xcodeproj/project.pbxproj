@@ -27,6 +27,9 @@
 		A1B2C3D4E5F60033A7B8C9D0 /* FeedbackRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60032A7B8C9D0 /* FeedbackRule.swift */; };
 		A1B2C3D4E5F60035A7B8C9D0 /* FeedbackRuleSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60034A7B8C9D0 /* FeedbackRuleSet.swift */; };
 		A1B2C3D4E5F60037A7B8C9D0 /* FeedbackEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60036A7B8C9D0 /* FeedbackEngine.swift */; };
+		DD19040000000000000000A2 /* SegmentationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19040000000000000000A1 /* SegmentationService.swift */; };
+		DD19040000000000000000B2 /* SlowMoExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19040000000000000000B1 /* SlowMoExportService.swift */; };
+		DD19040000000000000000C2 /* RepClipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19040000000000000000C1 /* RepClipsView.swift */; };
 		A1B2C3D4E5F60039A7B8C9D0 /* ComparisonEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60038A7B8C9D0 /* ComparisonEngine.swift */; };
 		A1B2C3D4E5F6003BA7B8C9D0 /* ReferenceExemplar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6003AA7B8C9D0 /* ReferenceExemplar.swift */; };
 		A1B2C3D4E5F6003DA7B8C9D0 /* PoseFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6003CA7B8C9D0 /* PoseFrame.swift */; };
@@ -48,6 +51,7 @@
 		A1B2C3D4E5F600E0A7B8C9DA /* CaptureAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600E1A7B8C9DA /* CaptureAnalytics.swift */; };
 		A1B2C3D4E5F600E2A7B8C9DA /* CaptureAnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600E3A7B8C9DA /* CaptureAnalyticsTests.swift */; };
 		A1B2C3D4E5F600F6A7B8C9DA /* DemoSessionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600F5A7B8C9DA /* DemoSessionServiceTests.swift */; };
+		DD19040000000000000000D2 /* SegmentationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19040000000000000000D1 /* SegmentationServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,7 @@
 		A1B2C3D4E5F600F1A7B8C9DA /* DemoSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSessionService.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001AA7B8C9D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C1A2B3D4E5F60072A7B8C9D0 /* ClipFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipFeedbackView.swift; sourceTree = "<group>"; };
+		DD19040000000000000000C1 /* RepClipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepClipsView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001CA7B8C9D0 /* ImportVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportVideoView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6001EA7B8C9D0 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60020A7B8C9D0 /* AnalysisProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisProgressView.swift; sourceTree = "<group>"; };
@@ -84,6 +89,8 @@
 		A1B2C3D4E5F60032A7B8C9D0 /* FeedbackRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRule.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60034A7B8C9D0 /* FeedbackRuleSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRuleSet.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60036A7B8C9D0 /* FeedbackEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackEngine.swift; sourceTree = "<group>"; };
+		DD19040000000000000000A1 /* SegmentationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationService.swift; sourceTree = "<group>"; };
+		DD19040000000000000000B1 /* SlowMoExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlowMoExportService.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60038A7B8C9D0 /* ComparisonEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonEngine.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6003AA7B8C9D0 /* ReferenceExemplar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceExemplar.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6003CA7B8C9D0 /* PoseFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseFrame.swift; sourceTree = "<group>"; };
@@ -105,6 +112,7 @@
 		A1B2C3D4E5F600B5A7B8C9DA /* MechanicsScoringEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsScoringEngineTests.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F600E3A7B8C9DA /* CaptureAnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureAnalyticsTests.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F600F5A7B8C9DA /* DemoSessionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSessionServiceTests.swift; sourceTree = "<group>"; };
+		DD19040000000000000000D1 /* SegmentationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,8 @@
 				A1B2C3D4E5F60092A7B8C9D0 /* ComparisonInputBuilder.swift */,
 				A1B2C3D4E5F600B1A7B8C9D0 /* MechanicsScoringEngine.swift */,
 				A1B2C3D4E5F60036A7B8C9D0 /* FeedbackEngine.swift */,
+				DD19040000000000000000A1 /* SegmentationService.swift */,
+				DD19040000000000000000B1 /* SlowMoExportService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,6 +208,7 @@
 				A1B2C3D4E5F60070A7B8C9D0 /* SideBySideComparisonView.swift */,
 				A1B2C3D4E5F600C0A7B8C9D0 /* ComparisonContainerView.swift */,
 				A1B2C3D4E5F600C2A7B8C9D0 /* MechanicsScorecardView.swift */,
+				DD19040000000000000000C1 /* RepClipsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 				A1B2C3D4E5F600B5A7B8C9DA /* MechanicsScoringEngineTests.swift */,
 				A1B2C3D4E5F600E3A7B8C9DA /* CaptureAnalyticsTests.swift */,
 				A1B2C3D4E5F600F5A7B8C9DA /* DemoSessionServiceTests.swift */,
+				DD19040000000000000000D1 /* SegmentationServiceTests.swift */,
 			);
 			path = PickleballCoachTests;
 			sourceTree = "<group>";
@@ -372,6 +384,9 @@
 				A1B2C3D4E5F600B0A7B8C9D0 /* MechanicsScoringEngine.swift in Sources */,
 				A1B2C3D4E5F600B2A7B8C9D0 /* MechanicsScorecardView.swift in Sources */,
 				A1B2C3D4E5F60037A7B8C9D0 /* FeedbackEngine.swift in Sources */,
+				DD19040000000000000000A2 /* SegmentationService.swift in Sources */,
+				DD19040000000000000000B2 /* SlowMoExportService.swift in Sources */,
+				DD19040000000000000000C2 /* RepClipsView.swift in Sources */,
 				A1B2C3D4E5F6003DA7B8C9D0 /* PoseFrame.swift in Sources */,
 				A1B2C3D4E5F6003FA7B8C9D0 /* ClipInterval.swift in Sources */,
 				A1B2C3D4E5F60041A7B8C9D0 /* MechanicsScore.swift in Sources */,
@@ -387,6 +402,7 @@
 				A1B2C3D4E5F600B4A7B8C9DA /* MechanicsScoringEngineTests.swift in Sources */,
 				A1B2C3D4E5F600E2A7B8C9DA /* CaptureAnalyticsTests.swift in Sources */,
 				A1B2C3D4E5F600F6A7B8C9DA /* DemoSessionServiceTests.swift in Sources */,
+				DD19040000000000000000D2 /* SegmentationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

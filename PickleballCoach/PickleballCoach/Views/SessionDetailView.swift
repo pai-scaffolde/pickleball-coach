@@ -117,6 +117,16 @@ struct SessionDetailView: View {
                 .buttonStyle(.borderedProminent)
             }
 
+            // SCA-1904: rep clips path — segment the pose timeline into reps and
+            // offer per-rep 4× slow-mo export with the pose overlay.
+            NavigationLink {
+                repClipsDestination
+            } label: {
+                Label("Rep Clips", systemImage: "film.stack")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+
             if let score = session.mechanicsScores.first {
                 let link = NavigationLink {
                     MechanicsScorecardView(score: score, frames: loadFrames())
@@ -188,6 +198,24 @@ struct SessionDetailView: View {
             )
         )
         return MockFeedbackEngine().generateFeedback(from: stub)
+    }
+
+    /// Builds the rep-clips screen: loads the session's pose timeline, segments it
+    /// into rep intervals, and hands the clips + frames to RepClipsView for slow-mo
+    /// export with the pose overlay (SCA-1904).
+    @ViewBuilder
+    private var repClipsDestination: some View {
+        let frames = loadFrames()
+        let result = SegmentationService().segment(
+            frames: frames,
+            videoDuration: session.durationSeconds ?? 0
+        )
+        RepClipsView(
+            session: session,
+            clips: result.clips,
+            frames: frames,
+            lowConfidenceReason: result.lowConfidenceReason
+        )
     }
 
     /// Loads the session's pose timeline from Documents so the scorecard can draw
