@@ -141,20 +141,46 @@ struct AnalysisProgressView: View {
             let extracted = try await service.extract(videoURL: url) { p in
                 Task { @MainActor in self.progress = p }
             }
-            let gate = CaptureQualityGate.evaluate(extracted, videoDuration: session.durationSeconds)
-            // SCA-1870 (Gate 1): record every gate evaluation with the current
-            // attempt count and whether it was accepted. The value at the first
-            // accepted attempt is what the 80%-within-2-attempts gate measures.
-            CaptureAnalytics.shared.record(sessionId: session.id,
-                                           captureAttemptCount: session.captureAttemptCount,
-                                           accepted: gate.passed)
-            qualityGateResult = gate
-            guard gate.passed else { return }
-            persist(extracted)
-            frames = extracted
+            finishAnalysis(with: extracted)
+        } catch PoseExtractionService.ExtractionError.noBodyDetected {
+            // SCA-1910: Live Vision returned no body — happens on the simulator
+            // where VNDetectHumanBodyPoseRequest produces no observations. For the
+            // staged sample session only, fall back to the pre-baked timeline that
+            // was extracted on macOS from the same bundled clip. These are genuine
+            // Vision-extracted poses, just pre-computed; nothing is synthesized.
+            if session.id == StagedClipService.stagedSessionID,
+               let fallback = loadBundledTimeline() {
+                finishAnalysis(with: fallback)
+            } else {
+                self.error = PoseExtractionService.ExtractionError.noBodyDetected.localizedDescription
+            }
         } catch {
             self.error = error.localizedDescription
         }
+    }
+
+    /// Shared completion path for both the live extraction and the bundled fallback.
+    private func finishAnalysis(with extracted: [PoseFrame]) {
+        let gate = CaptureQualityGate.evaluate(extracted, videoDuration: session.durationSeconds)
+        // SCA-1870 (Gate 1): record every gate evaluation with the current
+        // attempt count and whether it was accepted. The value at the first
+        // accepted attempt is what the 80%-within-2-attempts gate measures.
+        CaptureAnalytics.shared.record(sessionId: session.id,
+                                       captureAttemptCount: session.captureAttemptCount,
+                                       accepted: gate.passed)
+        qualityGateResult = gate
+        guard gate.passed else { return }
+        persist(extracted)
+        frames = extracted
+    }
+
+    /// Loads the bundled pre-baked pose timeline for the staged sample session.
+    /// Returns nil if the resource is missing or fails to decode.
+    private func loadBundledTimeline() -> [PoseFrame]? {
+        guard let url = Bundle.main.url(forResource: "pose-timeline-navratil-v0",
+                                        withExtension: "json") else { return nil }
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        return try? JSONDecoder().decode([PoseFrame].self, from: data)
     }
 
     private func persist(_ frames: [PoseFrame]) {
