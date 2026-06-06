@@ -1,0 +1,512 @@
+[
+  {
+    "allCards" : [
+      "1:ph1.stance.narrow:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 0.82,
+    "clipId" : "demo-fh-01",
+    "footageNote" : "Feet clearly together; otherwise solid swing.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 82% of shoulder width — narrower than the 100–130% ideal.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.narrow"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.narrow:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 0.9,
+    "clipId" : "demo-fh-02",
+    "footageNote" : "Stance slightly narrow; rest looks fine.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 90% of shoulder width — narrower than the 100–130% ideal.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.narrow"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.wide:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 1.45,
+    "clipId" : "demo-fh-03",
+    "footageNote" : "Very wide base, slow to recover.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 145% of shoulder width — wider than the 100–130% ideal, which limits lateral recovery.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.wide"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.wide:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 1.38,
+    "clipId" : "demo-fh-04",
+    "footageNote" : "Base a touch wide.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 138% of shoulder width — wider than the 100–130% ideal, which limits lateral recovery.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.wide"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.narrow:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 0.75,
+    "clipId" : "demo-fh-05",
+    "footageNote" : "Narrow stance, feet nearly under hips.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 75% of shoulder width — narrower than the 100–130% ideal.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.narrow"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.upright:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 178,
+    "clipId" : "demo-fh-06",
+    "footageNote" : "Legs almost straight at load.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 178° — nearly straight; soften into the shot for a stronger power base.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.upright"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.upright:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 172,
+    "clipId" : "demo-fh-07",
+    "footageNote" : "Knee just shy of a real load.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 172° — nearly straight; soften into the shot for a stronger power base.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.upright"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.deep:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 132,
+    "clipId" : "demo-fh-08",
+    "footageNote" : "Deep squat at load, slow recovery.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 132° — a deep bend that may slow your recovery after contact.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.deep"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.deep:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 138,
+    "clipId" : "demo-fh-09",
+    "footageNote" : "Slightly deep knee bend.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 138° — a deep bend that may slow your recovery after contact.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.deep"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.upright:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 175,
+    "clipId" : "demo-fh-10",
+    "footageNote" : "Upright load, little leg drive.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 175° — nearly straight; soften into the shot for a stronger power base.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.upright"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.deep:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 128,
+    "clipId" : "demo-fh-11",
+    "footageNote" : "Very deep load.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 128° — a deep bend that may slow your recovery after contact.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.deep"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 12,
+    "clipId" : "demo-fh-12",
+    "footageNote" : "Arms-only swing, minimal hip turn.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 12° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 18,
+    "clipId" : "demo-fh-13",
+    "footageNote" : "A bit shoulder-dominant.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 18° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 8,
+    "clipId" : "demo-fh-14",
+    "footageNote" : "Almost no hip-shoulder separation.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 8° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 15,
+    "clipId" : "demo-fh-15",
+    "footageNote" : "Limited kinetic chain.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 15° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 19,
+    "clipId" : "demo-fh-16",
+    "footageNote" : "Separation just under ideal.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 19° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "right_wrist_height_rel_torso",
+    "citedMetricValue" : -0.25,
+    "clipId" : "demo-fh-17",
+    "footageNote" : "Paddle stops at waist, truncated finish.",
+    "hasImprovement" : true,
+    "observation" : "Paddle finished below shoulder height — drive follow-through is incomplete.",
+    "phaseIndex" : 8,
+    "phaseTitle" : "Follow-Through",
+    "ruleId" : "ph8.follow_through.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "right_wrist_height_rel_torso",
+    "citedMetricValue" : -0.05,
+    "clipId" : "demo-fh-18",
+    "footageNote" : "Finish just below shoulder.",
+    "hasImprovement" : true,
+    "observation" : "Paddle finished below shoulder height — drive follow-through is incomplete.",
+    "phaseIndex" : 8,
+    "phaseTitle" : "Follow-Through",
+    "ruleId" : "ph8.follow_through.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "right_wrist_height_rel_torso",
+    "citedMetricValue" : -0.4,
+    "clipId" : "demo-fh-19",
+    "footageNote" : "Very short follow-through.",
+    "hasImprovement" : true,
+    "observation" : "Paddle finished below shoulder height — drive follow-through is incomplete.",
+    "phaseIndex" : 8,
+    "phaseTitle" : "Follow-Through",
+    "ruleId" : "ph8.follow_through.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "right_wrist_height_rel_torso",
+    "citedMetricValue" : -0.15,
+    "clipId" : "demo-fh-20",
+    "footageNote" : "Follow-through a bit low.",
+    "hasImprovement" : true,
+    "observation" : "Paddle finished below shoulder height — drive follow-through is incomplete.",
+    "phaseIndex" : 8,
+    "phaseTitle" : "Follow-Through",
+    "ruleId" : "ph8.follow_through.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "right_wrist_height_rel_torso",
+    "citedMetricValue" : -0.3,
+    "clipId" : "demo-fh-21",
+    "footageNote" : "Finish below shoulder.",
+    "hasImprovement" : true,
+    "observation" : "Paddle finished below shoulder height — drive follow-through is incomplete.",
+    "phaseIndex" : 8,
+    "phaseTitle" : "Follow-Through",
+    "ruleId" : "ph8.follow_through.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.narrow:improvement",
+      "3:ph3.knee.upright:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 0.88,
+    "clipId" : "demo-fh-22",
+    "footageNote" : "Narrow stance AND straight legs.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 88% of shoulder width — narrower than the 100–130% ideal.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.narrow"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.upright:improvement",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 175,
+    "clipId" : "demo-fh-23",
+    "footageNote" : "Upright load and tiny hip turn.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 175° — nearly straight; soften into the shot for a stronger power base.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.upright"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 12,
+    "clipId" : "demo-fh-24",
+    "footageNote" : "Low hip turn and truncated finish.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 12° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.wide:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 1.4,
+    "clipId" : "demo-fh-25",
+    "footageNote" : "Wide base and short follow-through.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 140% of shoulder width — wider than the 100–130% ideal, which limits lateral recovery.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.wide"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.low:improvement"
+    ],
+    "citedMetricName" : "right_wrist_height_rel_torso",
+    "citedMetricValue" : -0.1,
+    "clipId" : "demo-fh-26",
+    "footageNote" : "Mostly good; finish a touch low.",
+    "hasImprovement" : true,
+    "observation" : "Paddle finished below shoulder height — drive follow-through is incomplete.",
+    "phaseIndex" : 8,
+    "phaseTitle" : "Follow-Through",
+    "ruleId" : "ph8.follow_through.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.narrow:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 0.95,
+    "clipId" : "demo-fh-27",
+    "footageNote" : "Stance a hair narrow.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 95% of shoulder width — narrower than the 100–130% ideal.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.narrow"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.upright:improvement",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "right_knee_bend_degrees",
+    "citedMetricValue" : 171,
+    "clipId" : "demo-fh-28",
+    "footageNote" : "Knee a touch upright.",
+    "hasImprovement" : true,
+    "observation" : "Knee angle is 171° — nearly straight; soften into the shot for a stronger power base.",
+    "phaseIndex" : 3,
+    "phaseTitle" : "Weight Load",
+    "ruleId" : "ph3.knee.upright"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.good:strength",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.low:improvement",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "hip_shoulder_separation_degrees",
+    "citedMetricValue" : 17,
+    "clipId" : "demo-fh-29",
+    "footageNote" : "Hip turn slightly under ideal.",
+    "hasImprovement" : true,
+    "observation" : "Peak hip–shoulder separation is 17° — below the 20° minimum for effective kinetic chain.",
+    "phaseIndex" : 5,
+    "phaseTitle" : "Hip \/ Shoulder Turn",
+    "ruleId" : "ph5.hip_turn.low"
+  },
+  {
+    "allCards" : [
+      "1:ph1.stance.wide:improvement",
+      "3:ph3.knee.good:strength",
+      "5:ph5.hip_turn.good:strength",
+      "8:ph8.follow_through.good:strength"
+    ],
+    "citedMetricName" : "stance_width_ratio",
+    "citedMetricValue" : 1.32,
+    "clipId" : "demo-fh-30",
+    "footageNote" : "Base marginally wide.",
+    "hasImprovement" : true,
+    "observation" : "Stance is 132% of shoulder width — wider than the 100–130% ideal, which limits lateral recovery.",
+    "phaseIndex" : 1,
+    "phaseTitle" : "Ready Position",
+    "ruleId" : "ph1.stance.wide"
+  }
+]

@@ -1,0 +1,482 @@
+[
+ {
+  "clipId": "demo-fh-01",
+  "swing": "Feet clearly together; otherwise solid swing.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.narrow",
+   "says": "Stance is 82% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+   "measured": 0.82
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.narrow:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-02",
+  "swing": "Stance slightly narrow; rest looks fine.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.narrow",
+   "says": "Stance is 90% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+   "measured": 0.9
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.narrow:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-03",
+  "swing": "Very wide base, slow to recover.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.wide",
+   "says": "Stance is 145% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+   "measured": 1.45
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.wide:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-04",
+  "swing": "Base a touch wide.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.wide",
+   "says": "Stance is 138% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+   "measured": 1.38
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.wide:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-05",
+  "swing": "Narrow stance, feet nearly under hips.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.narrow",
+   "says": "Stance is 75% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+   "measured": 0.75
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.narrow:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-06",
+  "swing": "Legs almost straight at load.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.upright",
+   "says": "Knee angle is 178\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+   "measured": 178
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.upright:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-07",
+  "swing": "Knee just shy of a real load.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.upright",
+   "says": "Knee angle is 172\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+   "measured": 172
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.upright:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-08",
+  "swing": "Deep squat at load, slow recovery.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.deep",
+   "says": "Knee angle is 132\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+   "measured": 132
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.deep:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-09",
+  "swing": "Slightly deep knee bend.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.deep",
+   "says": "Knee angle is 138\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+   "measured": 138
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.deep:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-10",
+  "swing": "Upright load, little leg drive.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.upright",
+   "says": "Knee angle is 175\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+   "measured": 175
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.upright:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-11",
+  "swing": "Very deep load.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.deep",
+   "says": "Knee angle is 128\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+   "measured": 128
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.deep:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-12",
+  "swing": "Arms-only swing, minimal hip turn.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 12\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 12
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-13",
+  "swing": "A bit shoulder-dominant.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 18\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 18
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-14",
+  "swing": "Almost no hip-shoulder separation.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 8\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 8
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-15",
+  "swing": "Limited kinetic chain.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 15\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 15
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-16",
+  "swing": "Separation just under ideal.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 19\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 19
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-17",
+  "swing": "Paddle stops at waist, truncated finish.",
+  "appTopRec": {
+   "phase": "Follow-Through",
+   "dimension": "ph8.follow_through.low",
+   "says": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+   "measured": -0.25
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-18",
+  "swing": "Finish just below shoulder.",
+  "appTopRec": {
+   "phase": "Follow-Through",
+   "dimension": "ph8.follow_through.low",
+   "says": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+   "measured": -0.05
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-19",
+  "swing": "Very short follow-through.",
+  "appTopRec": {
+   "phase": "Follow-Through",
+   "dimension": "ph8.follow_through.low",
+   "says": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+   "measured": -0.4
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-20",
+  "swing": "Follow-through a bit low.",
+  "appTopRec": {
+   "phase": "Follow-Through",
+   "dimension": "ph8.follow_through.low",
+   "says": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+   "measured": -0.15
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-21",
+  "swing": "Finish below shoulder.",
+  "appTopRec": {
+   "phase": "Follow-Through",
+   "dimension": "ph8.follow_through.low",
+   "says": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+   "measured": -0.3
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-22",
+  "swing": "Narrow stance AND straight legs.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.narrow",
+   "says": "Stance is 88% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+   "measured": 0.88
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.narrow:improvement",
+   "3:ph3.knee.upright:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-23",
+  "swing": "Upright load and tiny hip turn.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.upright",
+   "says": "Knee angle is 175\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+   "measured": 175
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.upright:improvement",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-24",
+  "swing": "Low hip turn and truncated finish.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 12\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 12
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-25",
+  "swing": "Wide base and short follow-through.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.wide",
+   "says": "Stance is 140% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+   "measured": 1.4
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.wide:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-26",
+  "swing": "Mostly good; finish a touch low.",
+  "appTopRec": {
+   "phase": "Follow-Through",
+   "dimension": "ph8.follow_through.low",
+   "says": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+   "measured": -0.1
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.low:improvement"
+  ]
+ },
+ {
+  "clipId": "demo-fh-27",
+  "swing": "Stance a hair narrow.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.narrow",
+   "says": "Stance is 95% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+   "measured": 0.95
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.narrow:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-28",
+  "swing": "Knee a touch upright.",
+  "appTopRec": {
+   "phase": "Weight Load",
+   "dimension": "ph3.knee.upright",
+   "says": "Knee angle is 171\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+   "measured": 171
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.upright:improvement",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-29",
+  "swing": "Hip turn slightly under ideal.",
+  "appTopRec": {
+   "phase": "Hip / Shoulder Turn",
+   "dimension": "ph5.hip_turn.low",
+   "says": "Peak hip\u2013shoulder separation is 17\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+   "measured": 17
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.good:strength",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.low:improvement",
+   "8:ph8.follow_through.good:strength"
+  ]
+ },
+ {
+  "clipId": "demo-fh-30",
+  "swing": "Base marginally wide.",
+  "appTopRec": {
+   "phase": "Ready Position",
+   "dimension": "ph1.stance.wide",
+   "says": "Stance is 132% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+   "measured": 1.32
+  },
+  "allPhaseCards": [
+   "1:ph1.stance.wide:improvement",
+   "3:ph3.knee.good:strength",
+   "5:ph5.hip_turn.good:strength",
+   "8:ph8.follow_through.good:strength"
+  ]
+ }
+]

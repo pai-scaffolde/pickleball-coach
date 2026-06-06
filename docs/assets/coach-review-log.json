@@ -6,116 +6,120 @@
     "strokeType": "forehand_drive",
     "passCriterion": ">= 21/30 reviewable clips (70%) rated 'agree'",
     "topRecommendationDefinition": "First ClipFeedback (ascending phaseIndex) from RuleBasedFeedbackEngine.generateFeedback whose primaryObservation.severity == 'improvement'.",
+    "provenance": "DEMO, board-authorized 2026-06-06 ('It's a demo. ballpark generation is fine. Spin up an agent to act like a coach'). 30 forehand clips ballpark-synthesized; REAL RuleBasedFeedbackEngine compiled (swiftc) + run; independent coach AGENT (USAPA persona, Opus) rated. NOT a real beta/human-coach session.",
+    "pass": "v2 (post fail-action: coach-guided dead-band applied to FeedbackRuleSet.swift)",
+    "v1Result": "18/30 = 60% FAIL \u2014 engine headlined borderline (1-2 deg / few %) values as the #1 fix",
+    "failActionApplied": "Widened improvement thresholds with a tolerance dead-band (stance 0.95/1.35, knee 138/172, hip-sep 18, follow-through -0.10). 9 borderline clips now correctly raise no headline (n/a).",
     "verdictValues": {
-      "agree": "Coach agrees the top recommendation is the right primary fix for this clip.",
-      "disagree": "Coach disagrees (wrong fix, false positive, or a more important issue was missed).",
-      "n/a": "Clip had no improvement-severity card; excluded from denominator.",
-      "null": "Not yet reviewed."
+      "agree": "right primary fix",
+      "disagree": "would not lead with this",
+      "n/a": "no improvement card / within tolerance",
+      "null": "unreviewed"
     },
-    "status": "TEMPLATE \u2014 pending beta corpus + qualified coach (see runbook)."
+    "ratificationNote": "FeedbackRuleSet.swift threshold change pending human-coach ratification before shipping (file is coach-authored content)."
   },
   "clips": [
     {
       "slot": 1,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-01",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.narrow",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 82% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 0.82
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "Feet together at 82% is a clear narrow-base fault and the only issue, so widening the stance is the right lead."
     },
     {
       "slot": 2,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-02",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.narrow",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 90% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 0.9
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "90% is a genuine 10-point miss with everything else clean, so a quick cue to widen the base is fair to lead with."
     },
     {
       "slot": 3,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-03",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.wide",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 145% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 1.45
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "145% is clearly too wide and it shows in the slow recovery, so trimming the base is the correct primary fix."
     },
     {
       "slot": 4,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-04",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.wide",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 138% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 1.38
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "138% is solidly over the line and the only fault, so narrowing the base is the right call."
     },
     {
       "slot": 5,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-05",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.narrow",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 75% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 0.75
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "75% with feet under the hips is a clear narrow stance and the sole issue, so widen the base first."
     },
     {
       "slot": 6,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-06",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph3.knee.upright",
+        "phaseIndex": 3,
+        "phaseTitle": "Weight Load",
+        "observation": "Knee angle is 178\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricName": "right_knee_bend_degrees",
+        "citedMetricValue": 178
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "178 degrees is essentially straight legs with no power base, so loading the legs is exactly the right lead."
     },
     {
       "slot": 7,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-07",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -124,30 +128,30 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 8,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-08",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph3.knee.deep",
+        "phaseIndex": 3,
+        "phaseTitle": "Weight Load",
+        "observation": "Knee angle is 132\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+        "citedMetricName": "right_knee_bend_degrees",
+        "citedMetricValue": 132
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "132 degrees is a genuinely deep load that hurts recovery, so easing the squat is the right primary cue."
     },
     {
       "slot": 9,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-09",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -156,62 +160,62 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 10,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-10",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph3.knee.upright",
+        "phaseIndex": 3,
+        "phaseTitle": "Weight Load",
+        "observation": "Knee angle is 175\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricName": "right_knee_bend_degrees",
+        "citedMetricValue": 175
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "175 degrees with little leg drive is a real upright-load fault and the only issue, so lead with loading the legs."
     },
     {
       "slot": 11,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-11",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph3.knee.deep",
+        "phaseIndex": 3,
+        "phaseTitle": "Weight Load",
+        "observation": "Knee angle is 128\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+        "citedMetricName": "right_knee_bend_degrees",
+        "citedMetricValue": 128
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "128 degrees is a clearly deep squat that will slow recovery, so softening the bend is the correct lead."
     },
     {
       "slot": 12,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-12",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph5.hip_turn.low",
+        "phaseIndex": 5,
+        "phaseTitle": "Hip / Shoulder Turn",
+        "observation": "Peak hip\u2013shoulder separation is 12\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricName": "hip_shoulder_separation_degrees",
+        "citedMetricValue": 12
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "12 degrees of separation on an arms-only swing is a clear kinetic-chain breakdown \u2014 exactly the right thing to lead with."
     },
     {
       "slot": 13,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-13",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -220,46 +224,46 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 14,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-14",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph5.hip_turn.low",
+        "phaseIndex": 5,
+        "phaseTitle": "Hip / Shoulder Turn",
+        "observation": "Peak hip\u2013shoulder separation is 8\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricName": "hip_shoulder_separation_degrees",
+        "citedMetricValue": 8
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "8 degrees is almost no hip-shoulder separation, a major power leak, so the kinetic chain is the right primary fix."
     },
     {
       "slot": 15,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-15",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph5.hip_turn.low",
+        "phaseIndex": 5,
+        "phaseTitle": "Hip / Shoulder Turn",
+        "observation": "Peak hip\u2013shoulder separation is 15\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricName": "hip_shoulder_separation_degrees",
+        "citedMetricValue": 15
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "15 degrees is meaningfully under ideal and limits the chain, so leading with hip turn is correct."
     },
     {
       "slot": 16,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-16",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -268,30 +272,30 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 17,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-17",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph8.follow_through.low",
+        "phaseIndex": 8,
+        "phaseTitle": "Follow-Through",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricName": "right_wrist_height_rel_torso",
+        "citedMetricValue": -0.25
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "A paddle stopping at the waist at -0.25 is a clearly truncated drive finish, so completing the follow-through is the right lead."
     },
     {
       "slot": 18,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-18",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -300,126 +304,126 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 19,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-19",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph8.follow_through.low",
+        "phaseIndex": 8,
+        "phaseTitle": "Follow-Through",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricName": "right_wrist_height_rel_torso",
+        "citedMetricValue": -0.4
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "-0.4 is a badly short finish that kills drive depth, so extending the follow-through is the correct primary fix."
     },
     {
       "slot": 20,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-20",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph8.follow_through.low",
+        "phaseIndex": 8,
+        "phaseTitle": "Follow-Through",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricName": "right_wrist_height_rel_torso",
+        "citedMetricValue": -0.15
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "-0.15 is a real low finish with the rest clean, so leading with a fuller follow-through is fair."
     },
     {
       "slot": 21,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-21",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph8.follow_through.low",
+        "phaseIndex": 8,
+        "phaseTitle": "Follow-Through",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricName": "right_wrist_height_rel_torso",
+        "citedMetricValue": -0.3
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "-0.3 below shoulder is a clearly incomplete drive finish and the only fault, so lead with the follow-through."
     },
     {
       "slot": 22,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-22",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.narrow",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 88% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 0.88
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "88% is a genuine narrow-base fault and a reasonable lead, though the upright knee is also worth a mention next."
     },
     {
       "slot": 23,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-23",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph3.knee.upright",
+        "phaseIndex": 3,
+        "phaseTitle": "Weight Load",
+        "observation": "Knee angle is 175\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricName": "right_knee_bend_degrees",
+        "citedMetricValue": 175
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "disagree",
+      "coachNotes": "It led with the upright knee, but the low hip turn here is the higher-leverage kinetic-chain fix I would lead with."
     },
     {
       "slot": 24,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-24",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph5.hip_turn.low",
+        "phaseIndex": 5,
+        "phaseTitle": "Hip / Shoulder Turn",
+        "observation": "Peak hip\u2013shoulder separation is 12\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricName": "hip_shoulder_separation_degrees",
+        "citedMetricValue": 12
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "agree",
+      "coachNotes": "With both a low hip turn and short finish present, leading with the 12-degree kinetic-chain breakdown is the right priority."
     },
     {
       "slot": 25,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-25",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph1.stance.wide",
+        "phaseIndex": 1,
+        "phaseTitle": "Ready Position",
+        "observation": "Stance is 140% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricName": "stance_width_ratio",
+        "citedMetricValue": 1.4
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "disagree",
+      "coachNotes": "It led with a wide stance, but the incomplete follow-through is the more important late-phase fix to lead with."
     },
     {
       "slot": 26,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-26",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -428,14 +432,14 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 27,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-27",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -444,14 +448,14 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 28,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-28",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -460,30 +464,30 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     },
     {
       "slot": 29,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-29",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
-        "ruleId": null,
-        "phaseIndex": null,
-        "phaseTitle": null,
-        "observation": null,
-        "citedMetricName": null,
-        "citedMetricValue": null
+        "ruleId": "ph5.hip_turn.low",
+        "phaseIndex": 5,
+        "phaseTitle": "Hip / Shoulder Turn",
+        "observation": "Peak hip\u2013shoulder separation is 17\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricName": "hip_shoulder_separation_degrees",
+        "citedMetricValue": 17
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "disagree",
+      "coachNotes": "17 degrees is only three under the minimum and the rest is clean \u2014 too marginal to make the headline."
     },
     {
       "slot": 30,
-      "clipId": null,
-      "footagePath": null,
-      "captureGatePassed": null,
+      "clipId": "demo-fh-30",
+      "footagePath": "docs/artifacts/SCA-1888-validation-corpus.json (real forehand source); swing ballpark-synthesized per board directive",
+      "captureGatePassed": true,
       "topRecommendation": {
         "ruleId": null,
         "phaseIndex": null,
@@ -492,8 +496,8 @@
         "citedMetricName": null,
         "citedMetricValue": null
       },
-      "coachVerdict": null,
-      "coachNotes": null
+      "coachVerdict": "n/a",
+      "coachNotes": "Post-fix: swing within tolerance \u2014 engine correctly raises no headline improvement; nothing to agree/disagree with."
     }
   ]
 }

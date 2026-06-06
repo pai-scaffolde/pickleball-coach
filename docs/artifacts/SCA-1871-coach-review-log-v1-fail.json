@@ -1,0 +1,339 @@
+{
+  "_meta": {
+    "pass": "v1",
+    "result": "18/30 = 60% FAIL",
+    "note": "pre-fix; engine headlined borderline values"
+  },
+  "clips": [
+    {
+      "slot": 1,
+      "clipId": "demo-fh-01",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.narrow",
+        "observation": "Stance is 82% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricValue": 0.82
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "Feet together at 82% is a clear narrow-base fault and the only issue, so widening the stance is the right lead."
+    },
+    {
+      "slot": 2,
+      "clipId": "demo-fh-02",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.narrow",
+        "observation": "Stance is 90% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricValue": 0.9
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "90% is a genuine 10-point miss with everything else clean, so a quick cue to widen the base is fair to lead with."
+    },
+    {
+      "slot": 3,
+      "clipId": "demo-fh-03",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.wide",
+        "observation": "Stance is 145% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricValue": 1.45
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "145% is clearly too wide and it shows in the slow recovery, so trimming the base is the correct primary fix."
+    },
+    {
+      "slot": 4,
+      "clipId": "demo-fh-04",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.wide",
+        "observation": "Stance is 138% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricValue": 1.38
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "138% is solidly over the line and the only fault, so narrowing the base is the right call."
+    },
+    {
+      "slot": 5,
+      "clipId": "demo-fh-05",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.narrow",
+        "observation": "Stance is 75% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricValue": 0.75
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "75% with feet under the hips is a clear narrow stance and the sole issue, so widen the base first."
+    },
+    {
+      "slot": 6,
+      "clipId": "demo-fh-06",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.upright",
+        "observation": "Knee angle is 178\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricValue": 178
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "178 degrees is essentially straight legs with no power base, so loading the legs is exactly the right lead."
+    },
+    {
+      "slot": 7,
+      "clipId": "demo-fh-07",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.upright",
+        "observation": "Knee angle is 172\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricValue": 172
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "172 degrees is two degrees over ideal with an otherwise clean swing \u2014 too marginal to make the headline note."
+    },
+    {
+      "slot": 8,
+      "clipId": "demo-fh-08",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.deep",
+        "observation": "Knee angle is 132\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+        "citedMetricValue": 132
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "132 degrees is a genuinely deep load that hurts recovery, so easing the squat is the right primary cue."
+    },
+    {
+      "slot": 9,
+      "clipId": "demo-fh-09",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.deep",
+        "observation": "Knee angle is 138\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+        "citedMetricValue": 138
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "138 degrees is only two degrees deep and nearly in range \u2014 not worth flagging as the number-one fix."
+    },
+    {
+      "slot": 10,
+      "clipId": "demo-fh-10",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.upright",
+        "observation": "Knee angle is 175\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricValue": 175
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "175 degrees with little leg drive is a real upright-load fault and the only issue, so lead with loading the legs."
+    },
+    {
+      "slot": 11,
+      "clipId": "demo-fh-11",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.deep",
+        "observation": "Knee angle is 128\u00b0 \u2014 a deep bend that may slow your recovery after contact.",
+        "citedMetricValue": 128
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "128 degrees is a clearly deep squat that will slow recovery, so softening the bend is the correct lead."
+    },
+    {
+      "slot": 12,
+      "clipId": "demo-fh-12",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 12\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 12
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "12 degrees of separation on an arms-only swing is a clear kinetic-chain breakdown \u2014 exactly the right thing to lead with."
+    },
+    {
+      "slot": 13,
+      "clipId": "demo-fh-13",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 18\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 18
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "18 degrees is barely two under the minimum on an otherwise solid swing \u2014 too borderline to headline."
+    },
+    {
+      "slot": 14,
+      "clipId": "demo-fh-14",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 8\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 8
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "8 degrees is almost no hip-shoulder separation, a major power leak, so the kinetic chain is the right primary fix."
+    },
+    {
+      "slot": 15,
+      "clipId": "demo-fh-15",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 15\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 15
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "15 degrees is meaningfully under ideal and limits the chain, so leading with hip turn is correct."
+    },
+    {
+      "slot": 16,
+      "clipId": "demo-fh-16",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 19\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 19
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "19 degrees is one degree shy of ideal \u2014 that is measurement noise, not the headline fix for this swing."
+    },
+    {
+      "slot": 17,
+      "clipId": "demo-fh-17",
+      "topRecommendation": {
+        "ruleId": "ph8.follow_through.low",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricValue": -0.25
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "A paddle stopping at the waist at -0.25 is a clearly truncated drive finish, so completing the follow-through is the right lead."
+    },
+    {
+      "slot": 18,
+      "clipId": "demo-fh-18",
+      "topRecommendation": {
+        "ruleId": "ph8.follow_through.low",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricValue": -0.05
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "-0.05 is a hair below shoulder and effectively a complete finish \u2014 too marginal to make the top recommendation."
+    },
+    {
+      "slot": 19,
+      "clipId": "demo-fh-19",
+      "topRecommendation": {
+        "ruleId": "ph8.follow_through.low",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricValue": -0.4
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "-0.4 is a badly short finish that kills drive depth, so extending the follow-through is the correct primary fix."
+    },
+    {
+      "slot": 20,
+      "clipId": "demo-fh-20",
+      "topRecommendation": {
+        "ruleId": "ph8.follow_through.low",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricValue": -0.15
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "-0.15 is a real low finish with the rest clean, so leading with a fuller follow-through is fair."
+    },
+    {
+      "slot": 21,
+      "clipId": "demo-fh-21",
+      "topRecommendation": {
+        "ruleId": "ph8.follow_through.low",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricValue": -0.3
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "-0.3 below shoulder is a clearly incomplete drive finish and the only fault, so lead with the follow-through."
+    },
+    {
+      "slot": 22,
+      "clipId": "demo-fh-22",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.narrow",
+        "observation": "Stance is 88% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricValue": 0.88
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "88% is a genuine narrow-base fault and a reasonable lead, though the upright knee is also worth a mention next."
+    },
+    {
+      "slot": 23,
+      "clipId": "demo-fh-23",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.upright",
+        "observation": "Knee angle is 175\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricValue": 175
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "It led with the upright knee, but the low hip turn here is the higher-leverage kinetic-chain fix I would lead with."
+    },
+    {
+      "slot": 24,
+      "clipId": "demo-fh-24",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 12\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 12
+      },
+      "coachVerdict": "agree",
+      "coachNotes": "With both a low hip turn and short finish present, leading with the 12-degree kinetic-chain breakdown is the right priority."
+    },
+    {
+      "slot": 25,
+      "clipId": "demo-fh-25",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.wide",
+        "observation": "Stance is 140% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricValue": 1.4
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "It led with a wide stance, but the incomplete follow-through is the more important late-phase fix to lead with."
+    },
+    {
+      "slot": 26,
+      "clipId": "demo-fh-26",
+      "topRecommendation": {
+        "ruleId": "ph8.follow_through.low",
+        "observation": "Paddle finished below shoulder height \u2014 drive follow-through is incomplete.",
+        "citedMetricValue": -0.1
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "-0.1 is only a touch low on an otherwise good swing \u2014 too borderline to be the number-one note."
+    },
+    {
+      "slot": 27,
+      "clipId": "demo-fh-27",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.narrow",
+        "observation": "Stance is 95% of shoulder width \u2014 narrower than the 100\u2013130% ideal.",
+        "citedMetricValue": 0.95
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "95% is just under ideal and well within normal variation \u2014 not worth headlining for a player swinging well."
+    },
+    {
+      "slot": 28,
+      "clipId": "demo-fh-28",
+      "topRecommendation": {
+        "ruleId": "ph3.knee.upright",
+        "observation": "Knee angle is 171\u00b0 \u2014 nearly straight; soften into the shot for a stronger power base.",
+        "citedMetricValue": 171
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "171 degrees is one degree over ideal \u2014 that is noise, not the primary fix to lead with."
+    },
+    {
+      "slot": 29,
+      "clipId": "demo-fh-29",
+      "topRecommendation": {
+        "ruleId": "ph5.hip_turn.low",
+        "observation": "Peak hip\u2013shoulder separation is 17\u00b0 \u2014 below the 20\u00b0 minimum for effective kinetic chain.",
+        "citedMetricValue": 17
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "17 degrees is only three under the minimum and the rest is clean \u2014 too marginal to make the headline."
+    },
+    {
+      "slot": 30,
+      "clipId": "demo-fh-30",
+      "topRecommendation": {
+        "ruleId": "ph1.stance.wide",
+        "observation": "Stance is 132% of shoulder width \u2014 wider than the 100\u2013130% ideal, which limits lateral recovery.",
+        "citedMetricValue": 1.32
+      },
+      "coachVerdict": "disagree",
+      "coachNotes": "132% is two points over the line \u2014 a borderline wide base I would not lead with as the top fix."
+    }
+  ]
+}
