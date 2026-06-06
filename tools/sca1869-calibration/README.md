@@ -43,6 +43,13 @@ shipped reference.
 
 ## Turnkey command (run when cleared footage lands)
 
+Both strokes are one rights-gated command each. Before running, the asset's
+register row, its `license_ref` release PDF, and its `asset_path` footage must all
+be on disk — see [`docs/assets/releases/README.md`](../../docs/assets/releases/README.md)
+for the drop-in checklist and the signable release form.
+
+### Forehand (`fixture-forehand-drive-1rep-v0` — row already registered)
+
 ```sh
 # 1. Extract poses from the cleared clip (Vision pipeline, SCA-1860):
 #    produces a jointSamples artifact, e.g. forehand-cleared-poses.json
@@ -55,6 +62,38 @@ python3 tools/sca1869-calibration/calibrate.py \
   --rights-id fixture-forehand-drive-1rep-v0
 # 3. Coach-review the report, then re-run the comparison harness and update
 #    docs/artifacts/SCA-1824-comparison-artifact.json + the spec evidence block.
+```
+
+### Backhand (`fixture-backhand-drive-1rep-v0` — record + register first)
+
+No cleared backhand footage exists yet. After recording an Option A clip and
+signing the release, add this row to `docs/assets/exemplar-rights-register.json`
+(mirrors the forehand row), then run the command below:
+
+```jsonc
+{
+  "id": "fixture-backhand-drive-1rep-v0",
+  "description": "Canonical test fixture video: single backhand drive rep, self-recorded by team member with signed release.",
+  "asset_type": "video",
+  "asset_path": "tests/fixtures/fixture-backhand-drive-1rep-v0.mp4",
+  "source": "self-recorded by team / Option A (RIGHTS_PLAN.md §2)",
+  "rights_holder": "Pickleball Coach",
+  "usage_scope": "internal-dev",
+  "rights_status": "cleared-internal",
+  "license_ref": "docs/assets/releases/fixture-backhand-drive-1rep-v0-release.pdf",
+  "expiry": null,
+  "owner": "Engineering",
+  "notes": "Test fixture only. Not bundled, not public. license_ref is the required signed release; create and commit it before using outside internal-dev."
+}
+```
+
+```sh
+python3 tools/sca1869-calibration/calibrate.py \
+  --poses   <backhand-cleared-poses.json> \
+  --reference PickleballCoach/PickleballCoach/Resources/reference_backhand_drive_v0.json \
+  --out       PickleballCoach/PickleballCoach/Resources/reference_backhand_drive_v0.json \
+  --report    docs/artifacts/SCA-1869-backhand-calibration-report.json \
+  --rights-id fixture-backhand-drive-1rep-v0
 ```
 
 ## Status / blocker
