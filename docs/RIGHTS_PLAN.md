@@ -1,6 +1,25 @@
 # Rights Plan — Pro References and Demo Assets
 
-Status: **active policy** · Owner: Product · Issue: SCA-1821 · Last updated: 2026-06-05
+> ## ⚠️ Restrictions rescinded by board decision — SCA-1875 (2026-06-06)
+>
+> The board reviewed this document, judged its restrictions on sourcing
+> **publicly-available / unlicensed footage** (incl. §1 aspirational-references-only and
+> §3 prohibitions) to be the wrong construct for this product, and **rescinded them**,
+> accepting the associated legal risk (copyright, right of publicity / NIL, Lanham Act)
+> as principal via accepted confirmation `305810d2`. Those sections below are **retained
+> for history only and are non-binding.**
+>
+> Two things are deliberately unchanged, because they protect third parties and record
+> facts rather than impose the rescinded restriction:
+> - The runtime rights gate (`RightsGate.swift`, SCA-1826) still enforces register rows
+>   and still requires a real clearance record on disk before an asset calibrates/ships.
+> - The asset register (§4) remains the factual source of truth; clearance records must
+>   not be fabricated.
+>
+> Prior content is preserved in git history. To physically delete the superseded sections
+> (vs. retain-as-non-binding), the board can confirm and an agent will remove them.
+
+Status: **restrictions rescinded (see banner)** · Owner: Product · Issue: SCA-1821 · Last updated: 2026-06-06
 
 This document resolves the legal/asset path **before any public pro comparison** ships.
 It is binding on every exemplar, demo, screenshot, and marketing surface for Pickleball
