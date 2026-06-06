@@ -30,6 +30,9 @@
 		A1B2C3D4E5F6003DA7B8C9D0 /* PoseFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6003CA7B8C9D0 /* PoseFrame.swift */; };
 		A1B2C3D4E5F6003FA7B8C9D0 /* ClipInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6003EA7B8C9D0 /* ClipInterval.swift */; };
 		A1B2C3D4E5F60041A7B8C9D0 /* MechanicsScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60040A7B8C9D0 /* MechanicsScore.swift */; };
+		A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */; };
+		A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */; };
+		A1B2C3D4E5F60061A7B8C9DA /* PoseExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,10 +61,31 @@
 		A1B2C3D4E5F6003CA7B8C9D0 /* PoseFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseFrame.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6003EA7B8C9D0 /* ClipInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipInterval.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60040A7B8C9D0 /* MechanicsScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsScore.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseExtractionService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureQualityGate.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickleballCoachTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseExtractionServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B2C3D4E5F60057A7B8C9DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B2C3D4E5F60001A7B8C9D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3D4E5F6000AA7B8C9D0;
+			remoteInfo = PickleballCoach;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A1B2C3D4E5F6000DA7B8C9D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D4E5F60053A7B8C9DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -75,8 +99,17 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F60003A7B8C9D0 /* PickleballCoach */,
+				A1B2C3D4E5F60059A7B8C9DA /* PickleballCoachTests */,
 				A1B2C3D4E5F60007A7B8C9D0 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F60059A7B8C9DA /* PickleballCoachTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */,
+			);
+			path = PickleballCoachTests;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60003A7B8C9D0 /* PickleballCoach */ = {
@@ -115,6 +148,8 @@
 			children = (
 				A1B2C3D4E5F60018A7B8C9D0 /* SessionStore.swift */,
 				A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */,
+				A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */,
+				A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */,
 				A1B2C3D4E5F60038A7B8C9D0 /* ComparisonEngine.swift */,
 				A1B2C3D4E5F60036A7B8C9D0 /* FeedbackEngine.swift */,
 			);
@@ -138,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F60009A7B8C9D0 /* PickleballCoach.app */,
+				A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +206,23 @@
 			productReference = A1B2C3D4E5F60009A7B8C9D0 /* PickleballCoach.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A1B2C3D4E5F60051A7B8C9DA /* PickleballCoachTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D4E5F60054A7B8C9DA /* Build configuration list for PBXNativeTarget "PickleballCoachTests" */;
+			buildPhases = (
+				A1B2C3D4E5F60052A7B8C9DA /* Sources */,
+				A1B2C3D4E5F60053A7B8C9DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B2C3D4E5F60058A7B8C9DA /* PBXTargetDependency */,
+			);
+			name = PickleballCoachTests;
+			productName = PickleballCoachTests;
+			productReference = A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,6 +235,10 @@
 				TargetAttributes = {
 					A1B2C3D4E5F6000AA7B8C9D0 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					A1B2C3D4E5F60051A7B8C9DA = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = A1B2C3D4E5F6000AA7B8C9D0;
 					};
 				};
 			};
@@ -199,6 +256,7 @@
 			projectRoot = "";
 			targets = (
 				A1B2C3D4E5F6000AA7B8C9D0 /* PickleballCoach */,
+				A1B2C3D4E5F60051A7B8C9DA /* PickleballCoachTests */,
 			);
 		};
 /* End PBXProject section */
@@ -231,6 +289,8 @@
 				A1B2C3D4E5F60023A7B8C9D0 /* ReviewPlaceholderView.swift in Sources */,
 				A1B2C3D4E5F6002AA7B8C9D0 /* PoseAnalysisResult.swift in Sources */,
 				A1B2C3D4E5F6002CA7B8C9D0 /* PoseCaptureService.swift in Sources */,
+				A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */,
+				A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */,
 				A1B2C3D4E5F6002EA7B8C9D0 /* PoseOverlayView.swift in Sources */,
 				A1B2C3D4E5F6003BA7B8C9D0 /* ReferenceExemplar.swift in Sources */,
 				A1B2C3D4E5F60031A7B8C9D0 /* MechanicsObservation.swift in Sources */,
@@ -244,7 +304,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1B2C3D4E5F60052A7B8C9DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F60061A7B8C9DA /* PoseExtractionServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B2C3D4E5F60058A7B8C9DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B2C3D4E5F6000AA7B8C9D0 /* PickleballCoach */;
+			targetProxy = A1B2C3D4E5F60057A7B8C9DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A1B2C3D4E5F60010A7B8C9D0 /* Debug */ = {
@@ -422,6 +498,36 @@
 			};
 			name = Release;
 		};
+		A1B2C3D4E5F60055A7B8C9DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ai.scaffolde.pickleball-coach.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickleballCoach.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PickleballCoach";
+			};
+			name = Debug;
+		};
+		A1B2C3D4E5F60056A7B8C9DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ai.scaffolde.pickleball-coach.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickleballCoach.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PickleballCoach";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -439,6 +545,15 @@
 			buildConfigurations = (
 				A1B2C3D4E5F60012A7B8C9D1 /* Debug */,
 				A1B2C3D4E5F60013A7B8C9D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D4E5F60054A7B8C9DA /* Build configuration list for PBXNativeTarget "PickleballCoachTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D4E5F60055A7B8C9DA /* Debug */,
+				A1B2C3D4E5F60056A7B8C9DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
