@@ -1,0 +1,180 @@
+{
+  "_meta": {
+    "gate": "SCA-1826 Gate 6 \u2014 drill recall",
+    "issue": "SCA-1872",
+    "schemaVersion": 1,
+    "strokeType": "forehand_drive",
+    "exitQuestion": "What one thing did the app tell you to practice today?",
+    "passCriterion": ">= 16/20 reviewable users (80%) marked 'understood'",
+    "topDrillDefinition": "primaryObservation.drill of the FIRST ClipFeedback (ascending phaseIndex) from RuleBasedFeedbackEngine.generateFeedback whose primaryObservation.severity == 'improvement'.",
+    "verdictValues": {
+      "understood": "User's answer matches the top card's drill (the one thing to practice).",
+      "not_understood": "Answer does not match the top drill (recalled wrong thing / could not recall).",
+      "n/a": "User had no improvement-severity card; excluded from denominator.",
+      "null": "Not yet surveyed."
+    },
+    "status": "TEMPLATE \u2014 pending 20-user beta cohort + human grader (see runbook)."
+  },
+  "users": [
+    {
+      "slot": 1,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 2,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 3,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 4,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 5,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 6,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 7,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 8,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 9,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 10,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 11,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 12,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 13,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 14,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 15,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 16,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 17,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 18,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 19,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    },
+    {
+      "slot": 20,
+      "sessionId": null,
+      "topDrill": null,
+      "userAnswer": null,
+      "recallVerdict": null,
+      "graderNotes": null
+    }
+  ]
+}
