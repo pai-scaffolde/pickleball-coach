@@ -1,0 +1,747 @@
+{
+  "_meta" : {
+    "gatePassingClips" : 43,
+    "issue" : "SCA-1888",
+    "purpose" : "tooling-validation corpus — real footage windowed into independent clips and scored by the real CaptureQualityGate. NOT a beta-user corpus (does not measure human capture\/feedback\/recall outcomes).",
+    "totalClips" : 60,
+    "windowSeconds" : 3
+  },
+  "clips" : [
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w00",
+      "detectedFrames" : 30,
+      "endSeconds" : 3,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 0
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w01",
+      "detectedFrames" : 19,
+      "endSeconds" : 6,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 31,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 3
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w02",
+      "detectedFrames" : 11,
+      "endSeconds" : 9,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 11 frames; need at least 15.",
+        "Body visible in 37% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 6
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w03",
+      "detectedFrames" : 29,
+      "endSeconds" : 12,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 9
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w04",
+      "detectedFrames" : 11,
+      "endSeconds" : 15,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 11 frames; need at least 15.",
+        "Body visible in 37% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 12
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w05",
+      "detectedFrames" : 30,
+      "endSeconds" : 18,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 15
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w06",
+      "detectedFrames" : 29,
+      "endSeconds" : 21,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 29,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 18
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w07",
+      "detectedFrames" : 30,
+      "endSeconds" : 24,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 21
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w08",
+      "detectedFrames" : 30,
+      "endSeconds" : 27,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 24
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w09",
+      "detectedFrames" : 13,
+      "endSeconds" : 30,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 13 frames; need at least 15.",
+        "Body visible in 43% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 27
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w10",
+      "detectedFrames" : 27,
+      "endSeconds" : 33,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 30
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w11",
+      "detectedFrames" : 24,
+      "endSeconds" : 36,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 33
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w12",
+      "detectedFrames" : 30,
+      "endSeconds" : 39,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 36
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w13",
+      "detectedFrames" : 30,
+      "endSeconds" : 42,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 39
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w14",
+      "detectedFrames" : 30,
+      "endSeconds" : 45,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 42
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w15",
+      "detectedFrames" : 30,
+      "endSeconds" : 48,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 45
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w16",
+      "detectedFrames" : 30,
+      "endSeconds" : 51,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 48
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w17",
+      "detectedFrames" : 30,
+      "endSeconds" : 54,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 51
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w18",
+      "detectedFrames" : 30,
+      "endSeconds" : 57,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 54
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w19",
+      "detectedFrames" : 30,
+      "endSeconds" : 60,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 57
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w20",
+      "detectedFrames" : 30,
+      "endSeconds" : 63,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 60
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w21",
+      "detectedFrames" : 30,
+      "endSeconds" : 66,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 63
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w22",
+      "detectedFrames" : 30,
+      "endSeconds" : 69,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 66
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w23",
+      "detectedFrames" : 30,
+      "endSeconds" : 72,
+      "passed" : false,
+      "rejections" : [
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 69
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w24",
+      "detectedFrames" : 29,
+      "endSeconds" : 75,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 72
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w25",
+      "detectedFrames" : 11,
+      "endSeconds" : 78,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 11 frames; need at least 15.",
+        "Body visible in 35% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 31,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 75
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w26",
+      "detectedFrames" : 30,
+      "endSeconds" : 81,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 78
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w27",
+      "detectedFrames" : 30,
+      "endSeconds" : 84,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 81
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w28",
+      "detectedFrames" : 30,
+      "endSeconds" : 87,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 84
+    },
+    {
+      "clipId" : "yt-forehand-drive-navratil-v0.mp4#w29",
+      "detectedFrames" : 30,
+      "endSeconds" : 90,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-forehand-drive-navratil-v0.mp4",
+      "startSeconds" : 87
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w00",
+      "detectedFrames" : 0,
+      "endSeconds" : 3,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 0 frames; need at least 15.",
+        "Body visible in 0% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 0
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w01",
+      "detectedFrames" : 0,
+      "endSeconds" : 6,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 0 frames; need at least 15.",
+        "Body visible in 0% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 31,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 3
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w02",
+      "detectedFrames" : 18,
+      "endSeconds" : 9,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 6
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w03",
+      "detectedFrames" : 30,
+      "endSeconds" : 12,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 9
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w04",
+      "detectedFrames" : 30,
+      "endSeconds" : 15,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 12
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w05",
+      "detectedFrames" : 30,
+      "endSeconds" : 18,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 15
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w06",
+      "detectedFrames" : 29,
+      "endSeconds" : 21,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 29,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 18
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w07",
+      "detectedFrames" : 30,
+      "endSeconds" : 24,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 21
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w08",
+      "detectedFrames" : 30,
+      "endSeconds" : 27,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 24
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w09",
+      "detectedFrames" : 30,
+      "endSeconds" : 30,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 27
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w10",
+      "detectedFrames" : 30,
+      "endSeconds" : 33,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 30
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w11",
+      "detectedFrames" : 30,
+      "endSeconds" : 36,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 33
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w12",
+      "detectedFrames" : 30,
+      "endSeconds" : 39,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 36
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w13",
+      "detectedFrames" : 30,
+      "endSeconds" : 42,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 39
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w14",
+      "detectedFrames" : 30,
+      "endSeconds" : 45,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 42
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w15",
+      "detectedFrames" : 30,
+      "endSeconds" : 48,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 45
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w16",
+      "detectedFrames" : 30,
+      "endSeconds" : 51,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 48
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w17",
+      "detectedFrames" : 30,
+      "endSeconds" : 54,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 51
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w18",
+      "detectedFrames" : 30,
+      "endSeconds" : 57,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 54
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w19",
+      "detectedFrames" : 30,
+      "endSeconds" : 60,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 57
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w20",
+      "detectedFrames" : 30,
+      "endSeconds" : 63,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 60
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w21",
+      "detectedFrames" : 30,
+      "endSeconds" : 66,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 63
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w22",
+      "detectedFrames" : 30,
+      "endSeconds" : 69,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 66
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w23",
+      "detectedFrames" : 30,
+      "endSeconds" : 72,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 69
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w24",
+      "detectedFrames" : 30,
+      "endSeconds" : 75,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 72
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w25",
+      "detectedFrames" : 31,
+      "endSeconds" : 78,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 31,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 75
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w26",
+      "detectedFrames" : 30,
+      "endSeconds" : 81,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 78
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w27",
+      "detectedFrames" : 30,
+      "endSeconds" : 84,
+      "passed" : true,
+      "rejections" : [
+
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 81
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w28",
+      "detectedFrames" : 1,
+      "endSeconds" : 87,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 1 frames; need at least 15.",
+        "Body visible in 3% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 84
+    },
+    {
+      "clipId" : "yt-backhand-drive-selkirk-v0.mp4#w29",
+      "detectedFrames" : 0,
+      "endSeconds" : 90,
+      "passed" : false,
+      "rejections" : [
+        "Body detected in only 0 frames; need at least 15.",
+        "Body visible in 0% of frames; need at least 60%.",
+        "Wrist\/elbow confidence too low in the contact zone."
+      ],
+      "sampledFrames" : 30,
+      "source" : "yt-backhand-drive-selkirk-v0.mp4",
+      "startSeconds" : 87
+    }
+  ]
+}
