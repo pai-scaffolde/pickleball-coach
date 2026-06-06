@@ -1,0 +1,499 @@
+{
+  "_meta": {
+    "gate": "SCA-1826 Gate 4 \u2014 coach agreement",
+    "issue": "SCA-1871",
+    "schemaVersion": 1,
+    "strokeType": "forehand_drive",
+    "passCriterion": ">= 21/30 reviewable clips (70%) rated 'agree'",
+    "topRecommendationDefinition": "First ClipFeedback (ascending phaseIndex) from RuleBasedFeedbackEngine.generateFeedback whose primaryObservation.severity == 'improvement'.",
+    "verdictValues": {
+      "agree": "Coach agrees the top recommendation is the right primary fix for this clip.",
+      "disagree": "Coach disagrees (wrong fix, false positive, or a more important issue was missed).",
+      "n/a": "Clip had no improvement-severity card; excluded from denominator.",
+      "null": "Not yet reviewed."
+    },
+    "status": "TEMPLATE \u2014 pending beta corpus + qualified coach (see runbook)."
+  },
+  "clips": [
+    {
+      "slot": 1,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 2,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 3,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 4,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 5,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 6,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 7,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 8,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 9,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 10,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 11,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 12,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 13,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 14,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 15,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 16,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 17,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 18,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 19,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 20,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 21,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 22,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 23,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 24,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 25,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 26,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 27,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 28,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 29,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    },
+    {
+      "slot": 30,
+      "clipId": null,
+      "footagePath": null,
+      "captureGatePassed": null,
+      "topRecommendation": {
+        "ruleId": null,
+        "phaseIndex": null,
+        "phaseTitle": null,
+        "observation": null,
+        "citedMetricName": null,
+        "citedMetricValue": null
+      },
+      "coachVerdict": null,
+      "coachNotes": null
+    }
+  ]
+}
