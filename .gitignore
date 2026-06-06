@@ -1,3 +1,7 @@
 .DS_Store
 *.xcuserstate
 DerivedData/
+__pycache__/
+*.pyc
+.scaffolde/
+project.xcworkspace/

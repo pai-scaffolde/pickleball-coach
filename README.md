@@ -44,16 +44,22 @@ phrase feedback; it never invents biomechanical judgments.
 | --- | --- | --- |
 | M0–1 | App skeleton, video import, session persistence, playback | ✅ shipped |
 | Spike | Apple Vision pose capture validated on real footage | ✅ done |
-| M2 gate | Pipeline data contracts (`PoseFrame`, `ClipInterval`, `MechanicsScore`) + canonical fixture | 🔄 in progress |
-| M2 | Vision pose extraction pipeline (time-based sampling, debug overlay) | ⏳ queued |
-| M4-lite | Deterministic mechanics scoring (forehand) + skeleton overlay | ⏳ queued |
-| M3 | Rep segmentation + slow-motion clip export (3–6 quality clips) | ⏳ queued |
-| Feedback | Coach-reviewed rules engine (LLM phrases, never judges) | 🔄 in progress |
-| M6 | Demo hardening: import → analyze → clips → scores → feedback, offline | ⏳ queued |
+| M2 gate | Pipeline data contracts (`PoseFrame`, `ClipInterval`, `MechanicsScore`) + canonical fixture | ✅ done |
+| M2 | Vision pose extraction pipeline (time-based sampling, debug overlay) | ✅ done |
+| M4-lite | Deterministic mechanics scoring (forehand) + skeleton overlay | ✅ done |
+| M3 | Rep segmentation + slow-motion clip export (3–6 quality clips) | ✅ done |
+| Feedback | Coach-reviewed rules engine (LLM phrases, never judges) | ✅ done |
+| M6 | Demo hardening: import → analyze → clips → scores → feedback, offline | 🔄 in progress |
 
 Milestone order follows the reviewed execution plan in
 [`docs/PLAN_REVIEW_2026-06-05.md`](docs/PLAN_REVIEW_2026-06-05.md) — scoring
 lands before clip export so every exported clip carries the overlay.
+
+**Active frontier: M6 (demo hardening).** The full pipeline — import → pose
+extraction → mechanics scoring → rep segmentation → slow-mo clips → feedback —
+is implemented and landed. What remains is end-to-end demo hardening: wiring
+every stage into one offline import → analyze → clips → scores → feedback flow
+and proving it on the bundled demo session.
 
 ## Try it
 
