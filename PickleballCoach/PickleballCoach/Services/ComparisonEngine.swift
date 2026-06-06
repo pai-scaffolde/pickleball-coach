@@ -75,8 +75,17 @@ struct FeatureComparison: Codable {
     let idealMin: Double
     let idealMax: Double
     let delta: Double           // signed distance outside the range (0 when within)
-    let status: String          // "within" | "below" | "above" | "insufficient_confidence"
+    let status: String          // "within" | "below" | "above" | "insufficient_confidence" | "low_view_confidence"
     let featureScore: Double    // 0–1, 1 when within range, decays with delta
+
+    /// SCA-1864: re-tag a measured feature as unreliable for the current camera
+    /// view (e.g. axial rotation on a side-on capture). The measured value is
+    /// preserved for display, but the feature is excluded from the phase score.
+    func markedLowViewConfidence() -> FeatureComparison {
+        FeatureComparison(feature: feature, userValue: userValue, idealMin: idealMin,
+                          idealMax: idealMax, delta: delta, status: "low_view_confidence",
+                          featureScore: featureScore)
+    }
 }
 
 struct PhaseComparison: Codable {
@@ -107,8 +116,24 @@ struct ComparisonEngine {
     /// Joints below this confidence are treated as missing for feature math.
     let minJointConfidence: Double
 
+    /// Below this shoulder-width / torso-length ratio the capture is treated as
+    /// (near) side-on, where the 2D line-angle separation feature is excluded
+    /// from scoring rather than reporting a false ~0°. The bundled exemplar and a
+    /// frontal/three-quarter user both sit well above this (~0.5).
+    static let sideOnFrontalityThreshold = 0.30
+
     init(minJointConfidence: Double = 0.5) {
         self.minJointConfidence = minJointConfidence
+    }
+
+    /// SCA-1864: per-feature scoring weight. `hip_shoulder_separation_deg` is a
+    /// weak axial-rotation proxy in single-camera 2D, so it is down-weighted and
+    /// cannot dominate a phase score. All other features weigh equally.
+    static func weight(for key: FeatureKey) -> Double {
+        switch key {
+        case .hipShoulderSeparationDeg: return 0.25
+        default:                        return 1.0
+        }
     }
 
     func compare(user: [PhasePose], reference: ReferenceExemplar) -> ComparisonReport {
@@ -128,19 +153,35 @@ struct ComparisonEngine {
             let poses = byPhase[cp] ?? []
 
             var featureReports: [FeatureComparison] = []
-            var featureScores: [Double] = []
+            var weightedSum = 0.0
+            var weightTotal = 0.0
 
             for (key, range) in refPhase.sortedRanges() {
                 let userValue = meanFeature(key, across: poses)
-                let report = compareFeature(key: key, userValue: userValue, range: range)
+                var report = compareFeature(key: key, userValue: userValue, range: range)
+                // SCA-1864: 2D rotation under-detection. A line-angle between two
+                // near-horizontal segments cannot observe AXIAL torso rotation
+                // (the hip/shoulder "X-factor") from a single camera — on a side-on
+                // OR a frontal view the shoulder and hip lines stay near-parallel,
+                // so the separation reads ~0° regardless of the real coil. We
+                // therefore (a) DOWN-WEIGHT this feature so it can't dominate a
+                // phase score, and (b) fully EXCLUDE it on true side-on captures
+                // where projected body width collapses and even tilt is unreadable.
+                // True axial rotation needs depth/3D pose (tracked: SCA-1864 #4 → 3D).
+                if key == .hipShoulderSeparationDeg, report.status != "insufficient_confidence",
+                   let frontality = meanFrontality(across: poses), frontality < Self.sideOnFrontalityThreshold {
+                    report = report.markedLowViewConfidence()
+                }
                 featureReports.append(report)
-                if report.status != "insufficient_confidence" {
-                    featureScores.append(report.featureScore)
+                if report.status != "insufficient_confidence", report.status != "low_view_confidence" {
+                    let w = Self.weight(for: key)
+                    weightedSum += report.featureScore * w
+                    weightTotal += w
                 }
             }
 
-            let measured = !featureScores.isEmpty
-            let phaseScore = measured ? (featureScores.reduce(0, +) / Double(featureScores.count)) * 100 : 0
+            let measured = weightTotal > 0
+            let phaseScore = measured ? (weightedSum / weightTotal) * 100 : 0
             if measured { measuredScores.append(phaseScore) }
 
             phaseReports.append(PhaseComparison(
@@ -159,6 +200,13 @@ struct ComparisonEngine {
         if !unmeasured.isEmpty {
             notes.append("Phases with no measurable features (missing segment or low confidence): \(unmeasured.joined(separator: ", ")).")
         }
+        let sideOnPhases = phaseReports
+            .filter { $0.features.contains { $0.status == "low_view_confidence" } }
+            .map { $0.phase }
+        if !sideOnPhases.isEmpty {
+            notes.append("hip_shoulder_separation_deg excluded as low-view-confidence (side-on capture; 2D cannot read axial rotation) for: \(sideOnPhases.joined(separator: ", ")).")
+        }
+        notes.append("hip_shoulder_separation_deg is down-weighted (×0.25): a single-camera 2D line-angle is a weak axial-rotation proxy. Reliable torso rotation needs depth/3D pose.")
         notes.append("Comparison is range/delta on scale-normalized features. No pixel alignment, no ghost overlay, no pro footage.")
 
         return ComparisonReport(
@@ -207,6 +255,22 @@ struct ComparisonEngine {
         var values: [Double] = []
         for pose in poses {
             if let v = feature(key, in: pose) { values.append(v) }
+        }
+        guard !values.isEmpty else { return nil }
+        return values.reduce(0, +) / Double(values.count)
+    }
+
+    /// SCA-1864: mean "frontality" = shoulder-width / torso-length across a
+    /// phase's frames. ~0.5 for a frontal/three-quarter view; collapses toward 0
+    /// as the body turns side-on and the shoulder line foreshortens. Used to gate
+    /// the (2D-unreliable) axial-rotation feature. nil when unmeasurable.
+    private func meanFrontality(across poses: [PhasePose]) -> Double? {
+        var values: [Double] = []
+        for pose in poses {
+            guard let torso = torsoLength(in: pose),
+                  let ls = point("left_shoulder", in: pose),
+                  let rs = point("right_shoulder", in: pose) else { continue }
+            values.append(dist(ls, rs) / torso)
         }
         guard !values.isEmpty else { return nil }
         return values.reduce(0, +) / Double(values.count)
