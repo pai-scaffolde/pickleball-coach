@@ -1,0 +1,27 @@
+{
+  "$schema_version": "1.0",
+  "description": "Manually annotated rep boundaries for the canonical test fixture video. Used to validate rep segmentation and ClipInterval output against ground-truth timing.",
+  "fixture_video": "fixture-forehand-drive-1rep-v0.mp4",
+  "rights_register_id": "fixture-forehand-drive-1rep-v0",
+  "stroke_type": "forehand_drive",
+  "annotated_by": "manual",
+  "annotated_at": "2026-06-05",
+  "video_duration_seconds": 3.5,
+  "reps": [
+    {
+      "rep_index": 1,
+      "start_time": 0.4,
+      "end_time": 2.8,
+      "stroke_type": "forehand_drive",
+      "phases": {
+        "ready_stance": { "start": 0.4, "end": 0.8 },
+        "shoulder_turn": { "start": 0.8, "end": 1.2 },
+        "backswing": { "start": 1.2, "end": 1.6 },
+        "forward_swing": { "start": 1.6, "end": 2.1 },
+        "contact": { "start": 2.1, "end": 2.4 },
+        "follow_through": { "start": 2.4, "end": 2.8 }
+      },
+      "notes": "Clean single forehand drive. Contact at roughly mid-body. Used as the ground-truth rep for segmentation unit tests."
+    }
+  ]
+}

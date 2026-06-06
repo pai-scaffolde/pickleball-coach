@@ -2,82 +2,37 @@
 
 ## Boundary
 
-Pickleball Coach is a separate app project. Scaffolde is the factory we use to build it, not the app source tree.
+Pickleball Coach is a separate app project. Scaffolde is the factory we use to
+build it, not the app source tree.
 
-- App project: `~/Projects/pickleball-coach`
+- App project: `~/Projects/pickleball-coach` (remote: `github.com/pai-scaffolde/pickleball-coach`, auto-pushed — see `AGENTS.md`)
 - Scaffolde source: `~/Projects/scaffolde-ai`
-- Hermes runtime: `~/.hermes`
-- GStack generated Hermes skills: `~/.hermes/skills/gstack-*` and `~/.hermes/skills/gstack`
+- Hermes runtime: `~/.hermes` (projection — never patch directly)
 - Paperclip runtime/API: local Paperclip server, currently `http://127.0.0.1:3102/api`
+- Paperclip project: Pickleball Coach, ID `d78b78a0-1a6c-45d5-ac6b-6863d9958a3e`
 
-## Current capability visibility
+## Capability lanes
 
-Hermes can see skills that are installed/projected into `~/.hermes/skills`.
+| Need | Use |
+| --- | --- |
+| Backlog, milestones, acceptance evidence | Paperclip (project above) |
+| Orchestration, delegation, user loop | Hermes (`~/.hermes` skills: `paperclip`, `gstack-*`, etc.) |
+| iOS live-device QA | `gstack-ios-qa` |
+| iOS visual/design QA | `gstack-ios-design-review` |
+| Plan/spec/review workflows | `gstack-spec`, `gstack-autoplan`, plan-review skills |
+| Durable knowledge | GBrain/SecondBrain (only when stable beyond this sprint) |
 
-Observed on 2026-06-05:
+## If a capability is missing from a runtime surface
 
-- Hermes live skill catalog: 319 `SKILL.md` files under `~/.hermes/skills`.
-- Scaffolde repo: 977 `SKILL.md` files under `~/Projects/scaffolde-ai`, including source skills, fixtures, generated skills, and tool-specific skill catalogs.
-- GStack skills are visible because `manifests/bundles/hermes-default.yaml` explicitly allowlists generated gstack skills for the Hermes surface.
-- Paperclip's core skill exists in Scaffolde/Paperclip source, but is not currently projected into `~/.hermes/skills/paperclip`, so `skill_view('paperclip')` does not resolve in Hermes.
+Do not patch `~/.hermes`, `~/.claude`, or any other runtime root directly —
+projections are rebuilt from Scaffolde canonical and direct edits get clobbered.
 
-## GStack location
+Fix the projection manifest in `~/Projects/scaffolde-ai` (usually
+`manifests/domains/*.yaml` or `manifests/bundles/*.yaml`), re-run the surface
+sync (`bun run sync:hermes` / `bun run sync:claude`), and land it as a PR from a
+linked worktree if the main checkout is dirty. If you can't do that now, file a
+Scaffolde remediation issue in Paperclip instead of working around it.
 
-Canonical/source lane:
-
-- `~/Projects/scaffolde-ai/skills/gstack`
-- `~/Projects/scaffolde-ai/manifests/upstreams/gstack.yaml`
-- `~/Projects/scaffolde-ai/manifests/bundles/hermes-default.yaml` lists the Hermes-projected gstack skill IDs.
-
-Hermes live lane:
-
-- `~/.hermes/skills/gstack/SKILL.md`
-- `~/.hermes/skills/gstack-ios-qa/SKILL.md`
-- `~/.hermes/skills/gstack-ios-design-review/SKILL.md`
-- `~/.hermes/skills/gstack-spec/SKILL.md`
-- and other `~/.hermes/skills/gstack-*` skills.
-
-## Correct remediation for missing Paperclip skill in Hermes
-
-Do not patch `~/.hermes` directly.
-
-Smallest canonical fix:
-
-1. Edit `~/Projects/scaffolde-ai/manifests/domains/agents.yaml`.
-2. Add a `hermes` projection for the Paperclip integration skill beside the existing `claude` projection:
-
-```yaml
-projections:
-  hermes:
-    files:
-      - from: integrations/paperclip/SKILL.md
-        to: skills/paperclip/SKILL.md
-      - from: integrations/paperclip-create-agent/SKILL.md
-        to: skills/paperclip-create-agent/SKILL.md
-      - from: integrations/paperclip-create-plugin/SKILL.md
-        to: skills/paperclip-create-plugin/SKILL.md
-```
-
-3. Run from `~/Projects/scaffolde-ai`:
-
-```bash
-bun run sync:hermes
-bun run validate:hermes:surface
-```
-
-Expected result:
-
-- `~/.hermes/skills/paperclip/SKILL.md` exists.
-- `skill_view('paperclip')` resolves in Hermes.
-
-## Current blocker
-
-The Scaffolde checkout is broadly dirty from other active lanes. Do not edit projection manifests in the main checkout casually. Use a linked worktree or a Paperclip remediation lane for the Paperclip-skill projection fix.
-
-## Recommended live operating model for this app
-
-1. Use this repo for app code and product docs.
-2. Use Paperclip Pickleball Coach project for backlog/acceptance.
-3. Use Hermes as orchestrator.
-4. Use Scaffolde/GStack skills by loading from Hermes when available.
-5. If a needed capability is not visible in Hermes, create a Scaffolde remediation task rather than bypassing the projection model.
+Precedent: the Paperclip skills were missing from Hermes and were fixed exactly
+this way — `manifests/domains/agents.yaml` hermes projection, landed as
+[scaffolde-ai#662](https://github.com/pai-scaffolde/scaffolde-ai/pull/662).
