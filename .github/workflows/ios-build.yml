@@ -11,10 +11,14 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Show Xcode version
         run: xcodebuild -version
       - name: Build (iOS Simulator, no signing)
+        # Compiles the full app target including the SCA-1824 comparison module
+        # (ComparisonEngine / ReferenceExemplar / PoseAnalysisResult /
+        # SideBySideComparisonView + its two-panel #Preview) and bundles both
+        # reference exemplar JSONs as app resources. (SCA-1866)
         run: |
           xcodebuild \
             -project PickleballCoach/PickleballCoach.xcodeproj \
@@ -22,3 +26,40 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \
             build
+
+  exemplar-decode-verify:
+    # SCA-1866 acceptance #3: confirm BOTH bundled exemplars decode into
+    # ReferenceExemplar at runtime. The comparison engine + models are
+    # Foundation-only and pure, so we compile them headless with the existing
+    # SCA-1824 harness on the healthy CI toolchain and decode each exemplar for
+    # real (the harness exits non-zero on any JSONDecoder failure).
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Show Swift version
+        run: xcrun swift --version
+      - name: Compile comparison harness (Foundation-only sources)
+        run: |
+          xcrun swiftc -O \
+            PickleballCoach/PickleballCoach/Models/PoseAnalysisResult.swift \
+            PickleballCoach/PickleballCoach/Models/ReferenceExemplar.swift \
+            PickleballCoach/PickleballCoach/Services/ComparisonEngine.swift \
+            tools/sca1824-comparison-harness/main.swift \
+            -o "$RUNNER_TEMP/sca1824-harness"
+      - name: Decode + run forehand exemplar
+        run: |
+          "$RUNNER_TEMP/sca1824-harness" \
+            docs/artifacts/SCA-1819-pose-spike-artifact.json \
+            PickleballCoach/PickleballCoach/Resources/reference_forehand_drive_v0.json \
+            "$RUNNER_TEMP/out_forehand.json"
+          grep -q "exemplar-generic-pose-forehand-v0" "$RUNNER_TEMP/out_forehand.json"
+          echo "✓ forehand exemplar decoded into ReferenceExemplar and ran"
+      - name: Decode + run backhand exemplar
+        run: |
+          "$RUNNER_TEMP/sca1824-harness" \
+            docs/artifacts/SCA-1819-pose-spike-artifact.json \
+            PickleballCoach/PickleballCoach/Resources/reference_backhand_drive_v0.json \
+            "$RUNNER_TEMP/out_backhand.json"
+          grep -q "exemplar-generic-pose-backhand-v0" "$RUNNER_TEMP/out_backhand.json"
+          echo "✓ backhand exemplar decoded into ReferenceExemplar and ran"
