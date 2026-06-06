@@ -45,6 +45,7 @@ jobs:
             PickleballCoach/PickleballCoach/Models/PoseAnalysisResult.swift \
             PickleballCoach/PickleballCoach/Models/ReferenceExemplar.swift \
             PickleballCoach/PickleballCoach/Services/ComparisonEngine.swift \
+            PickleballCoach/PickleballCoach/Services/RightsGate.swift \
             tools/sca1824-comparison-harness/main.swift \
             -o "$RUNNER_TEMP/sca1824-harness"
       - name: Decode + run forehand exemplar
