@@ -86,6 +86,7 @@
       "id": "exemplar-generic-pose-forehand-v0",
       "description": "Pose-only generic forehand-drive exemplar (synthetic/idealized skeleton, no identifiable person).",
       "asset_type": "pose-json",
+      "asset_path": "PickleballCoach/PickleballCoach/Resources/reference_forehand_drive_v0.json",
       "source": "hand-authored / calibrated from internal research (Option C)",
       "rights_holder": "Pickleball Coach",
       "usage_scope": "bundled-app",
@@ -93,7 +94,7 @@
       "license_ref": null,
       "expiry": null,
       "owner": "CV/Product",
-      "notes": "PLACEHOLDER row for the MVP reference library. No real person depicted; must not be reverse-derived from a specific pro's copyrighted footage. Fill in the actual asset path when authored."
+      "notes": "Authored for SCA-1824 (side-by-side comparison). Idealized 7-phase skeleton + generic ideal feature ranges. No real person depicted; not reverse-derived from any specific pro's copyrighted footage. Consumed by PickleballCoach/Services/ComparisonEngine.swift and SideBySideComparisonView.swift."
     },
     {
       "id": "demo-selfrecorded-coach-v0",
