@@ -2,6 +2,17 @@
 
 This is a separate product project. Do not treat this repo as Scaffolde canonical source.
 
+## Remote sync contract
+
+All work in this repo must be visible on `https://github.com/pai-scaffolde/pickleball-coach`
+— a human collaborator and the Paperclip project track it remotely.
+
+- This clone auto-pushes the current branch after every commit and merge via
+  `.git/hooks/post-commit` / `.git/hooks/post-merge`.
+- Hooks are per-clone. In a fresh clone, re-enable with:
+  `cp docs/hooks/post-commit .git/hooks/ && cp docs/hooks/post-commit .git/hooks/post-merge && chmod +x .git/hooks/post-commit .git/hooks/post-merge`
+- If you see `[auto-push] WARNING`, the push failed (offline or non-fast-forward) — push manually before ending the session. Do not leave committed work unpushed.
+
 ## Authority model
 
 - Product artifacts for this app live here under `~/Projects/pickleball-coach`.

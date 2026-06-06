@@ -1,0 +1,10 @@
+#!/bin/sh
+# Auto-push: every commit goes to github.com/pai-scaffolde/pickleball-coach
+# (collaborator + Paperclip project depend on remote visibility)
+branch=$(git symbolic-ref --quiet --short HEAD) || exit 0  # skip detached HEAD
+if git push --quiet -u origin "$branch" >/dev/null 2>&1; then
+  echo "[auto-push] pushed $branch -> origin"
+else
+  echo "[auto-push] WARNING: push failed for $branch (offline or non-fast-forward) — run: git push -u origin $branch"
+fi
+exit 0
