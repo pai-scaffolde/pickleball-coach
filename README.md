@@ -40,26 +40,39 @@ phrase feedback; it never invents biomechanical judgments.
 
 ## Status
 
-| Milestone | Scope | State |
-| --- | --- | --- |
-| M0–1 | App skeleton, video import, session persistence, playback | ✅ shipped |
-| Spike | Apple Vision pose capture validated on real footage | ✅ done |
-| M2 gate | Pipeline data contracts (`PoseFrame`, `ClipInterval`, `MechanicsScore`) + canonical fixture | ✅ done |
-| M2 | Vision pose extraction pipeline (time-based sampling, debug overlay) | ✅ done |
-| M4-lite | Deterministic mechanics scoring (forehand) + skeleton overlay | ✅ done |
-| M3 | Rep segmentation + slow-motion clip export (3–6 quality clips) | ✅ done |
-| Feedback | Coach-reviewed rules engine (LLM phrases, never judges) | ✅ done |
-| M6 | Demo hardening: import → analyze → clips → scores → feedback, offline | 🔄 in progress |
+> **Source of truth: the Paperclip tracking issues, not this table.** Each
+> milestone links to its issue; state is derived from that issue's status and
+> its `blockedBy` dependency graph, so it can't silently drift. Don't hand-edit
+> state here — close the linked issue. This snapshot was last reconciled against
+> issue state on 2026-06-06.
 
-Milestone order follows the reviewed execution plan in
-[`docs/PLAN_REVIEW_2026-06-05.md`](docs/PLAN_REVIEW_2026-06-05.md) — scoring
-lands before clip export so every exported clip carries the overlay.
+| Milestone | Scope | Tracking issue | State |
+| --- | --- | --- | --- |
+| M0–1 | App skeleton, video import, session persistence, playback | SCA-1851 | ✅ done |
+| Spike | Apple Vision pose capture validated on real footage | SCA-1819 | ✅ done |
+| M2 gate | Pipeline data contracts (`PoseFrame`, `ClipInterval`, `MechanicsScore`) + canonical fixture | SCA-1859 | ✅ done |
+| M2 | Vision pose extraction pipeline (time-based sampling, debug overlay) | SCA-1860 | ✅ done |
+| M4-lite | Deterministic mechanics scoring (forehand) + skeleton overlay | SCA-1861 | ✅ done |
+| M3 | Rep segmentation + slow-motion clip export (3–6 quality clips) | SCA-1862 | ✅ done |
+| Feedback | Coach-reviewed rules engine (LLM phrases, never judges) | SCA-1823 | ✅ done |
+| M6 | Demo hardening: import → analyze → clips → scores → feedback, offline | SCA-1863 | ✅ done |
 
-**Active frontier: M6 (demo hardening).** The full pipeline — import → pose
-extraction → mechanics scoring → rep segmentation → slow-mo clips → feedback —
-is implemented and landed. What remains is end-to-end demo hardening: wiring
-every stage into one offline import → analyze → clips → scores → feedback flow
-and proving it on the bundled demo session.
+Dependency chain (`blockedBy`, tracked under epic SCA-1858):
+
+```
+M0–1 ┐
+     ├─→ M2 gate ─→ M2 ─→ M4-lite ─→ M3 ─┐
+Spike┘                                    ├─→ M6
+Spike ───────────────→ Feedback ─────────┘
+```
+
+**All MVP milestones are complete.** Remaining work is pre-launch quality gates,
+each tracked as its own issue (not milestones):
+
+- SCA-1826 — pre-launch red-team gates (blocked)
+- SCA-1872 — G6 drill-recall survey, target ≥80% (blocked)
+- SCA-1884 — coach-review v0 footage calibration (todo)
+- SCA-1906 — app loads to Sessions first (in review)
 
 ## Try it
 
