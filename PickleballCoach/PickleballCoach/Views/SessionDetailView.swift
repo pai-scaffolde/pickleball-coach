@@ -82,7 +82,7 @@ struct SessionDetailView: View {
     private var actionSection: some View {
         VStack(spacing: 12) {
             NavigationLink {
-                AnalysisProgressView()
+                AnalysisProgressView(session: session)
             } label: {
                 Label("Analyze", systemImage: "waveform.path.ecg")
                     .frame(maxWidth: .infinity)

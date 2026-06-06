@@ -18,21 +18,24 @@ struct Session: Identifiable, Codable {
     var title: String
     var createdAt: Date
     var status: SessionStatus
-    var videoFileName: String?      // relative filename in app documents dir
+    var videoFileName: String?           // relative filename in app documents dir
     var durationSeconds: Double?
+    var poseAnalysisFileName: String?    // relative filename for PoseAnalysisResult JSON
 
     init(id: UUID = UUID(),
          title: String = "",
          createdAt: Date = Date(),
          status: SessionStatus = .imported,
          videoFileName: String? = nil,
-         durationSeconds: Double? = nil) {
+         durationSeconds: Double? = nil,
+         poseAnalysisFileName: String? = nil) {
         self.id = id
         self.title = title
         self.createdAt = createdAt
         self.status = status
         self.videoFileName = videoFileName
         self.durationSeconds = durationSeconds
+        self.poseAnalysisFileName = poseAnalysisFileName
     }
 
     /// Resolves the full URL to the video file by looking it up in the app's
