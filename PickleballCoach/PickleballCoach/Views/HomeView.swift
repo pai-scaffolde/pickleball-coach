@@ -13,22 +13,14 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if store.sessions.isEmpty {
+                if sortedSessions.isEmpty {
                     emptyState
                 } else {
-                    sessionList
+                    populatedHome
                 }
             }
-            .navigationTitle("Sessions")
+            .navigationTitle("Pickleball Coach")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        startDemo()
-                    } label: {
-                        Image(systemName: "play.circle")
-                    }
-                    .accessibilityLabel("Try Demo Session")
-                }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingImport = true
@@ -104,27 +96,7 @@ struct HomeView: View {
             .padding(.horizontal, 36)
 
             VStack(spacing: 12) {
-                Button {
-                    showingImport = true
-                } label: {
-                    Label("Import a Video", systemImage: "plus.circle.fill")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 6)
-                }
-                .buttonStyle(.borderedProminent)
-                .accessibilityHint("Opens your photo library to choose a practice video")
-
-                Button {
-                    startDemo()
-                } label: {
-                    Label("Try the Demo", systemImage: "play.circle")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 6)
-                }
-                .buttonStyle(.bordered)
-                .accessibilityHint("Opens a bundled sample session with a scorecard and side-by-side comparison")
+                actionButtons
 
                 Text("No video needed — explore a sample stroke first.")
                     .font(.caption)
@@ -133,6 +105,50 @@ struct HomeView: View {
             .padding(.horizontal, 36)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    /// The two primary calls-to-action shown on the home screen, shared between
+    /// the first-launch empty state and the populated home (where staged
+    /// sessions already exist). Keeping these always visible is the fix for
+    /// SCA-1906: the demo button must be reachable even once sessions are seeded.
+    @ViewBuilder
+    private var actionButtons: some View {
+        Button {
+            showingImport = true
+        } label: {
+            Label("Import a Video", systemImage: "plus.circle.fill")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
+        }
+        .buttonStyle(.borderedProminent)
+        .accessibilityHint("Opens your photo library to choose a practice video")
+
+        Button {
+            startDemo()
+        } label: {
+            Label("Try the Demo", systemImage: "play.circle")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
+        }
+        .buttonStyle(.bordered)
+        .accessibilityHint("Opens a bundled sample session with a scorecard and side-by-side comparison")
+    }
+
+    /// Home screen shown once sessions exist: the demo/import CTAs stay pinned at
+    /// the top so the demo is always one tap away, with staged sessions below.
+    private var populatedHome: some View {
+        VStack(spacing: 0) {
+            VStack(spacing: 12) {
+                actionButtons
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+
+            sessionList
+        }
     }
 
     private func onboardingStep(number: Int, icon: String, title: String, detail: String) -> some View {
@@ -161,15 +177,17 @@ struct HomeView: View {
 
     private var sessionList: some View {
         List {
-            ForEach(sortedSessions) { session in
-                NavigationLink {
-                    SessionDetailView(session: session)
-                        .environmentObject(store)
-                } label: {
-                    SessionRow(session: session)
+            Section("Your Sessions") {
+                ForEach(sortedSessions) { session in
+                    NavigationLink {
+                        SessionDetailView(session: session)
+                            .environmentObject(store)
+                    } label: {
+                        SessionRow(session: session)
+                    }
                 }
+                .onDelete(perform: deleteSorted)
             }
-            .onDelete(perform: deleteSorted)
         }
     }
 
