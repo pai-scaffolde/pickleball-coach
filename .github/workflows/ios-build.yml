@@ -2,7 +2,7 @@ name: iOS build
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'feat/sca-1867-comparison-build-verify']
   pull_request:
     branches: [main]
 
@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Show Xcode version
         run: xcodebuild -version
       - name: Build (iOS Simulator, no signing)
@@ -22,3 +22,28 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \
             build
+      - name: Confirm two-panel view + fixtures are in the built app
+        run: |
+          APP=$(find ~/Library/Developer/Xcode/DerivedData -name 'PickleballCoach.app' -type d | head -1)
+          echo "App bundle: $APP"
+          test -n "$APP" || { echo "no app bundle produced"; exit 1; }
+          for f in reference_forehand_drive_v0.json reference_backhand_drive_v0.json; do
+            test -f "$APP/$f" && echo "bundled: $f" || { echo "MISSING from bundle: $f"; exit 1; }
+          done
+
+  decode-fixtures:
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Decode both reference exemplars at runtime
+        run: |
+          # Compile the Foundation-only model/service closure (excludes SwiftUI
+          # views and Vision/AVFoundation/Combine services) plus the decode probe,
+          # then run it to prove both fixtures decode into ReferenceExemplar.
+          SRC=$(grep -rLE 'import (SwiftUI|Vision|AVFoundation|UIKit|CoreGraphics|Combine)' \
+                  PickleballCoach/PickleballCoach/Models \
+                  PickleballCoach/PickleballCoach/Services)
+          echo "Compiling sources:"; echo "$SRC"
+          swiftc -o /tmp/decode_check $SRC tools/decode_check.swift
+          /tmp/decode_check
