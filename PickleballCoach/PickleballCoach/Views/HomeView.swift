@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var store: SessionStore
     @State private var showingImport = false
+    @State private var showingOnboarding = false
     @State private var demoSession: Session?
     @State private var demoError: String?
 
@@ -21,6 +22,17 @@ struct HomeView: View {
             }
             .navigationTitle("Pickleball Coach")
             .toolbar {
+                // SCA-1906: the onboarding flow must stay reachable once sessions
+                // are seeded — otherwise there's no way to navigate back to it from
+                // the Sessions screen. This presents it as a dismissable sheet.
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingOnboarding = true
+                    } label: {
+                        Image(systemName: "questionmark.circle")
+                    }
+                    .accessibilityLabel("How it works")
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingImport = true
@@ -33,6 +45,9 @@ struct HomeView: View {
             .sheet(isPresented: $showingImport) {
                 ImportVideoView()
                     .environmentObject(store)
+            }
+            .sheet(isPresented: $showingOnboarding) {
+                onboardingSheet
             }
             .navigationDestination(item: $demoSession) { session in
                 SessionDetailView(session: session)
@@ -68,6 +83,26 @@ struct HomeView: View {
 
     private var emptyState: some View {
         VStack(spacing: 28) {
+            onboardingContent
+
+            VStack(spacing: 12) {
+                actionButtons
+
+                Text("No video needed — explore a sample stroke first.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.horizontal, 36)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    /// The welcome + 3-step explainer, shared between the first-launch empty state
+    /// and the "How it works" sheet (SCA-1906) so the onboarding flow stays
+    /// reachable from the Sessions screen.
+    @ViewBuilder
+    private var onboardingContent: some View {
+        VStack(spacing: 28) {
             VStack(spacing: 12) {
                 Image(systemName: "figure.pickleball")
                     .font(.system(size: 52))
@@ -94,17 +129,34 @@ struct HomeView: View {
                                detail: "See mechanics scores and side-by-side comparisons against an ideal stroke.")
             }
             .padding(.horizontal, 36)
-
-            VStack(spacing: 12) {
-                actionButtons
-
-                Text("No video needed — explore a sample stroke first.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.horizontal, 36)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    /// Onboarding presented as a dismissable sheet from the Sessions screen so the
+    /// user can always navigate back to the explainer and the demo/import CTAs
+    /// (SCA-1906: there was previously no way off the Sessions screen).
+    private var onboardingSheet: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 28) {
+                    onboardingContent
+
+                    Text("Use the buttons on the Sessions screen to import a clip or try the sample.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 36)
+                }
+                .padding(.vertical, 24)
+            }
+            .navigationTitle("How It Works")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { showingOnboarding = false }
+                }
+            }
+        }
     }
 
     /// The two primary calls-to-action shown on the home screen, shared between
