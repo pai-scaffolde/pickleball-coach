@@ -4,6 +4,7 @@ struct HomeView: View {
     @EnvironmentObject var store: SessionStore
     @State private var showingImport = false
     @State private var showingOnboarding = false
+    @State private var showingShotLibrary = false
     @State private var presentedSession: Session?
     @State private var sampleError: String?
 
@@ -33,6 +34,17 @@ struct HomeView: View {
                     }
                     .accessibilityLabel("How it works")
                 }
+                // SCA-1911: the "Shots to Practice" catalogue must be reachable
+                // from the home screen — it's the library of clean example shots
+                // a player watches and mimics.
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingShotLibrary = true
+                    } label: {
+                        Image(systemName: "rectangle.stack.badge.play")
+                    }
+                    .accessibilityLabel("Shots to Practice")
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingImport = true
@@ -45,6 +57,9 @@ struct HomeView: View {
             .sheet(isPresented: $showingImport) {
                 ImportVideoView()
                     .environmentObject(store)
+            }
+            .sheet(isPresented: $showingShotLibrary) {
+                ShotLibraryView { showingShotLibrary = false }
             }
             .sheet(isPresented: $showingOnboarding) {
                 onboardingSheet
@@ -107,6 +122,8 @@ struct HomeView: View {
 
             VStack(spacing: 12) {
                 actionButtons
+
+                shotLibraryButton
 
                 Text("No video needed — explore a sample stroke first.")
                     .font(.caption)
@@ -219,12 +236,30 @@ struct HomeView: View {
         .accessibilityHint("Stages a bundled real pickleball clip so Analyze runs the full pose-analysis pipeline")
     }
 
+    /// SCA-1911: entry point to the "Shots to Practice" catalogue — the library
+    /// of clean example shots a player watches and mimics. Kept additive and
+    /// separate from the board-locked import/demo CTAs above.
+    private var shotLibraryButton: some View {
+        Button {
+            showingShotLibrary = true
+        } label: {
+            Label("Shots to Practice", systemImage: "rectangle.stack.badge.play")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
+        }
+        .buttonStyle(.bordered)
+        .accessibilityHint("Opens a catalogue of example shots to watch and mimic")
+    }
+
     /// Home screen shown once sessions exist: the demo/import CTAs stay pinned at
     /// the top so the demo is always one tap away, with staged sessions below.
     private var populatedHome: some View {
         VStack(spacing: 0) {
             VStack(spacing: 12) {
                 actionButtons
+
+                shotLibraryButton
             }
             .padding(.horizontal, 20)
             .padding(.top, 12)

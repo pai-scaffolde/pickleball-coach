@@ -1,0 +1,37 @@
+{
+  "version": "v0",
+  "shots": [
+    {
+      "id": "shot-forehand-drive-v0",
+      "name": "Forehand Drive",
+      "strokeType": "forehand_drive",
+      "summary": "A compact, low-to-high drive with contact out front. Watch the clip, then mimic the swing path.",
+      "whatToWatch": [
+        "Shoulder turn loads first — the hips and shoulders coil before the arm moves.",
+        "Contact point is out in front of the lead hip, not beside the body.",
+        "Low-to-high swing path: the paddle starts below the ball and finishes high across the body.",
+        "Weight transfers forward onto the front foot through contact."
+      ],
+      "clipResource": "yt-forehand-drive-navratil-v0",
+      "clipExtension": "mp4",
+      "clipAssetID": "yt-forehand-drive-navratil-v0",
+      "referenceExemplar": "reference_forehand_drive_v0"
+    },
+    {
+      "id": "shot-backhand-drive-v0",
+      "name": "Backhand Drive",
+      "strokeType": "backhand_drive",
+      "summary": "A stable two-hand backhand drive. Study the idealized reference skeleton and mimic the shape.",
+      "whatToWatch": [
+        "Unit turn: shoulders rotate together so the paddle sets behind the back hip.",
+        "Stay low through the shot — knees bent, level head.",
+        "Contact slightly in front of the body with a firm wrist.",
+        "Follow through toward the target, finishing high."
+      ],
+      "clipResource": null,
+      "clipExtension": null,
+      "clipAssetID": null,
+      "referenceExemplar": "reference_backhand_drive_v0"
+    }
+  ]
+}

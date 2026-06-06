@@ -42,6 +42,10 @@
 		A1B2C3D4E5F60075A7B8C9D0 /* reference_backhand_drive_v0.json in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60074A7B8C9D0 /* reference_backhand_drive_v0.json */; };
 		A1B2C3D4E5F600F4A7B8C9DA /* exemplar-rights-register.json in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F600F3A7B8C9DA /* exemplar-rights-register.json */; };
 		5CA1909000000000000000B1 /* yt-forehand-drive-navratil-v0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5CA1909000000000000000A1 /* yt-forehand-drive-navratil-v0.mp4 */; };
+		5CA1910000000000000000B1 /* pose-timeline-navratil-v0.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA1910000000000000000A1 /* pose-timeline-navratil-v0.json */; };
+		5CA1911000000000000000B1 /* PracticeShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1911000000000000000A1 /* PracticeShot.swift */; };
+		5CA1911000000000000000B2 /* ShotLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1911000000000000000A2 /* ShotLibraryView.swift */; };
+		5CA1911000000000000000B3 /* practice-shots-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA1911000000000000000A3 /* practice-shots-catalog.json */; };
 		A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */; };
 		A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */; };
 		A1B2C3D4E5F60073A7B8C9DA /* RightsGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */; };
@@ -106,6 +110,10 @@
 		A1B2C3D4E5F60074A7B8C9D0 /* reference_backhand_drive_v0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = reference_backhand_drive_v0.json; sourceTree = "<group>"; };
 		A1B2C3D4E5F600F3A7B8C9DA /* exemplar-rights-register.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "exemplar-rights-register.json"; sourceTree = "<group>"; };
 		5CA1909000000000000000A1 /* yt-forehand-drive-navratil-v0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "yt-forehand-drive-navratil-v0.mp4"; sourceTree = "<group>"; };
+		5CA1910000000000000000A1 /* pose-timeline-navratil-v0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "pose-timeline-navratil-v0.json"; sourceTree = "<group>"; };
+		5CA1911000000000000000A1 /* PracticeShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeShot.swift; sourceTree = "<group>"; };
+		5CA1911000000000000000A2 /* ShotLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotLibraryView.swift; sourceTree = "<group>"; };
+		5CA1911000000000000000A3 /* practice-shots-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "practice-shots-catalog.json"; sourceTree = "<group>"; };
 		A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseExtractionService.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureQualityGate.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F600E1A7B8C9DA /* CaptureAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureAnalytics.swift; sourceTree = "<group>"; };
@@ -177,6 +185,7 @@
 				A1B2C3D4E5F6003CA7B8C9D0 /* PoseFrame.swift */,
 				A1B2C3D4E5F6003EA7B8C9D0 /* ClipInterval.swift */,
 				A1B2C3D4E5F60040A7B8C9D0 /* MechanicsScore.swift */,
+				5CA1911000000000000000A1 /* PracticeShot.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +226,7 @@
 				A1B2C3D4E5F600C0A7B8C9D0 /* ComparisonContainerView.swift */,
 				A1B2C3D4E5F600C2A7B8C9D0 /* MechanicsScorecardView.swift */,
 				DD19040000000000000000C1 /* RepClipsView.swift */,
+				5CA1911000000000000000A2 /* ShotLibraryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +264,8 @@
 				A1B2C3D4E5F60074A7B8C9D0 /* reference_backhand_drive_v0.json */,
 				A1B2C3D4E5F600F3A7B8C9DA /* exemplar-rights-register.json */,
 				5CA1909000000000000000A1 /* yt-forehand-drive-navratil-v0.mp4 */,
+				5CA1910000000000000000A1 /* pose-timeline-navratil-v0.json */,
+				5CA1911000000000000000A3 /* practice-shots-catalog.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -356,6 +368,8 @@
 				A1B2C3D4E5F60075A7B8C9D0 /* reference_backhand_drive_v0.json in Resources */,
 				A1B2C3D4E5F600F4A7B8C9DA /* exemplar-rights-register.json in Resources */,
 				5CA1909000000000000000B1 /* yt-forehand-drive-navratil-v0.mp4 in Resources */,
+				5CA1910000000000000000B1 /* pose-timeline-navratil-v0.json in Resources */,
+				5CA1911000000000000000B3 /* practice-shots-catalog.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +384,8 @@
 				A1B2C3D4E5F60019A7B8C9D0 /* SessionStore.swift in Sources */,
 				A1B2C3D4E5F600F2A7B8C9DA /* DemoSessionService.swift in Sources */,
 				5CA1909000000000000000B2 /* StagedClipService.swift in Sources */,
+				5CA1911000000000000000B1 /* PracticeShot.swift in Sources */,
+				5CA1911000000000000000B2 /* ShotLibraryView.swift in Sources */,
 				A1B2C3D4E5F6001BA7B8C9D0 /* HomeView.swift in Sources */,
 				C1A2B3D4E5F60073A7B8C9D0 /* ClipFeedbackView.swift in Sources */,
 				A1B2C3D4E5F60013A7B8C9D0 /* PickleballCoachApp.swift in Sources */,
