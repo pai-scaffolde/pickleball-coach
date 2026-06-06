@@ -4,12 +4,15 @@ struct AnalysisProgressView: View {
     let session: Session
 
     @State private var result: PoseAnalysisResult?
+    @State private var qualityGateResult: CaptureQualityGate.GateResult?
     @State private var error: String?
     @State private var analysisStarted = false
 
     var body: some View {
         Group {
-            if let result {
+            if let gateResult = qualityGateResult, !gateResult.passed {
+                qualityRejectionView(gateResult: gateResult)
+            } else if let result {
                 PoseResultView(result: result)
             } else if let error {
                 errorView(message: error)
@@ -31,6 +34,46 @@ struct AnalysisProgressView: View {
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private func qualityRejectionView(gateResult: CaptureQualityGate.GateResult) -> some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                HStack(spacing: 12) {
+                    Image(systemName: "video.slash")
+                        .font(.largeTitle)
+                        .foregroundStyle(.orange)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Clip quality too low")
+                            .font(.headline)
+                        Text("This clip can't be analyzed reliably. Try again with a better recording.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                if !gateResult.fixInstructions.isEmpty {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("How to fix it")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                        ForEach(Array(gateResult.fixInstructions.enumerated()), id: \.offset) { _, instruction in
+                            HStack(alignment: .top, spacing: 10) {
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundStyle(.green)
+                                    .font(.subheadline)
+                                Text(instruction)
+                                    .font(.subheadline)
+                            }
+                        }
+                    }
+                    .padding()
+                    .background(.regularMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+            }
+            .padding()
+        }
     }
 
     private func errorView(message: String) -> some View {
@@ -62,6 +105,12 @@ struct AnalysisProgressView: View {
         let service = PoseCaptureService()
         do {
             let analysis = try await service.analyze(videoURL: url, sessionId: session.id)
+            let gate = CaptureQualityGate.evaluate(
+                analysis.confidenceReport,
+                sampledFrameCount: analysis.sampledFrameCount
+            )
+            qualityGateResult = gate
+            guard gate.passed else { return }
             persist(analysis)
             result = analysis
         } catch {
