@@ -161,15 +161,38 @@ struct HomeView: View {
 
     private var sessionList: some View {
         List {
-            ForEach(sortedSessions) { session in
-                NavigationLink {
-                    SessionDetailView(session: session)
-                        .environmentObject(store)
+            // SCA-1906: keep a prominent, labelled "Try the Demo" affordance on the
+            // Sessions screen itself. Once any session exists (including the demo
+            // seeded on first launch), the rich empty-state CTA no longer renders,
+            // so the only demo entry point used to be the small toolbar icon —
+            // effectively invisible. A header CTA keeps the sample one tap away
+            // regardless of how many sessions are staged.
+            Section {
+                Button {
+                    startDemo()
                 } label: {
-                    SessionRow(session: session)
+                    Label("Try the Demo", systemImage: "play.circle")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 4)
                 }
+                .buttonStyle(.borderedProminent)
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .listRowBackground(Color.clear)
+                .accessibilityHint("Opens a bundled sample session with a scorecard and side-by-side comparison")
             }
-            .onDelete(perform: deleteSorted)
+
+            Section("Your sessions") {
+                ForEach(sortedSessions) { session in
+                    NavigationLink {
+                        SessionDetailView(session: session)
+                            .environmentObject(store)
+                    } label: {
+                        SessionRow(session: session)
+                    }
+                }
+                .onDelete(perform: deleteSorted)
+            }
         }
     }
 
