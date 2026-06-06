@@ -13,7 +13,7 @@ enum SessionStatus: String, Codable, CaseIterable {
     }
 }
 
-struct Session: Identifiable, Codable {
+struct Session: Identifiable, Codable, Hashable {
     var id: UUID
     var title: String
     var createdAt: Date
@@ -24,6 +24,11 @@ struct Session: Identifiable, Codable {
     var poseTimelineFileName: String?    // relative filename for [PoseFrame] JSON timeline
     var clipIntervals: [ClipInterval]
     var mechanicsScores: [MechanicsScore]
+
+    /// SCA-1889: marks a bundled, rights-clean sample session built from the
+    /// generic pose exemplar (no third-party footage). The UI labels it as a
+    /// sample; it is removable like any other session.
+    var isDemo: Bool
 
     /// SCA-1870 (Gate 1) instrumentation: how many capture attempts this session
     /// has taken. Starts at 1 for the initial import and is incremented on every
@@ -42,6 +47,7 @@ struct Session: Identifiable, Codable {
          poseTimelineFileName: String? = nil,
          clipIntervals: [ClipInterval] = [],
          mechanicsScores: [MechanicsScore] = [],
+         isDemo: Bool = false,
          captureAttemptCount: Int = 1) {
         self.id = id
         self.title = title
@@ -53,6 +59,7 @@ struct Session: Identifiable, Codable {
         self.poseTimelineFileName = poseTimelineFileName
         self.clipIntervals = clipIntervals
         self.mechanicsScores = mechanicsScores
+        self.isDemo = isDemo
         self.captureAttemptCount = captureAttemptCount
     }
 
@@ -71,6 +78,8 @@ struct Session: Identifiable, Codable {
         poseTimelineFileName = try c.decodeIfPresent(String.self, forKey: .poseTimelineFileName)
         clipIntervals = try c.decodeIfPresent([ClipInterval].self, forKey: .clipIntervals) ?? []
         mechanicsScores = try c.decodeIfPresent([MechanicsScore].self, forKey: .mechanicsScores) ?? []
+        // Legacy sessions (pre-SCA-1889) lack isDemo; treat them as real sessions.
+        isDemo = try c.decodeIfPresent(Bool.self, forKey: .isDemo) ?? false
         // Legacy sessions (pre-SCA-1870) lack captureAttemptCount; treat them as a
         // single attempt rather than failing the decode.
         captureAttemptCount = try c.decodeIfPresent(Int.self, forKey: .captureAttemptCount) ?? 1
@@ -92,5 +101,13 @@ struct Session: Identifiable, Codable {
                                                  in: .userDomainMask)[0]
         let url = documents.appendingPathComponent(videoFileName)
         return FileManager.default.fileExists(atPath: url.path) ? url : nil
+    }
+
+    static func == (lhs: Session, rhs: Session) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

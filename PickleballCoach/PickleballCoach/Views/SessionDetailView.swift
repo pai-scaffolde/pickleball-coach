@@ -20,6 +20,9 @@ struct SessionDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                if session.isDemo {
+                    demoBanner
+                }
                 videoSection
                 titleSection
                 metadataSection
@@ -34,6 +37,27 @@ struct SessionDetailView: View {
     }
 
     // MARK: - Sections
+
+    private var demoBanner: some View {
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: "sparkles")
+                .foregroundStyle(.tint)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Sample session")
+                    .font(.subheadline.weight(.semibold))
+                Text("A bundled demo built from a generic reference stroke — no video of your own. Swipe to delete it from Sessions anytime.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding()
+        .background(.tint.opacity(0.1))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Sample session. A bundled demo built from a generic reference stroke. Swipe to delete it from Sessions anytime.")
+    }
 
     @ViewBuilder
     private var videoSection: some View {
@@ -81,13 +105,46 @@ struct SessionDetailView: View {
 
     private var actionSection: some View {
         VStack(spacing: 12) {
-            NavigationLink {
-                AnalysisProgressView(session: session)
+            // A demo session ships pre-analyzed, so lead with what it can show
+            // rather than re-running analysis on a session with no video.
+            if !session.isDemo {
+                NavigationLink {
+                    AnalysisProgressView(session: session)
+                } label: {
+                    Label("Analyze", systemImage: "waveform.path.ecg")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+            }
+
+            if let score = session.mechanicsScores.first {
+                let link = NavigationLink {
+                    MechanicsScorecardView(score: score, frames: loadFrames())
+                } label: {
+                    Label("Mechanics Score", systemImage: "chart.bar.doc.horizontal")
+                        .frame(maxWidth: .infinity)
+                }
+                // Lead with the scorecard on the demo (its primary payoff).
+                if session.isDemo {
+                    link.buttonStyle(.borderedProminent)
+                } else {
+                    link.buttonStyle(.bordered)
+                }
+            }
+
+            // SCA-1890: route to the coaching feedback screen so the prominent
+            // "Practice this" drill (the G6 recall target) is user-reachable.
+            let feedbackLink = NavigationLink {
+                ClipFeedbackView(feedbackCards: feedbackCards)
             } label: {
-                Label("Analyze", systemImage: "waveform.path.ecg")
+                Label("Review Coaching Feedback", systemImage: "list.bullet.clipboard")
                     .frame(maxWidth: .infinity)
             }
-            .buttonStyle(.borderedProminent)
+            if session.isDemo {
+                feedbackLink.buttonStyle(.borderedProminent)
+            } else {
+                feedbackLink.buttonStyle(.bordered)
+            }
 
             NavigationLink {
                 ComparisonContainerView(session: session)
@@ -105,6 +162,45 @@ struct SessionDetailView: View {
     private func configurePlayer() {
         guard player == nil, let url = session.videoURL() else { return }
         player = AVPlayer(url: url)
+    }
+
+    /// Coaching feedback cards rendered by ClipFeedbackView. The analyze→feedback
+    /// pipeline is still placeholder, so this produces deterministic demo feedback
+    /// (the same MockFeedbackEngine path RepClipsView uses) — enough for the
+    /// prominent "Practice this" drill to be reachable (SCA-1890). Real rule-based
+    /// feedback wiring follows the analyze pipeline.
+    private var feedbackCards: [ClipFeedback] {
+        let stub = PoseAnalysisResult(
+            sessionId: session.id,
+            shotType: "forehand_drive",
+            analyzedAt: Date(),
+            videoPath: "",
+            videoDurationSeconds: session.durationSeconds ?? 8.0,
+            originalFrameCount: 0,
+            samplingInterval: 5,
+            sampledFrameCount: 0,
+            jointSamples: [],
+            confidenceReport: ConfidenceReport(
+                jointReliability: [:],
+                contactZoneReliable: true,
+                overallReliable: true,
+                notes: []
+            )
+        )
+        return MockFeedbackEngine().generateFeedback(from: stub)
+    }
+
+    /// Loads the session's pose timeline from Documents so the scorecard can draw
+    /// the contact key-frame skeleton. Returns [] if the timeline isn't on disk
+    /// (the scorecard still renders its category rows from the stored score).
+    private func loadFrames() -> [PoseFrame] {
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = docs.appendingPathComponent("pose-timeline-\(session.id.uuidString).json")
+        guard let data = try? Data(contentsOf: url),
+              let frames = try? JSONDecoder().decode([PoseFrame].self, from: data) else {
+            return []
+        }
+        return frames
     }
 
     private func formatDuration(_ seconds: Double) -> String {

@@ -3,6 +3,8 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var store: SessionStore
     @State private var showingImport = false
+    @State private var demoSession: Session?
+    @State private var demoError: String?
 
     private var sortedSessions: [Session] {
         store.sessions.sorted { $0.createdAt > $1.createdAt }
@@ -32,6 +34,35 @@ struct HomeView: View {
                 ImportVideoView()
                     .environmentObject(store)
             }
+            .navigationDestination(item: $demoSession) { session in
+                SessionDetailView(session: session)
+                    .environmentObject(store)
+            }
+            .alert("Demo unavailable", isPresented: demoErrorBinding) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(demoError ?? "")
+            }
+        }
+    }
+
+    private var demoErrorBinding: Binding<Bool> {
+        Binding(get: { demoError != nil }, set: { if !$0 { demoError = nil } })
+    }
+
+    /// Builds (or refreshes) the bundled rights-clean sample session and opens it.
+    /// Idempotent: the demo has a stable id, so re-tapping reuses the same row.
+    private func startDemo() {
+        do {
+            let demo = try DemoSessionService.makeDemoSession()
+            if store.sessions.contains(where: { $0.id == demo.id }) {
+                store.update(demo)
+            } else {
+                store.add(demo)
+            }
+            demoSession = demo
+        } catch {
+            demoError = error.localizedDescription
         }
     }
 
@@ -64,17 +95,34 @@ struct HomeView: View {
             }
             .padding(.horizontal, 36)
 
-            Button {
-                showingImport = true
-            } label: {
-                Label("Import a Video", systemImage: "plus.circle.fill")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 6)
+            VStack(spacing: 12) {
+                Button {
+                    showingImport = true
+                } label: {
+                    Label("Import a Video", systemImage: "plus.circle.fill")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 6)
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityHint("Opens your photo library to choose a practice video")
+
+                Button {
+                    startDemo()
+                } label: {
+                    Label("Try the Demo", systemImage: "play.circle")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 6)
+                }
+                .buttonStyle(.bordered)
+                .accessibilityHint("Opens a bundled sample session with a scorecard and side-by-side comparison")
+
+                Text("No video needed — explore a sample stroke first.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
-            .buttonStyle(.borderedProminent)
             .padding(.horizontal, 36)
-            .accessibilityHint("Opens your photo library to choose a practice video")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
