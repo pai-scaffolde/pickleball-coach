@@ -2,7 +2,7 @@
   "$schema_version": "1.0",
   "description": "Source of truth for the rights status of every exemplar/demo/marketing asset in Pickleball Coach. Governed by docs/RIGHTS_PLAN.md. No asset ships to a bundled or public surface without a row here whose usage_scope permits that surface.",
   "issue": "SCA-1821",
-  "last_updated": "2026-06-05",
+  "last_updated": "2026-06-06",
   "rights_status_values": {
     "cleared-public": "Written rights cover public/marketing use of this asset.",
     "cleared-internal": "Usable for development/calibration only; not bundled, not public.",
@@ -136,6 +136,34 @@
       "expiry": null,
       "owner": "Engineering",
       "notes": "Test fixture only. Must not be bundled into app binary or used on any public surface. Promote to cleared-public and update usage_scope only after a public-facing talent/likeness release is signed (Appendix A of RIGHTS_PLAN.md). license_ref is the required release doc path; create and commit it before using this asset outside internal-dev."
+    },
+    {
+      "id": "yt-forehand-drive-navratil-v0",
+      "description": "YouTube: COMPLETE Forehand Drive Tutorial by Zane Navratil Pickleball (first 90s segment, 640x360). Public instructional video for v0 forehand-drive calibration.",
+      "asset_type": "video",
+      "asset_path": "tests/fixtures/yt-forehand-drive-navratil-v0.mp4",
+      "source": "YouTube / publicly available instructional video — https://www.youtube.com/watch?v=YHjdSLwZCuU (Zane Navratil Pickleball)",
+      "rights_holder": "Zane Navratil Pickleball (YouTube channel)",
+      "usage_scope": "internal-dev",
+      "rights_status": "cleared-public",
+      "license_ref": "docs/assets/releases/yt-forehand-drive-navratil-v0-source.md",
+      "expiry": null,
+      "owner": "Engineering",
+      "notes": "Sourced per board decision SCA-1875 (2026-06-06): board accepted copyright/NIL/Lanham Act risk as principal (confirmation 305810d2). Internal calibration only — never bundle or publish. license_ref documents source URL and board decision."
+    },
+    {
+      "id": "yt-backhand-drive-selkirk-v0",
+      "description": "YouTube: One-Handed Backhand Drive to Generate Topspin on the Pickleball by Selkirk TV (full 92s, 640x360). Public instructional video for v0 backhand-drive calibration.",
+      "asset_type": "video",
+      "asset_path": "tests/fixtures/yt-backhand-drive-selkirk-v0.mp4",
+      "source": "YouTube / publicly available instructional video — https://www.youtube.com/watch?v=Oh78YGV8iVM (Selkirk TV)",
+      "rights_holder": "Selkirk TV (YouTube channel)",
+      "usage_scope": "internal-dev",
+      "rights_status": "cleared-public",
+      "license_ref": "docs/assets/releases/yt-backhand-drive-selkirk-v0-source.md",
+      "expiry": null,
+      "owner": "Engineering",
+      "notes": "Sourced per board decision SCA-1875 (2026-06-06): board accepted copyright/NIL/Lanham Act risk as principal (confirmation 305810d2). Internal calibration only — never bundle or publish. license_ref documents source URL and board decision."
     }
   ]
 }
