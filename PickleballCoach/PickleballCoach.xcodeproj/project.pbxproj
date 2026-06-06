@@ -33,6 +33,8 @@
 		A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */; };
 		A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */; };
 		A1B2C3D4E5F60061A7B8C9DA /* PoseExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */; };
+		A1B2C3D4E5F60073A7B8C9DA /* RightsGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */; };
+		A1B2C3D4E5F60075A7B8C9DA /* exemplar-rights-register.json in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60074A7B8C9DA /* exemplar-rights-register.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureQualityGate.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60050A7B8C9DA /* PickleballCoachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickleballCoachTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D4E5F60060A7B8C9DA /* PoseExtractionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseExtractionServiceTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsGate.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60074A7B8C9DA /* exemplar-rights-register.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "exemplar-rights-register.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,11 +123,20 @@
 				A1B2C3D4E5F60004A7B8C9D0 /* Models */,
 				A1B2C3D4E5F60005A7B8C9D0 /* Services */,
 				A1B2C3D4E5F60006A7B8C9D0 /* Views */,
+				A1B2C3D4E5F60076A7B8C9DA /* Resources */,
 				A1B2C3D4E5F60024A7B8C9D0 /* Assets.xcassets */,
 				A1B2C3D4E5F60028A7B8C9D0 /* Info.plist */,
 				A1B2C3D4E5F60008A7B8C9D0 /* Preview Content */,
 			);
 			path = PickleballCoach;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F60076A7B8C9DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F60074A7B8C9DA /* exemplar-rights-register.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60004A7B8C9D0 /* Models */ = {
@@ -150,6 +163,7 @@
 				A1B2C3D4E5F6002BA7B8C9D0 /* PoseCaptureService.swift */,
 				A1B2C3D4E5F60044A7B8C9DA /* PoseExtractionService.swift */,
 				A1B2C3D4E5F60070A7B8C9DA /* CaptureQualityGate.swift */,
+				A1B2C3D4E5F60072A7B8C9DA /* RightsGate.swift */,
 				A1B2C3D4E5F60038A7B8C9D0 /* ComparisonEngine.swift */,
 				A1B2C3D4E5F60036A7B8C9D0 /* FeedbackEngine.swift */,
 			);
@@ -268,6 +282,7 @@
 			files = (
 				A1B2C3D4E5F60027A7B8C9D0 /* Preview Assets.xcassets in Resources */,
 				A1B2C3D4E5F60025A7B8C9D0 /* Assets.xcassets in Resources */,
+				A1B2C3D4E5F60075A7B8C9DA /* exemplar-rights-register.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +306,7 @@
 				A1B2C3D4E5F6002CA7B8C9D0 /* PoseCaptureService.swift in Sources */,
 				A1B2C3D4E5F60043A7B8C9DA /* PoseExtractionService.swift in Sources */,
 				A1B2C3D4E5F60071A7B8C9DA /* CaptureQualityGate.swift in Sources */,
+				A1B2C3D4E5F60073A7B8C9DA /* RightsGate.swift in Sources */,
 				A1B2C3D4E5F6002EA7B8C9D0 /* PoseOverlayView.swift in Sources */,
 				A1B2C3D4E5F6003BA7B8C9D0 /* ReferenceExemplar.swift in Sources */,
 				A1B2C3D4E5F60031A7B8C9D0 /* MechanicsObservation.swift in Sources */,
