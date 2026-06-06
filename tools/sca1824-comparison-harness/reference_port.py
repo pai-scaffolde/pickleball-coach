@@ -31,6 +31,28 @@ FEATURE_ORDER = [
     "arm_extension_rel_torso",
 ]
 MIN_CONF = 0.5
+# SCA-1864: below this shoulder-width/torso ratio the capture is treated as
+# side-on and the axial-rotation line-angle feature is excluded from scoring.
+SIDE_ON_FRONTALITY_THRESHOLD = 0.30
+# Per-feature scoring weights. The 2D hip/shoulder line-angle is a weak axial
+# rotation proxy, so it is down-weighted and cannot dominate a phase score.
+FEATURE_WEIGHTS = {"hip_shoulder_separation_deg": 0.25}
+
+
+def weight(key):
+    return FEATURE_WEIGHTS.get(key, 1.0)
+
+
+def mean_frontality(poses):
+    vals = []
+    for p in poses:
+        j = p["joints"]
+        t = torso_length(j)
+        ls, rs = point(j, "left_shoulder"), point(j, "right_shoulder")
+        if t is None or ls is None or rs is None:
+            continue
+        vals.append(dist(ls, rs) / t)
+    return sum(vals) / len(vals) if vals else None
 
 
 def r3(v):
@@ -168,17 +190,25 @@ def main():
             continue
         poses = by_phase.get(cp, [])
         feats = []
-        fscores = []
+        weighted_sum = 0.0
+        weight_total = 0.0
         for key in FEATURE_ORDER:
             if key not in rp["ranges"]:
                 continue
             uv = mean_feature(key, poses)
             rep = compare_feature(key, uv, rp["ranges"][key])
+            # SCA-1864: exclude the 2D axial-rotation feature on side-on captures.
+            if key == "hip_shoulder_separation_deg" and rep["status"] != "insufficient_confidence":
+                fr = mean_frontality(poses)
+                if fr is not None and fr < SIDE_ON_FRONTALITY_THRESHOLD:
+                    rep = dict(rep, status="low_view_confidence")
             feats.append(rep)
-            if rep["status"] != "insufficient_confidence":
-                fscores.append(rep["featureScore"])
-        measured = len(fscores) > 0
-        phase_score = (sum(fscores) / len(fscores)) * 100 if measured else 0
+            if rep["status"] not in ("insufficient_confidence", "low_view_confidence"):
+                w = weight(key)
+                weighted_sum += rep["featureScore"] * w
+                weight_total += w
+        measured = weight_total > 0
+        phase_score = (weighted_sum / weight_total) * 100 if measured else 0
         if measured:
             measured_scores.append(phase_score)
         phase_reports.append({
@@ -192,6 +222,13 @@ def main():
     if unmeasured:
         notes.append("Phases with no measurable features (missing segment or low confidence): "
                      + ", ".join(unmeasured) + ".")
+    side_on = [p["phase"] for p in phase_reports
+               if any(f["status"] == "low_view_confidence" for f in p["features"])]
+    if side_on:
+        notes.append("hip_shoulder_separation_deg excluded as low-view-confidence (side-on capture; "
+                     "2D cannot read axial rotation) for: " + ", ".join(side_on) + ".")
+    notes.append("hip_shoulder_separation_deg is down-weighted (×0.25): a single-camera 2D "
+                 "line-angle is a weak axial-rotation proxy. Reliable torso rotation needs depth/3D pose.")
     notes.append("Comparison is range/delta on scale-normalized features. "
                  "No pixel alignment, no ghost overlay, no pro footage.")
 
