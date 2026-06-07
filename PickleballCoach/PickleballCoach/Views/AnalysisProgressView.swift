@@ -170,8 +170,49 @@ struct AnalysisProgressView: View {
                                        accepted: gate.passed)
         qualityGateResult = gate
         guard gate.passed else { return }
-        persist(extracted)
+        // SCA-1910: score the analyzed timeline so the Mechanics Score card and
+        // button are available — the headline payoff the synthetic demo shows.
+        // Mirrors DemoSessionService scoring (load the forehand exemplar, build a
+        // ClipInterval for the scored rep, run MechanicsScoringEngine). This runs
+        // on the live-Vision path too, so real on-device analyze yields a score
+        // via the same code path.
+        let score = computeScore(for: extracted)
+        persist(extracted, score: score)
         frames = extracted
+    }
+
+    /// Computes a real MechanicsScore from the analyzed timeline. Picks the
+    /// scored-rep window from SegmentationService when available (so the contact
+    /// frame lands inside a real swing), and falls back to the full timeline.
+    /// The engine's peak-wrist-speed selector resolves the contact frame; the
+    /// returned keyFrameTimestamp stays aligned with the persisted timeline, so
+    /// the scorecard's skeleton lookup resolves the contact pose. Returns nil if
+    /// the bundled exemplar can't be loaded or no frame is measurable.
+    private func computeScore(for extracted: [PoseFrame]) -> MechanicsScore? {
+        guard let exemplar = try? ReferenceExemplar.load(named: "reference_forehand_drive_v0") else {
+            return nil
+        }
+
+        // Prefer the highest-confidence segmented rep so the contact frame is
+        // chosen from within a real swing; fall back to the full timeline window.
+        let duration = session.durationSeconds ?? extracted.last?.timestamp ?? 0
+        let segmentation = SegmentationService().segment(frames: extracted, videoDuration: duration)
+        let topClip = segmentation.clips.max(by: { $0.confidence < $1.confidence })
+
+        let start = topClip?.startTime ?? extracted.first?.timestamp ?? 0
+        let end = topClip?.endTime ?? extracted.last?.timestamp ?? 0
+        let scoringFrames = topClip == nil
+            ? extracted
+            : extracted.filter { $0.timestamp >= start && $0.timestamp <= end }
+
+        let clip = ClipInterval(
+            id: session.id,
+            startTime: start,
+            endTime: end,
+            strokeType: exemplar.strokeType,
+            confidence: topClip?.confidence ?? 1.0
+        )
+        return MechanicsScoringEngine().score(frames: scoringFrames, clip: clip, reference: exemplar)
     }
 
     /// Loads the bundled pre-baked pose timeline for the staged sample session.
@@ -183,7 +224,7 @@ struct AnalysisProgressView: View {
         return try? JSONDecoder().decode([PoseFrame].self, from: data)
     }
 
-    private func persist(_ frames: [PoseFrame]) {
+    private func persist(_ frames: [PoseFrame], score: MechanicsScore? = nil) {
         let fileName = "pose-timeline-\(session.id.uuidString).json"
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
@@ -195,9 +236,22 @@ struct AnalysisProgressView: View {
         // SCA-1868: record the artifact and mark the session ready so the Compare
         // entry point can find this clip's pose data and the session reflects that
         // analysis completed.
+        // SCA-1910: attach the computed MechanicsScore (and its clip interval) so
+        // the detail screen shows the score summary card and the Mechanics Score
+        // button. Only attach a score with measurable categories.
         var updated = session
         updated.poseTimelineFileName = fileName
         updated.status = .ready
+        if let score, !score.scores.isEmpty {
+            updated.mechanicsScores = [score]
+            updated.clipIntervals = [
+                ClipInterval(id: score.clipId,
+                             startTime: updated.clipIntervals.first?.startTime ?? frames.first?.timestamp ?? 0,
+                             endTime: updated.clipIntervals.first?.endTime ?? frames.last?.timestamp ?? 0,
+                             strokeType: score.strokeType,
+                             confidence: 1.0)
+            ]
+        }
         store.update(updated)
     }
 }
