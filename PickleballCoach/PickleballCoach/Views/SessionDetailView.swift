@@ -10,6 +10,10 @@ struct SessionDetailView: View {
         _session = State(initialValue: session)
     }
 
+    private var currentSession: Session {
+        store.sessions.first { $0.id == session.id } ?? session
+    }
+
     private static let dateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .medium
@@ -20,7 +24,7 @@ struct SessionDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                if session.isDemo {
+                if currentSession.isDemo {
                     demoBanner
                 }
                 videoSection
@@ -96,9 +100,9 @@ struct SessionDetailView: View {
     private var metadataSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             LabeledRow(label: "Date",
-                       value: Self.dateFormatter.string(from: session.createdAt))
-            LabeledRow(label: "Status", value: session.status.displayName)
-            if let duration = session.durationSeconds, duration > 0 {
+                       value: Self.dateFormatter.string(from: currentSession.createdAt))
+            LabeledRow(label: "Status", value: currentSession.status.displayName)
+            if let duration = currentSession.durationSeconds, duration > 0 {
                 LabeledRow(label: "Duration", value: formatDuration(duration))
             }
         }
@@ -111,7 +115,7 @@ struct SessionDetailView: View {
     // stroke, rep count, contact time, the single most useful coaching point, and
     // per-category score bars so the screen is informative at a glance.
 
-    private var scored: MechanicsScore? { session.mechanicsScores.first }
+    private var scored: MechanicsScore? { currentSession.mechanicsScores.first }
 
     @ViewBuilder
     private var summarySection: some View {
@@ -213,9 +217,9 @@ struct SessionDetailView: View {
     /// Rep count from the on-disk pose timeline (falls back to stored clips).
     private var repCount: Int {
         let frames = loadFrames()
-        guard !frames.isEmpty else { return max(session.clipIntervals.count, 1) }
+        guard !frames.isEmpty else { return max(currentSession.clipIntervals.count, 1) }
         let n = SegmentationService().segment(frames: frames,
-                                              videoDuration: session.durationSeconds ?? 0).clips.count
+                                              videoDuration: currentSession.durationSeconds ?? 0).clips.count
         return max(n, 1)
     }
 
@@ -223,9 +227,9 @@ struct SessionDetailView: View {
         VStack(spacing: 12) {
             // A demo session ships pre-analyzed, so lead with what it can show
             // rather than re-running analysis on a session with no video.
-            if !session.isDemo {
+            if !currentSession.isDemo {
                 NavigationLink {
-                    AnalysisProgressView(session: session)
+                    AnalysisProgressView(session: currentSession)
                 } label: {
                     Label("Analyze", systemImage: "waveform.path.ecg")
                         .frame(maxWidth: .infinity)
@@ -243,7 +247,7 @@ struct SessionDetailView: View {
             }
             .buttonStyle(.bordered)
 
-            if let score = session.mechanicsScores.first {
+            if let score = currentSession.mechanicsScores.first {
                 let link = NavigationLink {
                     MechanicsScorecardView(score: score, frames: loadFrames())
                 } label: {
@@ -251,7 +255,7 @@ struct SessionDetailView: View {
                         .frame(maxWidth: .infinity)
                 }
                 // Lead with the scorecard on the demo (its primary payoff).
-                if session.isDemo {
+                if currentSession.isDemo {
                     link.buttonStyle(.borderedProminent)
                 } else {
                     link.buttonStyle(.bordered)
@@ -266,14 +270,14 @@ struct SessionDetailView: View {
                 Label("Review Coaching Feedback", systemImage: "list.bullet.clipboard")
                     .frame(maxWidth: .infinity)
             }
-            if session.isDemo {
+            if currentSession.isDemo {
                 feedbackLink.buttonStyle(.borderedProminent)
             } else {
                 feedbackLink.buttonStyle(.bordered)
             }
 
             NavigationLink {
-                ComparisonContainerView(session: session)
+                ComparisonContainerView(session: currentSession)
             } label: {
                 Label("Compare", systemImage: "figure.tennis")
                     .frame(maxWidth: .infinity)
@@ -297,11 +301,11 @@ struct SessionDetailView: View {
     /// feedback wiring follows the analyze pipeline.
     private var feedbackCards: [ClipFeedback] {
         let stub = PoseAnalysisResult(
-            sessionId: session.id,
+            sessionId: currentSession.id,
             shotType: "forehand_drive",
             analyzedAt: Date(),
             videoPath: "",
-            videoDurationSeconds: session.durationSeconds ?? 8.0,
+            videoDurationSeconds: currentSession.durationSeconds ?? 8.0,
             originalFrameCount: 0,
             samplingInterval: 5,
             sampledFrameCount: 0,
@@ -324,10 +328,10 @@ struct SessionDetailView: View {
         let frames = loadFrames()
         let result = SegmentationService().segment(
             frames: frames,
-            videoDuration: session.durationSeconds ?? 0
+            videoDuration: currentSession.durationSeconds ?? 0
         )
         RepClipsView(
-            session: session,
+            session: currentSession,
             clips: result.clips,
             frames: frames,
             lowConfidenceReason: result.lowConfidenceReason
