@@ -252,7 +252,106 @@ struct AnalysisProgressView: View {
                              confidence: 1.0)
             ]
         }
+
+        // SCA-1918: build and persist PoseAnalysisResult so ComparisonContainerView
+        // reads the full analysis file (with jointSamples) rather than falling back
+        // to the raw timeline, and RuleBasedFeedbackEngine gets real pose data.
+        let shotType = score?.strokeType ?? "forehand_drive"
+        let analysisResult = buildAnalysisResult(
+            sessionId: session.id,
+            frames: frames,
+            shotType: shotType,
+            videoFileName: session.videoFileName ?? "",
+            videoDuration: session.durationSeconds ?? 0
+        )
+        let analysisFileName = "pose-analysis-\(session.id.uuidString).json"
+        let analysisEncoder = JSONEncoder()
+        analysisEncoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        analysisEncoder.dateEncodingStrategy = .iso8601
+        if let analysisData = try? analysisEncoder.encode(analysisResult) {
+            let analysisFile = docs.appendingPathComponent(analysisFileName)
+            try? analysisData.write(to: analysisFile, options: .atomic)
+            updated.poseAnalysisFileName = analysisFileName
+        }
+
         store.update(updated)
+    }
+
+    private func buildAnalysisResult(
+        sessionId: UUID,
+        frames: [PoseFrame],
+        shotType: String,
+        videoFileName: String,
+        videoDuration: Double
+    ) -> PoseAnalysisResult {
+        let jointSamples = frames.enumerated().map { index, frame in
+            JointSample(timestamp: frame.timestamp, frameIndex: index, joints: frame.joints)
+        }
+        return PoseAnalysisResult(
+            sessionId: sessionId,
+            shotType: shotType,
+            analyzedAt: Date(),
+            videoPath: videoFileName,
+            videoDurationSeconds: videoDuration,
+            originalFrameCount: frames.count,
+            samplingInterval: 1,
+            sampledFrameCount: frames.filter(\.bodyDetected).count,
+            jointSamples: jointSamples,
+            confidenceReport: buildConfidenceReport(from: frames)
+        )
+    }
+
+    private func buildConfidenceReport(from frames: [PoseFrame]) -> ConfidenceReport {
+        let detectedFrames = frames.filter(\.bodyDetected)
+        let totalSampled = detectedFrames.count
+
+        var jointValues: [String: [Float]] = [:]
+        for frame in detectedFrames {
+            for (joint, pos) in frame.joints {
+                jointValues[joint, default: []].append(pos.confidence)
+            }
+        }
+
+        var reliability: [String: JointReliability] = [:]
+        for (joint, values) in jointValues {
+            let mean = values.reduce(0, +) / Float(values.count)
+            reliability[joint] = JointReliability(
+                meanConfidence: mean,
+                minConfidence: values.min() ?? 0,
+                framesHighConfidence: values.filter { $0 > 0.7 }.count,
+                framesMedConfidence: values.filter { $0 > 0.5 }.count,
+                totalFrames: totalSampled
+            )
+        }
+
+        let contactStart = frames.count / 3
+        let contactEnd = 2 * frames.count / 3
+        let contactFrames = Array(frames[contactStart..<contactEnd]).filter(\.bodyDetected)
+        let contactJoints = ["left_wrist", "right_wrist", "left_elbow", "right_elbow"]
+        let contactZoneReliable = contactJoints.allSatisfy { joint in
+            let values = contactFrames.compactMap { $0.joints[joint]?.confidence }
+            guard !values.isEmpty else { return false }
+            return values.reduce(0, +) / Float(values.count) >= 0.6
+        }
+
+        let keyJoints = ["left_wrist", "right_wrist", "left_elbow", "right_elbow",
+                         "left_shoulder", "right_shoulder", "left_hip", "right_hip",
+                         "left_knee", "right_knee", "nose"]
+        let reliableKeyJointCount = keyJoints.filter {
+            (reliability[$0]?.meanConfidence ?? 0) > 0.65
+        }.count
+        let overallReliable = reliableKeyJointCount >= 6
+
+        var notes: [String] = []
+        if !contactZoneReliable { notes.append("Low wrist/elbow confidence in contact zone") }
+        if !overallReliable { notes.append("Fewer than 6 key joints exceed 0.65 mean confidence") }
+
+        return ConfidenceReport(
+            jointReliability: reliability,
+            contactZoneReliable: contactZoneReliable,
+            overallReliable: overallReliable,
+            notes: notes
+        )
     }
 }
 
