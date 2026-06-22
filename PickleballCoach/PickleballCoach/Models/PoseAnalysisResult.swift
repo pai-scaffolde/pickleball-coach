@@ -84,4 +84,35 @@ struct PoseAnalysisResult: Codable, Identifiable {
         self.jointSamples = jointSamples
         self.confidenceReport = confidenceReport
     }
+
+    // MARK: - Convenience
+
+    static func stub(sessionId: UUID = UUID()) -> PoseAnalysisResult {
+        PoseAnalysisResult(
+            sessionId: sessionId,
+            shotType: "forehand_drive",
+            analyzedAt: Date(),
+            videoPath: "",
+            videoDurationSeconds: 8.0,
+            originalFrameCount: 0,
+            samplingInterval: 5,
+            sampledFrameCount: 0,
+            jointSamples: [],
+            confidenceReport: ConfidenceReport(
+                jointReliability: [:],
+                contactZoneReliable: true,
+                overallReliable: true,
+                notes: []
+            )
+        )
+    }
+
+    static func load(fromDocuments fileName: String) -> PoseAnalysisResult? {
+        let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = docs.appendingPathComponent(fileName)
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try? decoder.decode(PoseAnalysisResult.self, from: data)
+    }
 }

@@ -18,26 +18,13 @@ struct RepClipsView: View {
 
     private var videoURL: URL? { session.videoURL() }
 
-    private var mockFeedback: [ClipFeedback] {
-        let engine = MockFeedbackEngine()
-        let stub = PoseAnalysisResult(
-            sessionId: session.id,
-            shotType: "forehand_drive",
-            analyzedAt: Date(),
-            videoPath: "",
-            videoDurationSeconds: session.durationSeconds ?? 8.0,
-            originalFrameCount: 0,
-            samplingInterval: 5,
-            sampledFrameCount: 0,
-            jointSamples: [],
-            confidenceReport: ConfidenceReport(
-                jointReliability: [:],
-                contactZoneReliable: true,
-                overallReliable: true,
-                notes: []
-            )
-        )
-        return engine.generateFeedback(from: stub)
+    private var feedbackCards: [ClipFeedback] {
+        if let fileName = session.poseAnalysisFileName,
+           let analysis = PoseAnalysisResult.load(fromDocuments: fileName) {
+            let engine = RuleBasedFeedbackEngine(strokeType: analysis.shotType)
+            return engine.generateFeedback(from: analysis)
+        }
+        return MockFeedbackEngine().generateFeedback(from: .stub(sessionId: session.id))
     }
 
     var body: some View {
@@ -62,7 +49,7 @@ struct RepClipsView: View {
 
     private var reviewCoachingButton: some View {
         NavigationLink {
-            ClipFeedbackView(feedbackCards: mockFeedback)
+            ClipFeedbackView(feedbackCards: feedbackCards)
         } label: {
             Label("Review Coaching Feedback", systemImage: "list.bullet.clipboard")
                 .frame(maxWidth: .infinity)

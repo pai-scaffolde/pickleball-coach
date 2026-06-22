@@ -5,6 +5,7 @@ struct AnalysisProgressView: View {
 
     @EnvironmentObject private var store: SessionStore
     @State private var frames: [PoseFrame]?
+    @State private var computedScore: MechanicsScore?
     @State private var qualityGateResult: CaptureQualityGate.GateResult?
     @State private var progress: PoseExtractionService.ExtractionProgress?
     @State private var error: String?
@@ -16,14 +17,14 @@ struct AnalysisProgressView: View {
             if let gateResult = qualityGateResult, !gateResult.passed {
                 qualityRejectionView(gateResult: gateResult)
             } else if let frames {
-                ExtractionResultView(frames: frames, videoDuration: session.durationSeconds)
+                AnalysisCompleteView(session: session, score: computedScore, frames: frames)
             } else if let error {
                 errorView(message: error)
             } else {
                 runningView
             }
         }
-        .navigationTitle(frames != nil ? "Pose Analysis" : "Analyzing…")
+        .navigationTitle(frames != nil ? "Analysis Complete" : "Analyzing…")
         .navigationBarTitleDisplayMode(.inline)
         .task { await runAnalysis() }
         .sheet(isPresented: $showReimport) {
@@ -178,6 +179,7 @@ struct AnalysisProgressView: View {
         // via the same code path.
         let score = computeScore(for: extracted)
         persist(extracted, score: score)
+        computedScore = score
         frames = extracted
     }
 
@@ -355,82 +357,145 @@ struct AnalysisProgressView: View {
     }
 }
 
-// MARK: - Result display
+// MARK: - Results portal
 
-private struct ExtractionResultView: View {
+private struct AnalysisCompleteView: View {
+    let session: Session
+    let score: MechanicsScore?
     let frames: [PoseFrame]
-    let videoDuration: Double?
 
-    private var detectedFrames: [PoseFrame] {
-        frames.filter(\.bodyDetected)
+    private var overall: Int {
+        guard let score, !score.scores.isEmpty else { return 0 }
+        return Int((score.scores.values.reduce(0, +) / Double(score.scores.count)).rounded())
     }
 
-    // Representative frame near estimated contact (middle of detected frames).
-    private var representativeFrame: PoseFrame? {
-        let detected = detectedFrames
-        guard !detected.isEmpty else { return nil }
-        return detected[detected.count / 2]
+    private var letterGrade: String {
+        switch overall {
+        case 90...: return "A"
+        case 80..<90: return "B"
+        case 70..<80: return "C"
+        case 60..<70: return "D"
+        default: return "F"
+        }
     }
 
-    private var coveragePercent: Double {
-        guard !frames.isEmpty else { return 0 }
-        return Double(detectedFrames.count) / Double(frames.count) * 100
+    private var scoreColor: Color {
+        switch overall {
+        case 80...: return .green
+        case 60..<80: return .orange
+        default: return .red
+        }
+    }
+
+    private var feedbackCards: [ClipFeedback] {
+        let stub = PoseAnalysisResult(
+            sessionId: session.id,
+            shotType: score?.strokeType ?? "forehand_drive",
+            analyzedAt: Date(),
+            videoPath: "",
+            videoDurationSeconds: session.durationSeconds ?? 8.0,
+            originalFrameCount: 0,
+            samplingInterval: 5,
+            sampledFrameCount: 0,
+            jointSamples: [],
+            confidenceReport: ConfidenceReport(
+                jointReliability: [:],
+                contactZoneReliable: true,
+                overallReliable: true,
+                notes: []
+            )
+        )
+        return MockFeedbackEngine().generateFeedback(from: stub)
+    }
+
+    @ViewBuilder
+    private var repClipsDestination: some View {
+        let result = SegmentationService().segment(
+            frames: frames,
+            videoDuration: session.durationSeconds ?? 0
+        )
+        RepClipsView(
+            session: session,
+            clips: result.clips,
+            frames: frames,
+            lowConfidenceReason: result.lowConfidenceReason
+        )
     }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                summaryCard
-                if let frame = representativeFrame {
-                    skeletonCard(frame: frame)
-                }
+            VStack(spacing: 24) {
+                scoreHeadline
+                ctaButtons
             }
             .padding()
         }
     }
 
-    private var summaryCard: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Summary").font(.headline)
-            InfoRow(label: "Total frames", value: "\(frames.count)")
-            InfoRow(label: "Body detected", value: "\(detectedFrames.count)")
-            InfoRow(label: "Coverage", value: String(format: "%.0f%%", coveragePercent))
-            InfoRow(label: "Video duration",
-                    value: videoDuration.map { String(format: "%.1f s", $0) } ?? "—")
+    @ViewBuilder
+    private var scoreHeadline: some View {
+        VStack(spacing: 8) {
+            if let score {
+                Text(score.strokeType.replacingOccurrences(of: "_", with: " ").capitalized)
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                HStack(alignment: .lastTextBaseline, spacing: 8) {
+                    Text("\(overall)")
+                        .font(.system(size: 72, weight: .bold, design: .rounded))
+                        .foregroundStyle(scoreColor)
+                    Text(letterGrade)
+                        .font(.system(size: 36, weight: .semibold))
+                        .foregroundStyle(scoreColor)
+                }
+                Text("Mechanics Score")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                ProgressView()
+                    .padding(.bottom, 4)
+                Text("Score computing…")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
         }
-        .padding()
+        .padding(.vertical, 28)
+        .frame(maxWidth: .infinity)
         .background(.regularMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
-    private func skeletonCard(frame: PoseFrame) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(String(format: "Skeleton at %.2fs", frame.timestamp))
-                .font(.headline)
-            PoseOverlayView(frame: frame)
-                .frame(height: 300)
-                .background(Color(.secondarySystemBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-            Text("Green = confident  •  Orange = low confidence")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-        .padding()
-        .background(.regularMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-}
+    @ViewBuilder
+    private var ctaButtons: some View {
+        VStack(spacing: 12) {
+            if let score {
+                NavigationLink {
+                    MechanicsScorecardView(score: score, frames: frames)
+                } label: {
+                    Label("View Mechanics Score", systemImage: "chart.bar.doc.horizontal")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+            }
 
-private struct InfoRow: View {
-    let label: String
-    let value: String
-    var body: some View {
-        HStack {
-            Text(label).foregroundStyle(.secondary)
-            Spacer()
-            Text(value).fontWeight(.medium)
+            NavigationLink {
+                ClipFeedbackView(feedbackCards: feedbackCards)
+            } label: {
+                Label("Review Coaching Feedback", systemImage: "list.bullet.clipboard")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.large)
+
+            NavigationLink {
+                repClipsDestination
+            } label: {
+                Label("Rep Clips", systemImage: "film.stack")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.large)
         }
-        .font(.subheadline)
     }
 }
 

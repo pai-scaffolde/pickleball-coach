@@ -297,27 +297,17 @@ struct SessionDetailView: View {
     /// Coaching feedback cards rendered by ClipFeedbackView. The analyze→feedback
     /// pipeline is still placeholder, so this produces deterministic demo feedback
     /// (the same MockFeedbackEngine path RepClipsView uses) — enough for the
-    /// prominent "Practice this" drill to be reachable (SCA-1890). Real rule-based
-    /// feedback wiring follows the analyze pipeline.
+    /// Returns coaching feedback from the real rule-based engine when a
+    /// `PoseAnalysisResult` file is available (set by SCA-1918 after Analyze).
+    /// Falls back to MockFeedbackEngine with a stub result so the UI renders
+    /// even before the session has been analysed.
     private var feedbackCards: [ClipFeedback] {
-        let stub = PoseAnalysisResult(
-            sessionId: currentSession.id,
-            shotType: "forehand_drive",
-            analyzedAt: Date(),
-            videoPath: "",
-            videoDurationSeconds: currentSession.durationSeconds ?? 8.0,
-            originalFrameCount: 0,
-            samplingInterval: 5,
-            sampledFrameCount: 0,
-            jointSamples: [],
-            confidenceReport: ConfidenceReport(
-                jointReliability: [:],
-                contactZoneReliable: true,
-                overallReliable: true,
-                notes: []
-            )
-        )
-        return MockFeedbackEngine().generateFeedback(from: stub)
+        if let fileName = currentSession.poseAnalysisFileName,
+           let analysis = PoseAnalysisResult.load(fromDocuments: fileName) {
+            let engine = RuleBasedFeedbackEngine(strokeType: analysis.shotType)
+            return engine.generateFeedback(from: analysis)
+        }
+        return MockFeedbackEngine().generateFeedback(from: .stub(sessionId: currentSession.id))
     }
 
     /// Builds the rep-clips screen: loads the session's pose timeline, segments it
